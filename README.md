@@ -23,3 +23,7 @@ CameModeのAndroid版アプリです。
 ----|----|----
 | instagramId | InstagramのID | 英数字のみ |
 | snsRole | SNS種別 | 0,1,2のみ |
+
+## 参考文献
+- [アクションバーを非表示にする](https://qiita.com/ikemura23/items/76e78132e6903c47c4d7)
+- [マテリアルデザインアイコンを使用する](https://qiita.com/hoshiume11/items/b9925d105957d827011a)
