@@ -27,3 +27,7 @@ CameModeのAndroid版アプリです。
 ## 参考文献
 - [アクションバーを非表示にする](https://qiita.com/ikemura23/items/76e78132e6903c47c4d7)
 - [マテリアルデザインアイコンを使用する](https://qiita.com/hoshiume11/items/b9925d105957d827011a)
+- [override修飾子が非活性状態になる原因](https://stackoverflow.com/questions/56906990/why-do-i-get-the-message-redundant-overriding-method)
+  - オーバーライドしただけのメソッドだからそりゃ冗長だよね。
+- [companion objectについて](https://qiita.com/tkhs0604/items/261e94a42b7097dfd204)
+  - シングルトンを作れる。けど、通常複数のクラスから参照するため結合度が高くなりやすい。
