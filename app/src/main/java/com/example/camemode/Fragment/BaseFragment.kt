@@ -1,17 +1,15 @@
 package com.example.camemode.Fragment
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import com.example.camemode.R
 
-class SearchFragment : BaseFragment() {
-    private var listener: OnFragmentInteractionListener? = null
-
+open class BaseFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -21,7 +19,7 @@ class SearchFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
+        return inflater.inflate(R.layout.fragment_base, container, false)
     }
 
     override fun onAttach(context: Context) {
@@ -30,10 +28,5 @@ class SearchFragment : BaseFragment() {
 
     override fun onDetach() {
         super.onDetach()
-        listener = null
-    }
-
-    interface OnFragmentInteractionListener {
-        fun onFragmentInteraction(uri: Uri)
     }
 }
