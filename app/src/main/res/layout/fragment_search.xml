@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".Fragment.SearchFragment">
+    tools:context=".Fragment.Search.SearchFragment">
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -25,13 +25,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_person_black_24dp"/>
+                    android:src="@drawable/ic_search_black_24dp"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:text="カメラマン・モデル別検索"/>
+                    android:text="かんたん検索"/>
         </LinearLayout>
 
         <LinearLayout
@@ -44,7 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_person_black_24dp"/>
+                    android:src="@drawable/ic_search_black_24dp"/>
 
             <TextView
                     android:layout_width="wrap_content"
