@@ -32,3 +32,5 @@ CameModeのAndroid版アプリです。
 - [companion objectについて](https://qiita.com/tkhs0604/items/261e94a42b7097dfd204)
   - シングルトンを作れる。けど、通常複数のクラスから参照するため結合度が高くなりやすい。
 - [NCMB導入](https://github.com/NIFCLOUD-mbaas/KotlinDBdemoApp)
+- [Selector：状態を保持するXML形式のオブジェクト](https://developer.android.com/guide/topics/resources/drawable-resource#StateList)
+  - res/drawable右クリック→new>drawable resource file>ファイル名入力しOK
