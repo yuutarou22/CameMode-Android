@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.example.camemode.Fragment.BaseFragment
 
 import com.example.camemode.R
+import kotlinx.android.synthetic.main.fragment_search.*
 
 class SearchFragment : BaseFragment() {
     private var listener: OnFragmentInteractionListener? = null
@@ -20,9 +21,13 @@ class SearchFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View? { // このViewは戻り値
         return inflater.inflate(R.layout.fragment_search, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView()
     }
 
     override fun onAttach(context: Context) {
@@ -36,5 +41,15 @@ class SearchFragment : BaseFragment() {
 
     interface OnFragmentInteractionListener {
         fun onFragmentInteraction(uri: Uri)
+    }
+
+    private fun initView() {
+        search_simple_button?.setOnClickListener {
+            showFragment(EasySearchFragment())
+        }
+
+        search_detail_button.setOnClickListener {
+            showFragment(SearchDetailFragment())
+        }
     }
 }

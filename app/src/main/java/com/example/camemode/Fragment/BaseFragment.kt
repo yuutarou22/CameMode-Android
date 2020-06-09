@@ -9,7 +9,7 @@ import android.view.ViewGroup
 
 import com.example.camemode.R
 
-open class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -28,5 +28,12 @@ open class BaseFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
+    }
+
+    protected fun showFragment(f: Fragment) {
+        val fragmentTransaction = fragmentManager?.beginTransaction()
+        fragmentTransaction?.addToBackStack(null)
+        fragmentTransaction?.replace(R.id.main_content, f)
+        fragmentTransaction?.commit()
     }
 }
