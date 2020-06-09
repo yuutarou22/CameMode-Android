@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="simple_search_radio_button_camera" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/simple_search_radio_button_camera</item>
+    </style>
+
+    <style name="simple_search_radio_button_model" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/simple_search_radio_button_model</item>
+    </style>
 </resources>

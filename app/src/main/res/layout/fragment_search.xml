@@ -32,7 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:text="かんたん検索"/>
+                    android:text="@string/search_simple_button"/>
         </LinearLayout>
 
         <LinearLayout
@@ -52,7 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:text="詳細検索"/>
+                    android:text="@string/search_detail_buttin"/>
         </LinearLayout>
     </LinearLayout>
 

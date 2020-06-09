@@ -5,4 +5,27 @@
     <string name="bottom_nav_title_mypage">マイページ</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="search_simple_button">かんたん検索</string>
+    <string name="search_detail_buttin">詳細検索</string>
+    <string name="search_simple_radio_camera">カメラマンをさがす</string>
+    <string name="search_simple_radio_model">モデルをさがす</string>
+
+    <string name="mypage_mydata_button">My Data</string>
+    <string name="mypage_faq_button">よくある質問</string>
+    <string name="mypage_app_term_button">利用規約</string>
+
+    <string-array name="region_item_add">
+        <item>北海道</item>
+        <item>東北</item>
+        <item>関東</item>
+        <item>北陸</item>
+        <item>中部</item>
+        <item>近畿</item>
+        <item>四国</item>
+        <item>中国</item>
+        <item>九州</item>
+        <item>沖縄</item>
+    </string-array>
 </resources>

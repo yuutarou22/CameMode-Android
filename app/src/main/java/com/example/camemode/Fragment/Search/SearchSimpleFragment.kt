@@ -20,7 +20,7 @@ class EasySearchFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_easy_search, container, false)
+        return inflater.inflate(R.layout.fragment_simple_search, container, false)
     }
 
     override fun onAttach(context: Context) {

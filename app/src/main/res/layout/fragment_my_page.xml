@@ -19,12 +19,11 @@
                 android:text="My Data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/app_question"
-        />
+                app:layout_constraintBottom_toTopOf="@+id/faq"/>
 
         <Button
-                android:id="@+id/app_question"
-                android:text="よくある質問"
+                android:id="@+id/faq"
+                android:text="@string/mypage_faq_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toTopOf="@+id/app_term" tools:layout_editor_absoluteX="0dp"
@@ -32,7 +31,7 @@
 
         <Button
                 android:id="@+id/app_term"
-                android:text="利用規約"
+                android:text="@string/mypage_app_term_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraints"
