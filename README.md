@@ -44,3 +44,18 @@ Issueを使って、タスク管理を行う。下記の記事を参考にして
   - https://hirauchi-genta.com/kotlin-radiobutton/
 - [Selector：状態を保持するXML形式のオブジェクト](https://developer.android.com/guide/topics/resources/drawable-resource#StateList)
   - res/drawable右クリック→new>drawable resource file>ファイル名入力しOK
+
+
+## ToDo(あとで消す)
+- ホームに、データをリスト表示する
+- かんたん検索画面のレイアウト修正
+- 実際に検索し、情報を取得する
+- 画面遷移
+  - 検索後の検索結果画面
+  - 詳細検索画面
+  - マイページ
+    - マイデータ
+    - よくある質問
+    - 利用規約
+- チュートリアル画面の作成
+- 使い方をライブラリを使用して実装
