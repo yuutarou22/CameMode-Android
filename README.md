@@ -25,7 +25,9 @@ CameModeのAndroid版アプリです。
 | snsRole | SNS種別 | 0,1,2のみ |
 
 ## Issueに関して
-Issueについては下記の記事を参考
+Issueを使って、タスク管理を行う。
+
+ラベル設定については、下記の記事を参考にしている。
 - [GitHub の Issue 運用が助かるラベル 26 個 #Zaim](https://blog.zaim.co.jp/n/nca91e5bfb920)
 - [Issuesのラベルを管理（編集）する方法](https://azunobu.hatenablog.com/entry/2015/09/22/143811)
 
