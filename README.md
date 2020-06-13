@@ -1,6 +1,6 @@
 # CameMode-Android
 CameModeのAndroid版アプリです。
-旧CameModeはJava、当リポジトリはKotlinです。
+[旧CameMode](https://github.com/yuutarou22/CameMode)はJava、当リポジトリはKotlinです。
 
 
 ## DB設計
