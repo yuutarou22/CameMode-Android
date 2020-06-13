@@ -24,6 +24,11 @@ CameModeのAndroid版アプリです。
 | instagramId | InstagramのID | 英数字のみ |
 | snsRole | SNS種別 | 0,1,2のみ |
 
+## Issueに関して
+Issueについては下記の記事を参考
+- [GitHub の Issue 運用が助かるラベル 26 個 #Zaim](https://blog.zaim.co.jp/n/nca91e5bfb920)
+- [Issuesのラベルを管理（編集）する方法](https://azunobu.hatenablog.com/entry/2015/09/22/143811)
+
 ## 参考文献
 - [アクションバーを非表示にする](https://qiita.com/ikemura23/items/76e78132e6903c47c4d7)
 - [マテリアルデザインアイコンを使用する](https://qiita.com/hoshiume11/items/b9925d105957d827011a)
