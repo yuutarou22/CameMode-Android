@@ -25,7 +25,8 @@ CameModeのAndroid版アプリです。
 | snsRole | SNS種別 | 0,1,2のみ |
 
 ## Issueに関して
-Issueを使って、タスク管理を行う。
+Issueを使って、タスク管理を行う。下記の記事を参考にしている。
+- [開発者のタスク管理をGitHubで行ったらうまくいった話](https://dev.classmethod.jp/articles/github-issue-driven-dev/)
 
 ラベル設定については、下記の記事を参考にしている。
 - [GitHub の Issue 運用が助かるラベル 26 個 #Zaim](https://blog.zaim.co.jp/n/nca91e5bfb920)
