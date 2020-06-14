@@ -44,7 +44,8 @@ Issueを使って、タスク管理を行う。下記の記事を参考にして
   - https://hirauchi-genta.com/kotlin-radiobutton/
 - [Selector：状態を保持するXML形式のオブジェクト](https://developer.android.com/guide/topics/resources/drawable-resource#StateList)
   - res/drawable右クリック→new>drawable resource file>ファイル名入力しOK
-
+- [ConstraintLayoutでMATCH_PARENT利用時の想定外の挙動](https://qiita.com/ara_tack/items/68c07529c1477c56997f)
+  - FrameLayoutだと要素が重なってしまうが、heightを0dpにし制約を加えることで空いた領域一杯に広げられる。
 
 ## ToDo(あとで消す)
 - ホームに、データをリスト表示する
