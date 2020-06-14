@@ -45,7 +45,7 @@ class SearchFragment : BaseFragment() {
 
     private fun initView() {
         search_simple_button?.setOnClickListener {
-            showFragment(EasySearchFragment())
+            showFragment(SearchSimpleFragment())
         }
 
         search_detail_button.setOnClickListener {

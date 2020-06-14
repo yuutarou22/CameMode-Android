@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import com.example.camemode.Fragment.BaseFragment
 
 import com.example.camemode.R
+import kotlinx.android.synthetic.main.fragment_simple_search.*
 
-class EasySearchFragment : BaseFragment() {
+class SearchSimpleFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,11 +24,22 @@ class EasySearchFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_simple_search, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView()
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }
 
     override fun onDetach() {
         super.onDetach()
+    }
+
+    private fun initView() {
+        search_simple_button_execute?.setOnClickListener {
+            showFragment(SearchResultFragment())
+        }
     }
 }
