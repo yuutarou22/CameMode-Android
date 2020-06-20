@@ -33,6 +33,7 @@ Issueを使って、タスク管理を行う。下記の記事を参考にして
 - [Issuesのラベルを管理（編集）する方法](https://azunobu.hatenablog.com/entry/2015/09/22/143811)
 
 ## 参考文献
+- [BottomNavigationView](https://qiita.com/iKimishima/items/d44bb9cc2a1d04548fdd)
 - [アクションバーを非表示にする](https://qiita.com/ikemura23/items/76e78132e6903c47c4d7)
 - [マテリアルデザインアイコンを使用する](https://qiita.com/hoshiume11/items/b9925d105957d827011a)
 - [override修飾子が非活性状態になる原因](https://stackoverflow.com/questions/56906990/why-do-i-get-the-message-redundant-overriding-method)
