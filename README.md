@@ -48,6 +48,11 @@ Issueを使って、タスク管理を行う。下記の記事を参考にして
 - [ConstraintLayoutでMATCH_PARENT利用時の想定外の挙動](https://qiita.com/ara_tack/items/68c07529c1477c56997f)
   - FrameLayoutだと要素が重なってしまうが、heightを0dpにし制約を加えることで空いた領域一杯に広げられる。
 - [Fragmentの初期化はonViewCreatedかonActivityCreated](https://medium.com/@star_zero/fragment%E3%81%AE%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%AFonviewcreated%E3%81%8Bonactivitycreated%E3%81%A7-b9646c36680c)
+  - ちなみに、ライフサイクルは以下の順番
+    - onAttach
+    - onCreate
+    - onCreateView
+    - onViewCreated
 
 ## ToDo(あとで消す)
 - ホームに、データをリスト表示する
