@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 class UserInfo {
 
     companion object {
+        const val FIELD_OBJECT_ID = "objectId"
         const val FIELD_CATEGORY_ROLE = "categoryRole"
         const val FIELD_DISPLAY_NAME = "displayName"
         const val FIELD_PHOTO_IMAGE = "photoImage"
@@ -17,6 +18,7 @@ class UserInfo {
 }
 @Serializable
 data class UserInfoModel (
+    var objectId: String,
     var categoryRole: Int,
     var displayName: String,
     var photoImage: String,
