@@ -15,12 +15,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout">
 
-        <view class="androidx.appcompat.app.AlertController$RecycleListView"
-              android:id="@+id/user_info_list"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:scrollbars="vertical">
-        </view>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/user_info_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"/>
 
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
