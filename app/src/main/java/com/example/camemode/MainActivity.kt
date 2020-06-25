@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView() {
         setContentView(R.layout.activity_main)
+        showFragment(HomeFragment())
         val navView: BottomNavigationView = findViewById(R.id.bottom_navigation)
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
