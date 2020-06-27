@@ -2,19 +2,17 @@ package com.example.camemode.Fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.example.camemode.R
-import com.nifcloud.mbaas.core.NCMBObject
-import com.nifcloud.mbaas.core.NCMBQuery
+import com.example.camemode.Task.SearchUtil
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment() {
 
     var userInfoListView = null
+    val searchUtil = SearchUtil()
 
     /** FragmentとActivityが紐付けられた時呼び出す(ContextはActivityと同義) */
     override fun onAttach(context: Context) {
@@ -24,6 +22,7 @@ class HomeFragment : BaseFragment() {
     /** Fragment生成時に呼び出す */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        searchUtil.searchUserInfo()
     }
 
     /** FragmentがUI描画時に呼び出す */
@@ -47,25 +46,10 @@ class HomeFragment : BaseFragment() {
 
     private fun initView() {
         swipe_refresh?.setOnRefreshListener {
-            search()
-        }
-    }
-
-    private fun search() {
-        var query = NCMBQuery<NCMBObject>("UserInfo")
-        query.addOrderByDescending("updateDate")
-        query.setLimit(15)
-        query.findInBackground { mutableList, ncmbException ->
-            if (ncmbException != null) {
-                Log.d("ERROR", "NCMB findInBackground error: " + ncmbException.message)
-            } else {
-                for (obj in mutableList) {
-                    Log.d("TEST", obj.getString("displayName"))
-                }
+            searchUtil.searchUserInfo()
+            if (swipe_refresh.isRefreshing()) {
+                swipe_refresh.isRefreshing = false
             }
-        }
-        if (swipe_refresh.isRefreshing()) {
-            swipe_refresh.isRefreshing = false
         }
     }
 }
