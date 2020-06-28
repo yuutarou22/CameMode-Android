@@ -10,9 +10,10 @@ import com.example.camemode.Model.UserInfoModel
 import com.example.camemode.R
 import com.example.camemode.ViewHolder.UserInfoViewHolder
 
-public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager: FragmentManager, context: Context) : RecyclerView.Adapter<UserInfoViewHolder>() {
+public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager: FragmentManager, context: Context) :
+    RecyclerView.Adapter<UserInfoViewHolder>() {
 
-    private var list : ArrayList<UserInfoModel> = list
+    private var list: ArrayList<UserInfoModel> = list
     private var fragmentManager: FragmentManager = fragmentManager
     private var context: Context = context
 
@@ -31,8 +32,9 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
      * @return ViewHoler
      */
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): UserInfoViewHolder {
-        val inflate : View = LayoutInflater.from(viewGroup.context).inflate(R.layout.list_item_user_info, viewGroup, false)
-        val viewHolder : UserInfoViewHolder = UserInfoViewHolder(inflate)
+        val inflate: View =
+            LayoutInflater.from(viewGroup.context).inflate(R.layout.list_item_user_info, viewGroup, false)
+        val viewHolder: UserInfoViewHolder = UserInfoViewHolder(inflate)
         return viewHolder
     }
 

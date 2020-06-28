@@ -39,7 +39,7 @@ class SearchUtil {
     fun saveUserInfo(list: List<NCMBObject>) {
         // 2回目以降の更新時のため、リストを初期化
         userInfoList.clear()
-        
+
         for (obj in list)
             userInfoList.add(convertUserInfo(obj))
 

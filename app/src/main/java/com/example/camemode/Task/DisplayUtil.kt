@@ -8,14 +8,15 @@ import com.example.camemode.Adapter.UserInfoListAdapter
 import com.example.camemode.Model.UserInfoModel
 
 class DisplayUtil {
-    lateinit var mAdapter : UserInfoListAdapter
+    lateinit var mAdapter: UserInfoListAdapter
     lateinit var viewManager: RecyclerView.LayoutManager
 
     fun displayUserInfo(
         userInfoList: ArrayList<UserInfoModel>?,
         fragmentManager: FragmentManager,
         context: Context?,
-        user_info_list: RecyclerView) {
+        user_info_list: RecyclerView
+    ) {
 
         if (context != null && userInfoList != null) {
             viewManager = LinearLayoutManager(context.applicationContext)

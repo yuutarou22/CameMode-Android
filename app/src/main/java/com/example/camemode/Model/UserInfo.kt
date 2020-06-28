@@ -16,8 +16,9 @@ class UserInfo {
         const val FIELD_CHARGE = "charge"
     }
 }
+
 @Serializable
-data class UserInfoModel (
+data class UserInfoModel(
     var objectId: String,
     var categoryRole: Int,
     var displayName: String,
