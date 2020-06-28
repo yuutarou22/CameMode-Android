@@ -6,28 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.camemode.Model.UserInfo
+import com.example.camemode.Model.UserInfoModel
 import com.example.camemode.R
 import com.example.camemode.ViewHolder.UserInfoViewHolder
 
-public class UserInfoListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager: FragmentManager, context: Context) : RecyclerView.Adapter<UserInfoViewHolder>() {
 
-    private lateinit var list : List<UserInfo>
-    private lateinit var fragmentManager: FragmentManager
-    private lateinit var context: Context
-
-    /**
-     * コンストラクタ
-     *
-     * @param list ユーザ情報リスト
-     * @param fragmentManager
-     * @param context
-     */
-    public fun UserInfoListAdapter(list: List<UserInfo>, fragmentManager: FragmentManager, context: Context) {
-        this.list = list
-        this.fragmentManager = fragmentManager
-        this.context = context
-    }
+    private var list : ArrayList<UserInfoModel> = list
+    private var fragmentManager: FragmentManager = fragmentManager
+    private var context: Context = context
 
     /**
      * リスト要素の総数を返す
@@ -54,7 +41,14 @@ public class UserInfoListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
      * @param holder ViewHolder
      * @param position 位置
      */
-    override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
-
+    override fun onBindViewHolder(viewHolder: UserInfoViewHolder, position: Int) {
+        viewHolder.mLineView.context.resources.getColor(R.color.cardview_shadow_end_color)
+        viewHolder.mUserIcon.setImageResource(R.drawable.ic_menu_arrow_down_black_24dp)
+        viewHolder.mUserName.text = list.get(position).displayName
+        viewHolder.mSnsTranslationButton.setImageResource(R.drawable.ic_menu_arrow_down_black_24dp)
+        viewHolder.mCategoryRole.text = list.get(position).categoryRole.toString()
+        viewHolder.mImaginationHope.text = list.get(position).photoImage
+        viewHolder.mAge.text = list.get(position).age.toString()
+        viewHolder.mSex.text = list.get(position).sex.toString()
     }
 }
