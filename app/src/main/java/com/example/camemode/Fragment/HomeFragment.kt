@@ -5,14 +5,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.camemode.Model.UserInfoModel
 import com.example.camemode.R
+import com.example.camemode.Task.DisplayUtil
 import com.example.camemode.Task.SearchUtil
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseFragment(), SearchUtil.SearchedListener {
 
     var userInfoListView = null
     val searchUtil = SearchUtil()
+    val displayUtil = DisplayUtil()
 
     /** FragmentとActivityが紐付けられた時呼び出す(ContextはActivityと同義) */
     override fun onAttach(context: Context) {
@@ -22,7 +25,6 @@ class HomeFragment : BaseFragment() {
     /** Fragment生成時に呼び出す */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        searchUtil.searchUserInfo()
     }
 
     /** FragmentがUI描画時に呼び出す */
@@ -45,11 +47,21 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun initView() {
+
+        searchUtil.setSearchLitener(this)
+        searchUtil.searchUserInfo()
+
         swipe_refresh?.setOnRefreshListener {
             searchUtil.searchUserInfo()
             if (swipe_refresh.isRefreshing()) {
                 swipe_refresh.isRefreshing = false
             }
+        }
+    }
+
+    override fun onSuccess(list: ArrayList<UserInfoModel>) {
+        activity?.supportFragmentManager?.let {
+            displayUtil.displayUserInfo(list, it, context, user_info_list)
         }
     }
 }
