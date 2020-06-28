@@ -53,6 +53,9 @@ Issueを使って、タスク管理を行う。下記の記事を参考にして
     - onCreate
     - onCreateView
     - onViewCreated
+- [RecyclerView をレイアウトに追加する](https://developer.android.com/guide/topics/ui/layout/recyclerview?hl=ja#workflow)
+  - 結構行き詰まった。特に、取得した後のListの扱い方。
+  - ここも参考→https://qiita.com/Todate/items/297bc3e4d0f3d2477ed3
 
 ## ToDo(あとで消す)
 - ホームに、データをリスト表示する
