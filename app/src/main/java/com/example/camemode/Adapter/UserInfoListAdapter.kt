@@ -32,8 +32,7 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
      * @return ViewHoler
      */
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): UserInfoViewHolder {
-        val inflate: View =
-            LayoutInflater.from(viewGroup.context).inflate(R.layout.list_item_user_info, viewGroup, false)
+        val inflate: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.list_item_user_info, viewGroup, false)
         val viewHolder: UserInfoViewHolder = UserInfoViewHolder(inflate)
         return viewHolder
     }
@@ -44,13 +43,38 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
      * @param position 位置
      */
     override fun onBindViewHolder(viewHolder: UserInfoViewHolder, position: Int) {
-        viewHolder.mLineView.context.resources.getColor(R.color.cardview_shadow_end_color)
-        viewHolder.mUserIcon.setImageResource(R.drawable.ic_menu_arrow_down_black_24dp)
-        viewHolder.mUserName.text = list.get(position).displayName
+        val userInfoItem = list.get(position)
+
+        viewHolder.mUserIcon.setImageResource(getUserIcon(userInfoItem.categoryRole))
+        viewHolder.mUserName.text = userInfoItem.displayName
         viewHolder.mSnsTranslationButton.setImageResource(R.drawable.ic_menu_arrow_down_black_24dp)
-        viewHolder.mCategoryRole.text = list.get(position).categoryRole.toString()
-        viewHolder.mImaginationHope.text = list.get(position).photoImage
-        viewHolder.mAge.text = list.get(position).age.toString()
-        viewHolder.mSex.text = list.get(position).sex.toString()
+        viewHolder.mCategoryRole.text = getCategoryRole(userInfoItem.categoryRole)
+        viewHolder.mImaginationHope.text = userInfoItem.photoImage
+    }
+
+    /**
+     * カテゴリ種別によってアイコン画像を切り替え
+     * @param categoryRole
+     * @return Int
+     */
+    private fun getUserIcon(categoryRole: Int): Int {
+        return when(categoryRole) {
+            0 -> R.drawable.ic_menu_arrow_down_black_24dp
+            1 -> R.drawable.ic_calendar_black_24dp
+            else -> R.drawable.design_password_eye
+        }
+    }
+
+    /**
+     * カテゴリ種別を文字列に変換
+     * @param categoryRole
+     * @return String
+     */
+    private fun getCategoryRole(categoryRole: Int): String {
+        return when(categoryRole) {
+            0 -> "カメラマン"
+            1 -> "モデル"
+            else -> "どちらとも"
+        }
     }
 }

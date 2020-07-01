@@ -24,12 +24,13 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="6dp"
                     android:layout_marginBottom="6dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                 <ImageView
+                        android:background="#ff0000"
                         android:id="@+id/user_icon"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:padding="3dp" />
 
@@ -45,14 +46,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="6dp"
-                    android:gravity="center_vertical|right">
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:text="渋谷太郎です・・・.....。"
+                        android:id="@+id/user_name"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="#444444"
+                        android:textSize="22dp"
+                        android:textStyle="bold" />
 
                 <ImageButton
                         android:id="@+id/sns_transition"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@null"
-                        android:scaleType="centerCrop"/>
+                        android:scaleType="centerCrop"
+                android:layout_gravity="right"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -65,17 +81,6 @@
                 android:orientation="vertical">
 
             <TextView
-                    android:id="@+id/user_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="left"
-                    android:singleLine="true"
-                    android:textColor="#444444"
-                    android:textSize="22dp"
-                    android:textStyle="bold" />
-
-            <TextView
                     android:id="@+id/imagination_hope"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -83,60 +88,6 @@
                     android:ellipsize="end"
                     android:maxLines="3"
                     android:textSize="13dp" />
-        </LinearLayout>
-
-        <View
-                android:id="@+id/line_view"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginVertical="7dp"
-                android:background="#777777"/>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:layout_marginEnd="6dp"
-                android:layout_marginBottom="3dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
-
-            <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-                <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginEnd="2dp"
-                        android:src="@drawable/ic_home_black_24dp"/>
-                <TextView
-                        android:id="@+id/age"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="13dp"
-                        android:text="30代"/>
-            </LinearLayout>
-
-            <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-                <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_home_black_24dp"/>
-                <TextView
-                        android:id="@+id/sex"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="13dp"
-                        android:text="男性"/>
-            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
