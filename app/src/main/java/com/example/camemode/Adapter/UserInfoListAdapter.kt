@@ -48,7 +48,6 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
         viewHolder.mUserIcon.setImageResource(getUserIcon(userInfoItem.categoryRole))
         viewHolder.mUserName.text = userInfoItem.displayName
         viewHolder.mSnsTranslationButton.setImageResource(R.drawable.ic_menu_arrow_down_black_24dp)
-        viewHolder.mCategoryRole.text = getCategoryRole(userInfoItem.categoryRole)
         viewHolder.mImaginationHope.text = userInfoItem.photoImage
     }
 
