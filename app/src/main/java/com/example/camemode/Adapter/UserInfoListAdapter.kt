@@ -1,11 +1,15 @@
 package com.example.camemode.Adapter
 
 import android.content.Context
+import android.transition.Slide
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
+import com.example.camemode.Fragment.UserInfoDetailFragment
 import com.example.camemode.Model.UserInfoModel
 import com.example.camemode.R
 import com.example.camemode.ViewHolder.UserInfoViewHolder
@@ -16,6 +20,7 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
     private var list: ArrayList<UserInfoModel> = list
     private var fragmentManager: FragmentManager = fragmentManager
     private var context: Context = context
+//    private lateinit var listener: View.OnClickListener
 
     /**
      * リスト要素の総数を返す
@@ -44,6 +49,11 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
      */
     override fun onBindViewHolder(viewHolder: UserInfoViewHolder, position: Int) {
         val userInfoItem = list.get(position)
+
+        viewHolder.itemView.setOnClickListener {
+            android.util.Log.d("TEST", "itemView onClicked")
+            createUserInfoDetailFragment(position)
+        }
 
         viewHolder.mUserIcon.setImageResource(getUserIcon(userInfoItem.categoryRole))
         viewHolder.mUserName.text = userInfoItem.displayName
@@ -75,5 +85,21 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
             1 -> "モデル"
             else -> "どちらとも"
         }
+    }
+
+    /**
+     * 選択したユーザ情報のFragmentを生成する
+     * @param position
+     */
+    private fun createUserInfoDetailFragment(position: Int) {
+        var slide = Slide(Gravity.BOTTOM)
+
+        var fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        var userInfoDetailFragment: UserInfoDetailFragment = UserInfoDetailFragment()
+
+        userInfoDetailFragment.enterTransition = slide
+        fragmentTransaction.replace(R.id.fragment_home_container, userInfoDetailFragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
     }
 }
