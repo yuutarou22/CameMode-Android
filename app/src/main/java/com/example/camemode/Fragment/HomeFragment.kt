@@ -1,6 +1,7 @@
 package com.example.camemode.Fragment
 
 import android.content.Context
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -48,10 +49,12 @@ class HomeFragment : BaseFragment(), SearchUtil.SearchedListener {
 
     private fun initView() {
 
+        loading_indicator.visibility = android.widget.ProgressBar.VISIBLE
         searchUtil.setSearchLitener(this)
         searchUtil.searchUserInfo()
 
         swipe_refresh?.setOnRefreshListener {
+            loading_indicator.visibility = android.widget.ProgressBar.VISIBLE
             searchUtil.searchUserInfo()
             if (swipe_refresh.isRefreshing()) {
                 swipe_refresh.isRefreshing = false
@@ -62,6 +65,7 @@ class HomeFragment : BaseFragment(), SearchUtil.SearchedListener {
     override fun onSuccess(list: ArrayList<UserInfoModel>) {
         activity?.supportFragmentManager?.let {
             displayUtil.displayUserInfo(list, it, context, user_info_list)
+            loading_indicator.visibility = android.widget.ProgressBar.INVISIBLE
         }
     }
 }
