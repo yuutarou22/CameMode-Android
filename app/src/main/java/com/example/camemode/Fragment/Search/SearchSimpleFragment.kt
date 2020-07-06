@@ -5,12 +5,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import com.example.camemode.Fragment.BaseFragment
+import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
+import com.example.camemode.Model.UserInfo.Companion.FIELD_REGION
+import com.example.camemode.Model.UserInfoModel
 
 import com.example.camemode.R
 import kotlinx.android.synthetic.main.fragment_simple_search.*
 
 class SearchSimpleFragment : BaseFragment() {
+
+    val userInfoModel = UserInfoModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +45,23 @@ class SearchSimpleFragment : BaseFragment() {
 
     private fun initView() {
         search_simple_button_execute?.setOnClickListener {
-            showFragment(SearchResultFragment())
+            val categoryRoleIndex = radio_group.indexOfChild(radio_group.findViewById<RadioButton>(radio_group.checkedRadioButtonId))
+            val regionIndex  = spinner_region.selectedItemPosition
+
+            if (categoryRoleIndex.equals(-1)) {
+                android.util.Log.d("TEST", "ERROR initView index: " + categoryRoleIndex + ", regionIndex: " + regionIndex)
+                // ToDo: エラーダイアログ表示
+            } else {
+                android.util.Log.d("TEST", "initView index: " + categoryRoleIndex + ", regionIndex: " + regionIndex)
+                val bundle = Bundle()
+                val searchResultFragment = SearchResultFragment()
+
+                bundle.putInt(FIELD_CATEGORY_ROLE, categoryRoleIndex)
+                bundle.putInt(FIELD_REGION, regionIndex)
+                searchResultFragment.arguments = bundle
+
+                showFragment(searchResultFragment)
+            }
         }
     }
 }

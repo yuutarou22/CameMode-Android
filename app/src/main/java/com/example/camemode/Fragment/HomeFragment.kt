@@ -62,7 +62,7 @@ class HomeFragment : BaseFragment(), SearchUtil.SearchedListener {
 
     override fun onSuccess(list: ArrayList<UserInfoModel>) {
         activity?.supportFragmentManager?.let {
-            displayUtil.displayUserInfo(list, it, context, user_info_list)
+            displayUtil.displayUserInfo(list, it, context, user_info_list_home)
             loading_indicator.visibility = android.widget.ProgressBar.INVISIBLE
         }
     }

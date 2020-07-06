@@ -36,6 +36,25 @@ class SearchUtil {
         return userInfoList
     }
 
+    fun searchUserInfo(categoryRole: Int?, region: Int?): ArrayList<UserInfoModel>? {
+        var query = NCMBQuery<NCMBObject>("UserInfo")
+        query.addOrderByDescending("updateDate")
+        query.whereEqualTo(FIELD_CATEGORY_ROLE, categoryRole)
+        query.whereEqualTo(FIELD_REGION, region)
+        query.setLimit(15)
+        query.findInBackground { mutableList, ncmbException ->
+            if (ncmbException != null) {
+                Log.d("ERROR", "NCMB findInBackground error: " + ncmbException.message)
+            } else {
+                for (obj in mutableList) {
+                    Log.d("TEST", obj.getString("displayName"))
+                }
+                saveUserInfo(mutableList)
+            }
+        }
+        return userInfoList
+    }
+
     fun saveUserInfo(list: List<NCMBObject>) {
         // 2回目以降の更新時のため、リストを初期化
         userInfoList.clear()
