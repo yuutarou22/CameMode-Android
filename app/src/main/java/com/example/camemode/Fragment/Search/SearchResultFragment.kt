@@ -54,7 +54,7 @@ class SearchResultFragment : BaseFragment(), SearchUtil.SearchedListener {
         searchUtil.searchUserInfo(categoryRole, region)
 
         swipe_refresh?.setOnRefreshListener {
-            searchUtil.searchUserInfo()
+            searchUtil.searchUserInfo(categoryRole, region)
             if (swipe_refresh.isRefreshing()) {
                 swipe_refresh.isRefreshing = false
             }
@@ -65,6 +65,12 @@ class SearchResultFragment : BaseFragment(), SearchUtil.SearchedListener {
         activity?.supportFragmentManager?.let {
             displayUtil.displayUserInfo(list, it, context, user_info_list_search_result)
             loading_indicator.visibility = android.widget.ProgressBar.INVISIBLE
+
+            if (list.isEmpty()) {
+                // 検索結果なしのテキストを表示させる
+                no_data_dogeza.visibility = android.widget.TextView.VISIBLE
+                no_data_text.visibility = android.widget.TextView.VISIBLE
+            }
         }
     }
 }
