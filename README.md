@@ -57,6 +57,7 @@ Issueを使って、タスク管理を行う。下記の記事を参考にして
   - 結構行き詰まった。特に、取得した後のListの扱い方。
   - ここも参考→https://qiita.com/Todate/items/297bc3e4d0f3d2477ed3
 - [Fragmentを重ねた親のFragmentのタッチイベントを無効に](http://java-lang-programming.com/articles/83)
+- [Inflaterを使って、KotlinからXMLレイアウトを操作する](https://akira-watson.com/android/inflate.html)
 
 ## ToDo(あとで消す)
 - かんたん検索画面のレイアウト修正
