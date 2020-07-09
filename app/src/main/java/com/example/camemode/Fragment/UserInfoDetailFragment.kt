@@ -19,8 +19,8 @@ class UserInfoDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_info_detail, container, false)
+        val mInflatedView : View = inflater.inflate(R.layout.fragment_user_info_detail, container, false)
+        return setInflateFragment(mInflatedView)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,5 +40,10 @@ class UserInfoDetailFragment : Fragment() {
         back_button.setOnClickListener {
             fragmentManager?.popBackStack()
         }
+    }
+
+    private fun setInflateFragment(inflatedView: View): View {
+        
+        return inflatedView
     }
 }
