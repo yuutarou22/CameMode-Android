@@ -6,6 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
+import com.example.camemode.Model.UserInfo.Companion.FIELD_CHARGE
+import com.example.camemode.Model.UserInfo.Companion.FIELD_DISPLAY_NAME
+import com.example.camemode.Model.UserInfo.Companion.FIELD_PHOTO_IMAGE
+import com.example.camemode.Model.UserInfo.Companion.FIELD_REGION
+import com.example.camemode.Model.UserInfo.Companion.FIELD_SEX
+import com.example.camemode.Model.UserInfo.Companion.FIELD_TWITTER_ID
 
 import com.example.camemode.R
 import kotlinx.android.synthetic.main.fragment_user_info_detail.*
@@ -19,8 +26,7 @@ class UserInfoDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val mInflatedView : View = inflater.inflate(R.layout.fragment_user_info_detail, container, false)
-        return setInflateFragment(mInflatedView)
+        return inflater.inflate(R.layout.fragment_user_info_detail, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,13 +43,16 @@ class UserInfoDetailFragment : Fragment() {
     }
 
     private fun initView() {
+        region.text = arguments?.getInt(FIELD_REGION).toString()
+        category_role.text = arguments?.getInt(FIELD_CATEGORY_ROLE).toString()
+        charge.text = arguments?.getInt(FIELD_CHARGE).toString()
+        display_name.text = arguments?.getString(FIELD_DISPLAY_NAME)
+        photo_image.text = arguments?.getString(FIELD_PHOTO_IMAGE)
+        sex.text = arguments?.getInt(FIELD_SEX).toString()
+        twitter_id.text = arguments?.getInt(FIELD_TWITTER_ID).toString()
+
         back_button.setOnClickListener {
             fragmentManager?.popBackStack()
         }
-    }
-
-    private fun setInflateFragment(inflatedView: View): View {
-        
-        return inflatedView
     }
 }

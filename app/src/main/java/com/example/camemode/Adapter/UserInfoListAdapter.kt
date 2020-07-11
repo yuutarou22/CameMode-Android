@@ -1,6 +1,7 @@
 package com.example.camemode.Adapter
 
 import android.content.Context
+import android.os.Bundle
 import android.transition.Slide
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -10,6 +11,14 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.example.camemode.Fragment.UserInfoDetailFragment
+import com.example.camemode.Model.UserInfo.Companion.FIELD_AGE
+import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
+import com.example.camemode.Model.UserInfo.Companion.FIELD_CHARGE
+import com.example.camemode.Model.UserInfo.Companion.FIELD_DISPLAY_NAME
+import com.example.camemode.Model.UserInfo.Companion.FIELD_PHOTO_IMAGE
+import com.example.camemode.Model.UserInfo.Companion.FIELD_REGION
+import com.example.camemode.Model.UserInfo.Companion.FIELD_SEX
+import com.example.camemode.Model.UserInfo.Companion.FIELD_TWITTER_ID
 import com.example.camemode.Model.UserInfoModel
 import com.example.camemode.R
 import com.example.camemode.ViewHolder.UserInfoViewHolder
@@ -97,9 +106,26 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
         var fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         var userInfoDetailFragment: UserInfoDetailFragment = UserInfoDetailFragment()
 
+        userInfoDetailFragment.arguments = createUserInfoToBundle(list.get(position))
+
         userInfoDetailFragment.enterTransition = slide
         fragmentTransaction.replace(R.id.fragment_home_container, userInfoDetailFragment)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
+    }
+
+    private fun createUserInfoToBundle(userInfoModel: UserInfoModel):Bundle {
+        var bundle = Bundle()
+
+        bundle.putInt(FIELD_CATEGORY_ROLE, userInfoModel.categoryRole)
+        bundle.putString(FIELD_DISPLAY_NAME, userInfoModel.displayName)
+        bundle.putString(FIELD_PHOTO_IMAGE, userInfoModel.photoImage)
+        bundle.putString(FIELD_TWITTER_ID, userInfoModel.twitterId)
+        bundle.putInt(FIELD_AGE, userInfoModel.age)
+        bundle.putInt(FIELD_REGION, userInfoModel.region)
+        bundle.putInt(FIELD_SEX, userInfoModel.sex)
+        bundle.putInt(FIELD_CHARGE, userInfoModel.charge)
+
+        return bundle
     }
 }
