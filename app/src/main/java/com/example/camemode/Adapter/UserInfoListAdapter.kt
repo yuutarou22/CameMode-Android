@@ -1,6 +1,7 @@
 package com.example.camemode.Adapter
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.transition.Slide
 import android.view.Gravity
@@ -65,6 +66,7 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
         }
 
         viewHolder.mUserIcon.setImageResource(getUserIcon(userInfoItem.categoryRole))
+        viewHolder.mUserIcon.setBackgroundColor(getUserIconBg(userInfoItem.categoryRole))
         viewHolder.mUserName.text = userInfoItem.displayName
         viewHolder.mSnsTranslationButton.setImageResource(R.drawable.ic_menu_arrow_down_black_24dp)
         viewHolder.mImaginationHope.text = userInfoItem.photoImage
@@ -77,9 +79,22 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
      */
     private fun getUserIcon(categoryRole: Int): Int {
         return when(categoryRole) {
-            0 -> R.drawable.ic_menu_arrow_down_black_24dp
-            1 -> R.drawable.ic_calendar_black_24dp
+            0 -> R.drawable.ic_camera
+            1 -> R.drawable.ic_model
             else -> R.drawable.design_password_eye
+        }
+    }
+
+    /**
+     * カテゴリ種別によってアイコン画像の背景色を切り替え
+     * @param categoryRole
+     * @return Int
+     */
+    private fun getUserIconBg(categoryRole: Int): Int {
+        return when(categoryRole) {
+            0 -> Color.argb(255,255,177,208)
+            1 -> Color.argb(255,189,211,215)
+            else -> Color.argb(255,238,196,136)
         }
     }
 
