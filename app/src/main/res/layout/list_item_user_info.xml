@@ -32,6 +32,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
+                        android:scaleType="centerCrop"
                         android:padding="3dp" />
 
             </LinearLayout>
@@ -60,29 +61,20 @@
                         android:id="@+id/sns_transition"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:background="@color/colorAccent"
+                        android:background="#afeeee"
                         android:scaleType="centerCrop"
                         android:layout_gravity="right|center_vertical"/>
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
+        <TextView
+                android:id="@+id/imagination_hope"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="3dp"
-                android:layout_marginEnd="6dp"
-                android:gravity="left"
-                android:orientation="vertical">
-
-            <TextView
-                    android:id="@+id/imagination_hope"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:ellipsize="end"
-                    android:maxLines="3"
-                    android:textSize="13dp" />
-        </LinearLayout>
-
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textSize="13dp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
