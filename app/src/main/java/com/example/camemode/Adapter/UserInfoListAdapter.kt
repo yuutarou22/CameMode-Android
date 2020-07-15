@@ -66,6 +66,7 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
         }
 
         viewHolder.mUserIcon.setImageResource(getUserIcon(userInfoItem.categoryRole))
+        viewHolder.mCategoryRole.text = getCategoryRole(userInfoItem.categoryRole)
         viewHolder.mUserIcon.setBackgroundColor(getUserIconBg(userInfoItem.categoryRole))
         viewHolder.mUserName.text = userInfoItem.displayName
         viewHolder.mSnsTranslationButton.setImageResource(R.drawable.ic_twitter_button)
