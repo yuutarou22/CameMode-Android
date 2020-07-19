@@ -59,6 +59,10 @@ class SearchResultFragment : BaseFragment(), SearchUtil.SearchedListener {
                 swipe_refresh.isRefreshing = false
             }
         }
+
+        no_data_button?.setOnClickListener {
+            showFragment(SearchSimpleFragment())
+        }
     }
 
     override fun onSuccess(list: ArrayList<UserInfoModel>) {
@@ -70,6 +74,7 @@ class SearchResultFragment : BaseFragment(), SearchUtil.SearchedListener {
                 // 検索結果なしのテキストを表示させる
                 no_data_dogeza.visibility = android.widget.TextView.VISIBLE
                 no_data_text.visibility = android.widget.TextView.VISIBLE
+                no_data_button.visibility = android.widget.TextView.VISIBLE
             }
         }
     }
