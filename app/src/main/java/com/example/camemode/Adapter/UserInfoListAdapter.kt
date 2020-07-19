@@ -80,9 +80,9 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
      */
     private fun getUserIcon(categoryRole: Int): Int {
         return when(categoryRole) {
-            0 -> R.drawable.ic_camera
-            1 -> R.drawable.ic_model
-            else -> R.drawable.design_password_eye
+            0 -> R.drawable.ic_user_info_camera
+            1 -> R.drawable.ic_user_info_model
+            else -> R.drawable.ic_user_info_camera_model
         }
     }
 
@@ -94,8 +94,8 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
     private fun getUserIconBg(categoryRole: Int): Int {
         return when(categoryRole) {
             0 -> Color.argb(255,255,177,208)
-            1 -> Color.argb(255,189,211,215)
-            else -> Color.argb(255,238,196,136)
+            1 -> Color.argb(255,189,211,255)
+            else -> Color.argb(255,150,240,180)
         }
     }
 
@@ -108,7 +108,7 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
         return when(categoryRole) {
             0 -> "カメラマン"
             1 -> "モデル"
-            else -> "どちらとも"
+            else -> "カメラマン/モデル"
         }
     }
 
