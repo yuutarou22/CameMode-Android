@@ -3,15 +3,15 @@
     <item
         android:state_checked="true"
         android:state_pressed="true"
-        android:drawable="@drawable/ic_simple_search_radio_button_model_active"/>
+        android:drawable="@drawable/ic_radio_button_model_active"/>
     <item
         android:state_checked="true"
-        android:drawable="@drawable/ic_simple_search_radio_button_model_active"/>
+        android:drawable="@drawable/ic_radio_button_model_active"/>
     <item
         android:state_checked="false"
         android:state_pressed="true"
-        android:drawable="@drawable/ic_simple_search_radio_button_model_nonactive"/>
+        android:drawable="@drawable/ic_radio_button_model_inactive"/>
     <item
         android:state_checked="false"
-        android:drawable="@drawable/ic_simple_search_radio_button_model_nonactive"/>
+        android:drawable="@drawable/ic_radio_button_model_inactive"/>
 </selector>
