@@ -44,38 +44,26 @@
                     android:id="@+id/category_role_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="15dp"
                     app:layout_constraintBottom_toTopOf="@+id/sex"/>
 
-            <TextView
-                    android:id="@+id/sex"
+            <ImageButton
+                    android:id="@+id/sns_transition_button"
+                    android:src="@drawable/ic_twitter_logo_whiteonimage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toTopOf="@+id/region"/>
+                    android:layout_height="40dp"
+                    android:background="#1da1f2"
+                    android:scaleType="fitCenter"
+                    android:layout_marginBottom="30dp"/>
 
-            <TextView
-                    android:id="@+id/region"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toTopOf="@+id/charge"/>
+            <include layout="@layout/content_user_info_sex"/>
 
-            <TextView
-                    android:id="@+id/charge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toTopOf="@+id/photo_image"/>
+            <include layout="@layout/content_user_info_region"/>
 
-            <TextView
-                    android:id="@+id/photo_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toTopOf="@+id/twitter_id"/>
+            <include layout="@layout/content_user_info_charge"/>
 
-            <TextView
-                    android:id="@+id/twitter_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toTopOf="parent"/>
+            <include layout="@layout/content_user_info_photo_image"/>
 
         </LinearLayout>
     </ScrollView>
