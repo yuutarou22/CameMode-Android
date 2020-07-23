@@ -25,7 +25,7 @@
 
         <TextView
                 android:id="@+id/faq"
-                android:text="よくある質問"
+                android:text="@string/mypage_faq_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
