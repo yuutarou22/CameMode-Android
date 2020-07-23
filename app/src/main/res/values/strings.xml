@@ -4,9 +4,6 @@
     <string name="bottom_nav_title_search">見つける</string>
     <string name="bottom_nav_title_mypage">マイページ</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-
     <string name="search_simple_button">かんたん検索</string>
     <string name="search_detail_buttin">詳細検索</string>
     <string name="search_simple_radio_camera">カメラマンをさがす</string>
