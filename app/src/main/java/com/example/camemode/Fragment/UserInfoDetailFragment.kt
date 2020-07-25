@@ -77,9 +77,9 @@ class UserInfoDetailFragment : Fragment() {
      */
     private fun getCategoryRole(categoryRole: Int?): String {
         return when(categoryRole) {
-            0 -> "カメラマン"
-            1 -> "モデル"
-            else -> "カメラマン/モデル"
+            0 -> getString(R.string.category_role_camera)
+            1 -> getString(R.string.category_role_model)
+            else -> getString(R.string.category_role_camera_model)
         }
     }
 
@@ -116,8 +116,8 @@ class UserInfoDetailFragment : Fragment() {
      */
     private fun getCharge(charge: Int?): String {
         return when(charge) {
-            0 -> "無償"
-            else -> "有償"
+            0 -> getString(R.string.charge_not)
+            else -> getString(R.string.charge)
         }
     }
 
@@ -128,9 +128,9 @@ class UserInfoDetailFragment : Fragment() {
      */
     private fun getSex(sex: Int?): String {
         return when(sex) {
-            0 -> "未選択"
-            1 -> "男性"
-            else -> "女性"
+            0 -> getString(R.string.sex_not_select)
+            1 -> getString(R.string.sex_man)
+            else -> getString(R.string.sex_woman)
         }
     }
 
@@ -141,17 +141,17 @@ class UserInfoDetailFragment : Fragment() {
      */
     private fun getRegion(region: Int?): String {
         return when(region) {
-            0 -> "北海道"
-            1 -> "東北"
-            2 -> "関東"
-            3 -> "北陸"
-            4 -> "中部"
-            5 -> "近畿"
-            6 -> "四国"
-            7 -> "中国"
-            8 -> "九州"
-            9 -> "沖縄"
-            else -> "未選択"
+            0 -> getString(R.string.region_hokkaido)
+            1 -> getString(R.string.region_tohoku)
+            2 -> getString(R.string.region_kanto)
+            3 -> getString(R.string.region_hokuriku)
+            4 -> getString(R.string.region_chubu)
+            5 -> getString(R.string.region_kinki)
+            6 -> getString(R.string.region_shikoku)
+            7 -> getString(R.string.region_chugoku)
+            8 -> getString(R.string.region_kyusyu)
+            9 -> getString(R.string.region_okinawa)
+            else -> getString(R.string.region_not_select)
         }
     }
 }

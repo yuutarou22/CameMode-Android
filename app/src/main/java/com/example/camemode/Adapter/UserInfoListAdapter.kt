@@ -106,9 +106,9 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
      */
     private fun getCategoryRole(categoryRole: Int): String {
         return when(categoryRole) {
-            0 -> "カメラマン"
-            1 -> "モデル"
-            else -> "カメラマン/モデル"
+            0 -> context.resources.getString(R.string.category_role_camera)
+            1 -> context.resources.getString(R.string.category_role_model)
+            else -> context.resources.getString(R.string.category_role_camera_model)
         }
     }
 

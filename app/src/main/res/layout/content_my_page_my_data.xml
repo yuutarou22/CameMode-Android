@@ -26,7 +26,7 @@
 
         <TextView
                 android:id="@+id/my_data"
-                android:text="マイデータ"
+                android:text="@string/mypage_mydata_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"

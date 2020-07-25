@@ -32,17 +32,17 @@
                 android:layout_height="wrap_content"
                 android:textSize="40dp"
                 android:visibility="invisible"
-                android:text="🙇‍"/>
+                android:text="@string/no_data_dogeza"/>
         <TextView
                 android:id="@+id/no_data_text"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="invisible"
-                android:text="検索結果がありませんでした…\nほかの条件で検索してみましょう！"/>
+                android:text="@string/no_data_text"/>
         <Button
                 android:id="@+id/no_data_button"
-                android:text="かんたん検索へ戻る"
+                android:text="@string/no_data_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="invisible"
