@@ -45,7 +45,8 @@ class MyPageFragment : BaseFragment() {
 
     private fun initView() {
         my_data.setOnClickListener {
-            showFragment(MyDataShowFragment())
+//            showFragment(MyDataShowFragment())
+            showFragment(MyDataEditFragment())
         }
 
         faq.setOnClickListener {
