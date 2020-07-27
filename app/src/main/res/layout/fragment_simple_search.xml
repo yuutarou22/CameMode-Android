@@ -22,7 +22,7 @@
                 android:id="@+id/radio_camera"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="5"
+                android:layout_weight="1"
                 android:background="#11dd11"
                 android:text="@string/search_simple_radio_camera"
                 style="@style/simple_search_radio_button_camera"/>
@@ -31,7 +31,7 @@
                 android:id="@+id/radio_model"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="5"
+                android:layout_weight="1"
                 android:background="#ddaadd"
                 android:text="@string/search_simple_radio_model"
                 style="@style/simple_search_radio_button_model"/>
