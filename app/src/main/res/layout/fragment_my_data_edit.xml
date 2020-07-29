@@ -1,120 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Fragment.MyPage.MyDataEditFragment">
-
-    <TextView
-            android:text="希望カテゴリ"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            android:id="@+id/textView"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_height="match_parent"
+            tools:context=".Fragment.MyPage.MyDataEditFragment">
 
-    <RadioGroup
-            android:id="@+id/category_role"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
 
-        <RadioButton
-                android:id="@+id/category_role_cameraman"
+        <TextView
+                android:text="希望カテゴリ"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/category_role_camera"/>
+                tools:layout_editor_absoluteX="0dp"
+                android:id="@+id/textView"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-        <RadioButton
-                android:id="@+id/category_role_model"
+        <RadioGroup
+                android:id="@+id/category_role"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/category_role_model"/>
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <RadioButton
-                android:id="@+id/category_role_none"
+            <RadioButton
+                    android:id="@+id/category_role_cameraman"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_role_camera"/>
+
+            <RadioButton
+                    android:id="@+id/category_role_model"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_role_model"/>
+
+            <RadioButton
+                    android:id="@+id/category_role_none"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/category_role_camera_model"/>
+        </RadioGroup>
+
+        <TextView
+                android:text="表示名"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/category_role_camera_model"/>
-    </RadioGroup>
-
-    <TextView
-            android:text="表示名"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="8dp"
-            android:id="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/category_role"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            android:id="@+id/editText"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"/>
-
-    <TextView
-            android:text="TwitterアカウントID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="8dp"
-            android:id="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/editText"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            android:id="@+id/editText2"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"/>
-
-    <TextView
-            android:text="有償・無償"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="8dp"
-            android:id="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/editText2"/>
-
-    <RadioGroup
-            android:id="@+id/which_charge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:orientation="vertical"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
-            tools:layout_editor_absoluteX="8dp">
-
-        <RadioButton
-                android:id="@+id/charge"
+                tools:layout_editor_absoluteX="8dp"
+                android:id="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/category_role"/>
+        <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="有償"/>
+                tools:layout_editor_absoluteX="0dp"
+                android:id="@+id/editText"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"/>
 
-        <RadioButton
-                android:id="@+id/no_charge"
+        <TextView
+                android:text="TwitterアカウントID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="無償"/>
-
-        <RadioButton
-                android:id="@+id/either"
+                tools:layout_editor_absoluteX="8dp"
+                android:id="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/editText"/>
+        <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="どちらでも"/>
-    </RadioGroup>
+                tools:layout_editor_absoluteX="0dp"
+                android:id="@+id/editText2"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"/>
 
-    <TextView
-            android:text="地域"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            android:id="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/which_charge"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+                android:text="有償・無償"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteX="8dp"
+                android:id="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/editText2"/>
+
+        <RadioGroup
+                android:id="@+id/which_charge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                tools:layout_editor_absoluteX="8dp">
+
+            <RadioButton
+                    android:id="@+id/charge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="有償"/>
+
+            <RadioButton
+                    android:id="@+id/no_charge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="無償"/>
+
+            <RadioButton
+                    android:id="@+id/either"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="どちらでも"/>
+        </RadioGroup>
+
+        <TextView
+                android:text="地域"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteX="0dp"
+                android:id="@+id/textView5"
+                app:layout_constraintTop_toBottomOf="@+id/which_charge"/>
+
+        <Spinner
+                android:id="@+id/region_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/textView5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                android:entries="@array/region_item_add"/>
+
+        <TextView
+                android:text="性別"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteX="0dp"
+                android:id="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/region_spinner"
+                android:layout_marginTop="8dp"/>
+
+        <Spinner
+                android:id="@+id/sex_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/sex_item"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"/>
+
+        <TextView
+                android:text="年代"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/sex_spinner"/>
+
+        <Spinner
+                android:id="@+id/age_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/age_item"
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"/>
+
+        <TextView
+                android:text="撮影イメージ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView8"
+                tools:layout_editor_absoluteX="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/age_spinner"/>
+
+        <EditText
+                android:id="@+id/imagination_hope"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@color/colorEditTextBackground"
+                android:hint=""
+                android:maxLength="200"
+                android:maxLines="10"
+                app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+
+        <TextView
+                android:id="@+id/imagination_text_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:gravity="right"
+                android:text="0/200"
+                app:layout_constraintTop_toBottomOf="@+id/imagination_hope"
+                tools:layout_editor_absoluteX="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/regist_button"/>
+
+        <ImageButton
+                android:id="@+id/regist_button"
+                android:src="@drawable/ic_person_black_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

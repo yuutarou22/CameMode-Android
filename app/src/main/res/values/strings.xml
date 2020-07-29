@@ -38,6 +38,24 @@
         <item>沖縄</item>
     </string-array>
 
+    <!--性別(プルダウン用)-->
+    <string-array name="sex_item">
+        <item>未選択</item>
+        <item>男性</item>
+        <item>女性</item>
+    </string-array>
+
+    <!--年代(プルダウン用)-->
+    <string-array name="age_item">
+        <item>未選択</item>
+        <item>10代</item>
+        <item>20代</item>
+        <item>30代</item>
+        <item>40代</item>
+        <item>50代</item>
+        <item>60代以上</item>
+    </string-array>
+
     <!-- 地域(表示用) -->
     <string name="region_title">地域</string>
     <string name="region_hokkaido">北海道</string>
