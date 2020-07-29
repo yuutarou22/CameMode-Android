@@ -44,9 +44,10 @@ class MyPageFragment : BaseFragment() {
     }
 
     private fun initView() {
+        // ToDo:レイアウトを共通化する
         my_data.setOnClickListener {
 //            showFragment(MyDataShowFragment())
-            showFragment(MyDataEditFragment())
+            showFragment(MyDataRegisterFragment())
         }
 
         faq.setOnClickListener {
