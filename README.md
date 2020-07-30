@@ -58,6 +58,7 @@ Issueを使って、タスク管理を行う。下記の記事を参考にして
   - ここも参考→https://qiita.com/Todate/items/297bc3e4d0f3d2477ed3
 - [Fragmentを重ねた親のFragmentのタッチイベントを無効に](http://java-lang-programming.com/articles/83)
 - [Inflaterを使って、KotlinからXMLレイアウトを操作する](https://akira-watson.com/android/inflate.html)
+- [TextWatcherを半端なくスッキリ書こうぜ](https://qiita.com/aaaaki/items/86678967e9eb9f62da9b)
 
 ## 活用したサービス
 - [stories](https://stories.freepik.com/)
