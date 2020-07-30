@@ -175,25 +175,32 @@
                 tools:layout_editor_absoluteX="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/age_spinner"/>
 
-        <EditText
-                android:id="@+id/imagination_hope"
+        <androidx.core.widget.NestedScrollView
+                android:id="@+id/nest"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginHorizontal="8dp"
-                android:background="@color/colorEditTextBackground"
-                android:hint=""
-                android:maxLength="200"
-                android:maxLines="10"
-                app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+                app:layout_constraintTop_toBottomOf="@+id/textView8"
+                android:layout_marginTop="28dp">
+
+            <EditText
+                    android:id="@+id/photo_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="100dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:background="@color/colorEditTextBackground"
+                    android:scrollbars="vertical"
+                    android:maxLength="200"/>
+        </androidx.core.widget.NestedScrollView>
 
         <TextView
-                android:id="@+id/imagination_text_count"
+                android:id="@+id/photo_image_text_count"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
                 android:gravity="right"
                 android:text="0/200"
-                app:layout_constraintTop_toBottomOf="@+id/imagination_hope"
+                app:layout_constraintTop_toBottomOf="@+id/nest"
                 tools:layout_editor_absoluteX="8dp"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toTopOf="@+id/regist_button"/>
