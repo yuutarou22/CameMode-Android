@@ -11,11 +11,11 @@
             android:layout_width="match_parent">
 
         <TextView
+                android:id="@+id/category_role_label"
                 android:text="希望カテゴリ"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="0dp"
-                android:id="@+id/textView"
                 app:layout_constraintTop_toTopOf="parent"/>
 
         <RadioGroup
@@ -25,7 +25,7 @@
                 android:layout_margin="8dp"
                 android:orientation="vertical"
                 tools:layout_editor_absoluteX="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
+                app:layout_constraintTop_toBottomOf="@+id/category_role_label">
 
             <RadioButton
                     android:id="@+id/category_role_cameraman"
@@ -48,40 +48,40 @@
         </RadioGroup>
 
         <TextView
+                android:id="@+id/display_name_label"
                 android:text="表示名"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="8dp"
-                android:id="@+id/textView2"
                 app:layout_constraintTop_toBottomOf="@+id/category_role"/>
         <EditText
+                android:id="@+id/display_name_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="0dp"
-                android:id="@+id/editText"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"/>
+                app:layout_constraintTop_toBottomOf="@+id/display_name_label"/>
 
         <TextView
+                android:id="@+id/twitter_id_label"
                 android:text="TwitterアカウントID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="8dp"
-                android:id="@+id/textView3"
-                app:layout_constraintTop_toBottomOf="@+id/editText"/>
+                app:layout_constraintTop_toBottomOf="@+id/display_name_input"/>
         <EditText
+                android:id="@+id/twitter_id_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="0dp"
-                android:id="@+id/editText2"
-                app:layout_constraintTop_toBottomOf="@+id/textView3"/>
+                app:layout_constraintTop_toBottomOf="@+id/twitter_id_label"/>
 
         <TextView
+                android:id="@+id/which_charge_label"
                 android:text="有償・無償"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="8dp"
-                android:id="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/editText2"/>
+                app:layout_constraintTop_toBottomOf="@+id/twitter_id_input"/>
 
         <RadioGroup
                 android:id="@+id/which_charge"
@@ -90,7 +90,7 @@
                 android:layout_margin="8dp"
                 android:orientation="vertical"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/which_charge_label"
                 tools:layout_editor_absoluteX="8dp">
 
             <RadioButton
@@ -114,29 +114,29 @@
         </RadioGroup>
 
         <TextView
+                android:id="@+id/region_label"
                 android:text="地域"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="0dp"
-                android:id="@+id/textView5"
                 app:layout_constraintTop_toBottomOf="@+id/which_charge"/>
 
         <Spinner
                 android:id="@+id/region_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/textView5"
+                app:layout_constraintTop_toBottomOf="@+id/region_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"
                 android:entries="@array/region_item_add"/>
 
         <TextView
+                android:id="@+id/sex_label"
                 android:text="性別"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="0dp"
-                android:id="@+id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/region_spinner"
                 android:layout_marginTop="8dp"/>
 
@@ -145,16 +145,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:entries="@array/sex_item"
-                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/sex_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"/>
 
         <TextView
+                android:id="@+id/age_label"
                 android:text="年代"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView7"
                 app:layout_constraintTop_toBottomOf="@+id/sex_spinner"/>
 
         <Spinner
@@ -162,16 +162,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:entries="@array/age_item"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/age_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"/>
 
         <TextView
+                android:id="@+id/photo_image_label"
                 android:text="撮影イメージ"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView8"
                 tools:layout_editor_absoluteX="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/age_spinner"/>
 
@@ -179,11 +179,10 @@
                 android:id="@+id/nest"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                app:layout_constraintTop_toBottomOf="@+id/textView8"
-                android:layout_marginTop="28dp">
+                app:layout_constraintTop_toBottomOf="@+id/photo_image_label">
 
             <EditText
-                    android:id="@+id/photo_image"
+                    android:id="@+id/photo_image_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="100dp"
