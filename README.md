@@ -59,16 +59,15 @@ Issueを使って、タスク管理を行う。下記の記事を参考にして
 - [Fragmentを重ねた親のFragmentのタッチイベントを無効に](http://java-lang-programming.com/articles/83)
 - [Inflaterを使って、KotlinからXMLレイアウトを操作する](https://akira-watson.com/android/inflate.html)
 - [TextWatcherを半端なくスッキリ書こうぜ](https://qiita.com/aaaaki/items/86678967e9eb9f62da9b)
+- [NestedScrollViewを使って、EditTextをシームレスにスクロールさせる](https://qiita.com/noboru_i/items/09e7d3f8f222834378cc)
 
 ## 活用したサービス
 - [stories](https://stories.freepik.com/)
 - [RGBと16進数カラーコードの相互変換ツール](https://www.peko-step.com/tool/tfcolor.html)
 
 ## ToDo(あとで消す)
-- かんたん検索画面のレイアウト修正
-- 実際に検索し、情報を取得する
+
 - 画面遷移
-  - 検索後の検索結果画面
   - 詳細検索画面
 - チュートリアル画面の作成
 - 使い方をライブラリを使用して実装
