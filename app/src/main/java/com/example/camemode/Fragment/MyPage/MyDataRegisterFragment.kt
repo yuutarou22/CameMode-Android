@@ -1,14 +1,15 @@
 package com.example.camemode.Fragment.MyPage
 
+import android.app.AlertDialog
+import android.app.ProgressDialog.show
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.text.method.MovementMethod
-import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.camemode.Fragment.BaseFragment
+import com.example.camemode.Fragment.Dialog.RegistAlertDialogFragment
 import com.example.camemode.Interface.TextWatchable
 
 import com.example.camemode.R
@@ -60,9 +61,10 @@ class MyDataRegisterFragment : BaseFragment() {
         })
 
         regist_button.setOnClickListener {
-            // ToDo: 入力内容の確認ダイアログを表示
-            // ToDo: バリデーションチェック処理
-            // ToDo: NCMBへの登録処理
+            val alertDialogFragment = RegistAlertDialogFragment()
+            fragmentManager?.let { it1 -> alertDialogFragment.show(it1, "test") }
+
+
         }
     }
 }
