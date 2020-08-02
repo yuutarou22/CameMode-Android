@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import com.example.camemode.Fragment.BaseFragment
@@ -14,10 +15,40 @@ import com.example.camemode.Fragment.Dialog.RegistAlertDialogFragment
 import com.example.camemode.Interface.TextWatchable
 
 import com.example.camemode.R
+import com.nifcloud.mbaas.core.NCMBException
+import com.nifcloud.mbaas.core.NCMBObject
 import kotlinx.android.synthetic.main.fragment_my_data_register.*
 import kotlinx.android.synthetic.main.fragment_my_data_register.regist_button
 
-class MyDataRegisterFragment : BaseFragment() {
+class MyDataRegisterFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkClickListener {
+
+    override fun onOkClicked(dialog: DialogFragment) {
+        
+        var obj = NCMBObject("UserInfo")
+        try {
+            val categoryRoleIndex = category_role.indexOfChild(category_role.findViewById<RadioButton>(category_role.checkedRadioButtonId))
+            val whichChargeIndex = which_charge.indexOfChild(which_charge.findViewById<RadioButton>(which_charge.checkedRadioButtonId))
+
+            obj.put("categoryRole", categoryRoleIndex)
+            obj.put("displayName", display_name_input.text.toString())
+            obj.put("photoImage", photo_image_input.text.toString())
+            obj.put("twitterId", twitter_id_input.text.toString())
+            obj.put("age", age_spinner.selectedItemId)
+            obj.put("region", region_spinner.selectedItemId)
+            obj.put("sex", sex_spinner.selectedItemId)
+            obj.put("charge", whichChargeIndex)
+
+            obj.saveInBackground { e ->
+                if (e != null) {
+                    Log.d("TEST","保存失敗")
+                } else {
+                    Log.d("TEST","保存成功")
+                }
+            }
+        } catch (e: NCMBException) {
+            e.printStackTrace()
+        }
+    }
 
     companion object {
         const val MAX_PHOTO_IMAGE_LENGTH = 200
@@ -64,6 +95,12 @@ class MyDataRegisterFragment : BaseFragment() {
         })
 
         regist_button.setOnClickListener {
+            // バリデーションチェックし、問題なければ確認ダイアログを表示する
+            if (userInfoValidationCheck()) {
+                val alertDialogFragment = RegistAlertDialogFragment()
+                alertDialogFragment.setTargetFragment(this, 1)
+                fragmentManager?.let { it1 -> alertDialogFragment.show(it1, "") }
+            }
         }
     }
 
