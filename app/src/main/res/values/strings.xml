@@ -95,4 +95,6 @@
     <string name="regist_alert_dialog_confirm_title">登録確認</string>
     <string name="regist_alert_dialog_confirm_message">この情報で登録してよろしいですか？</string>
 
+    <!--Twitter IDバリデーション-->
+    <string name="twitter_id_rules">abcdefghijklmnopqrstuvwxyz1234567890_ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
 </resources>
