@@ -12,12 +12,16 @@ import com.nifcloud.mbaas.core.NCMB
 class MainActivity : AppCompatActivity() {
 
     private lateinit var currentFlagment: Fragment
+    val fragmentManager = supportFragmentManager
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                showFragment(HomeFragment())
-                return@OnNavigationItemSelectedListener true
+                // HomeFragmentを開いている場合、再度読み込まない
+                if (fragmentManager.fragments.get(0) !is HomeFragment ) {
+                    showFragment(HomeFragment())
+                    return@OnNavigationItemSelectedListener true
+                }
             }
             R.id.navigation_search -> {
                 showFragment(SearchFragment())

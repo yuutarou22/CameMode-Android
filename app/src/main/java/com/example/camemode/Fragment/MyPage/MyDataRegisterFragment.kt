@@ -12,6 +12,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import com.example.camemode.Fragment.BaseFragment
 import com.example.camemode.Fragment.Dialog.RegistAlertDialogFragment
+import com.example.camemode.Fragment.HomeFragment
 import com.example.camemode.Interface.TextWatchable
 
 import com.example.camemode.R
@@ -43,6 +44,7 @@ class MyDataRegisterFragment : BaseFragment(), RegistAlertDialogFragment.DialogO
                     Log.d("TEST","保存失敗")
                 } else {
                     Log.d("TEST","保存成功")
+                    showFragment(HomeFragment())
                 }
             }
         } catch (e: NCMBException) {
