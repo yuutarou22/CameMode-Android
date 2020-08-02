@@ -60,6 +60,9 @@ Issueを使って、タスク管理を行う。下記の記事を参考にして
 - [Inflaterを使って、KotlinからXMLレイアウトを操作する](https://akira-watson.com/android/inflate.html)
 - [TextWatcherを半端なくスッキリ書こうぜ](https://qiita.com/aaaaki/items/86678967e9eb9f62da9b)
 - [NestedScrollViewを使って、EditTextをシームレスにスクロールさせる](https://qiita.com/noboru_i/items/09e7d3f8f222834378cc)
+- [TwitterのIDバリデーション](https://help.twitter.com/ja/managing-your-account/twitter-username-rules)
+- [EditTextのキーボードタイプを指定](https://www.programing-style.com/android/android-api/android-edittext-keyboard/)
+  - [入力できる文字列をdigitsで制限](https://qiita.com/a__i__r/items/8a7efaeeeae9b8c56f81)
 
 ## 活用したサービス
 - [stories](https://stories.freepik.com/)
