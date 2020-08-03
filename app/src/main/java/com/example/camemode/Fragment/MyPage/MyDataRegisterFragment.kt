@@ -2,13 +2,12 @@ package com.example.camemode.Fragment.MyPage
 
 import android.content.Context
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import com.example.camemode.Fragment.BaseFragment
 import com.example.camemode.Fragment.Dialog.RegistAlertDialogFragment
@@ -68,7 +67,6 @@ class MyDataRegisterFragment : BaseFragment(), RegistAlertDialogFragment.DialogO
         return inflater.inflate(R.layout.fragment_my_data_register, container, false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
@@ -82,7 +80,6 @@ class MyDataRegisterFragment : BaseFragment(), RegistAlertDialogFragment.DialogO
         super.onDetach()
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun initView() {
 
         photo_image_input.addTextChangedListener(object: TextWatchable{
@@ -109,26 +106,25 @@ class MyDataRegisterFragment : BaseFragment(), RegistAlertDialogFragment.DialogO
     /**
      * バリデーションチェック
      */
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun userInfoValidationCheck() : Boolean {
 
         var result = true
 
         if (display_name_input.text.isEmpty()) {
             display_name_input.setError("表示名を入力してください！")
-            display_name_input.focusable = View.FOCUSABLE
+            display_name_input.isFocusable = true
             result = false
         }
 
         if (twitter_id_input.text.isEmpty()) {
             twitter_id_input.setError("TwitterIDを入力してください！")
-            twitter_id_input.focusable = View.FOCUSABLE
+            twitter_id_input.isFocusable = true
             result = false
         }
 
         if (photo_image_input.text.isEmpty()) {
             photo_image_input.setError("撮影イメージを入力してください！")
-            photo_image_input.focusable = View.FOCUSABLE
+            photo_image_input.isFocusable = true
             result = false
         }
 
