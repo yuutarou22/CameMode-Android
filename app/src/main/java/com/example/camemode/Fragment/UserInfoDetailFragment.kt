@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.camemode.Model.UserInfo.Companion.FIELD_AGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CHARGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_DISPLAY_NAME
@@ -18,6 +19,7 @@ import com.example.camemode.Model.UserInfo.Companion.FIELD_SEX
 import com.example.camemode.Model.UserInfo.Companion.FIELD_TWITTER_ID
 
 import com.example.camemode.R
+import kotlinx.android.synthetic.main.content_user_info_age.*
 import kotlinx.android.synthetic.main.content_user_info_charge.*
 import kotlinx.android.synthetic.main.content_user_info_photo_image.*
 import kotlinx.android.synthetic.main.content_user_info_region.*
@@ -55,6 +57,7 @@ class UserInfoDetailFragment : Fragment() {
         category_role_icon.setBackgroundColor(getUserIconBg(arguments?.getInt(FIELD_CATEGORY_ROLE)))
         category_role_text.text = getCategoryRole(arguments?.getInt(FIELD_CATEGORY_ROLE))
         charge.text = getCharge(arguments?.getInt(FIELD_CHARGE))
+        age.text = getAge(arguments?.getInt(FIELD_AGE))
         display_name.text = arguments?.getString(FIELD_DISPLAY_NAME)
         photo_image.text = arguments?.getString(FIELD_PHOTO_IMAGE)
         sex.text = getSex(arguments?.getInt(FIELD_SEX))
@@ -116,8 +119,25 @@ class UserInfoDetailFragment : Fragment() {
      */
     private fun getCharge(charge: Int?): String {
         return when(charge) {
-            0 -> getString(R.string.charge_not)
-            else -> getString(R.string.charge)
+            0 -> getString(R.string.charge)
+            else -> getString(R.string.charge_not)
+        }
+    }
+
+    /**
+     * 年代
+     * @param age
+     * @return String
+     */
+    private fun getAge(age: Int?): String {
+        return when(age) {
+            0 -> getString(R.string.age_unselected)
+            1 -> getString(R.string.age_10)
+            2 -> getString(R.string.age_20)
+            3 -> getString(R.string.age_30)
+            4 -> getString(R.string.age_40)
+            5 -> getString(R.string.age_50)
+            else -> getString(R.string.age_60_adove)
         }
     }
 

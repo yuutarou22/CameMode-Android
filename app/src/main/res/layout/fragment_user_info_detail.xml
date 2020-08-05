@@ -59,6 +59,8 @@
 
             <include layout="@layout/content_user_info_sex"/>
 
+            <include layout="@layout/content_user_info_age"/>
+
             <include layout="@layout/content_user_info_region"/>
 
             <include layout="@layout/content_user_info_charge"/>

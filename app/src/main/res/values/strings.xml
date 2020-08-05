@@ -70,6 +70,16 @@
     <string name="region_okinawa">沖縄</string>
     <string name="region_not_select">未選択</string>
 
+    <!--年代(表示用)-->
+    <string name="age_title">年代</string>
+    <string name="age_unselected">未選択</string>
+    <string name="age_10">10代</string>
+    <string name="age_20">20代</string>
+    <string name="age_30">30代</string>
+    <string name="age_40">40代</string>
+    <string name="age_50">50代</string>
+    <string name="age_60_adove">60代以上</string>
+
     <!-- 無償・有償 -->
     <string name="charge_title">無償・有償</string>    
     <string name="charge_not">無償</string>
