@@ -1,6 +1,7 @@
 package com.example.camemode.Fragment.MyPage
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import com.example.camemode.Fragment.BaseFragment
 
 import com.example.camemode.R
+import com.example.camemode.UserInfoRegistActivity
 import kotlinx.android.synthetic.main.fragment_my_page.*
 
 class MyPageFragment : BaseFragment() {
@@ -47,7 +49,9 @@ class MyPageFragment : BaseFragment() {
         // ToDo:レイアウトを共通化する
         my_data.setOnClickListener {
 //            showFragment(MyDataShowFragment())
-            showFragment(MyDataRegisterFragment())
+//            showFragment(MyDataRegisterFragment())
+            val intent = Intent(context, UserInfoRegistActivity::class.java)
+            startActivity(intent)
         }
 
         faq.setOnClickListener {
