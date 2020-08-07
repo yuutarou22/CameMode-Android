@@ -28,6 +28,8 @@ class UserInfoRegistActivity : AppCompatActivity() {
         // アダプタのインスタンス生成、アダプタのセット
         val adapter = UserInfoRegistViewPagerAdapter(supportFragmentManager, fragmentList)
         user_info_regist_view_pager.adapter = adapter
+
+        user_info_regist_view_pager.setPagingEnabled(false)
     }
 
 }
