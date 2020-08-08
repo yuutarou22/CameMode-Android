@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
+import com.example.camemode.Fragment.HomeFragment
 import com.example.camemode.Fragment.UserInfoDetailFragment
 import com.example.camemode.Model.UserInfo.Companion.FIELD_AGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
@@ -125,7 +126,13 @@ public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager
         userInfoDetailFragment.arguments = createUserInfoToBundle(list.get(position))
 
         userInfoDetailFragment.enterTransition = slide
-        fragmentTransaction.replace(R.id.fragment_home_container, userInfoDetailFragment)
+
+        if (fragmentManager.fragments.get(0) is HomeFragment) {
+            fragmentTransaction.replace(R.id.fragment_home_container, userInfoDetailFragment)
+        } else {
+            fragmentTransaction.replace(R.id.fragment_search_result_container, userInfoDetailFragment)
+        }
+
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
     }
