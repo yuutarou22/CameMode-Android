@@ -30,6 +30,16 @@ class UserInfoRegistActivity : AppCompatActivity() {
         user_info_regist_view_pager.adapter = adapter
 
         user_info_regist_view_pager.setPagingEnabled(false)
+
+        user_info_regist_view_pager_indicator.setupWithViewPager(user_info_regist_view_pager)
+
+        next_button.setOnClickListener {
+            user_info_regist_view_pager.currentItem += 1
+        }
+
+        back_button.setOnClickListener {
+            user_info_regist_view_pager.currentItem -= 1
+        }
     }
 
 }
