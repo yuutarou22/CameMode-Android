@@ -32,7 +32,7 @@ class UserInfoRegistActivity : AppCompatActivity() {
         user_info_regist_view_pager.setPagingEnabled(false)
 
         // インジケータの設定
-        user_info_regist_view_pager_indicator.setupWithViewPager(user_info_regist_view_pager)
+        setupIndicator()
 
         user_info_regist_view_pager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
             override fun onPageSelected(position: Int) {
@@ -64,5 +64,14 @@ class UserInfoRegistActivity : AppCompatActivity() {
             UserInfoRegistFragment03(),
             UserInfoRegistFragment04()
         )
+    }
+
+    private fun setupIndicator() {
+        user_info_regist_view_pager_indicator.setupWithViewPager(user_info_regist_view_pager, true)
+        user_info_regist_view_pager_indicator.clearOnTabSelectedListeners()
+
+        for (view in user_info_regist_view_pager_indicator.touchables) {
+            view.isEnabled = false
+        }
     }
 }
