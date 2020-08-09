@@ -17,6 +17,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/user_info_regist_view_pager_indicator"/>
 
+    <com.google.android.material.tabs.TabLayout
+            android:id="@+id/user_info_regist_view_pager_indicator"
+            app:tabBackground="@drawable/indicator_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBottom_toTopOf="@+id/next_button"/>
+
     <Button
             android:id="@+id/next_button"
             android:text="次へ"
@@ -47,14 +59,4 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toStartOf="@+id/next_button"/>
 
-    <com.google.android.material.tabs.TabLayout
-            android:id="@+id/user_info_regist_view_pager_indicator"
-            app:tabBackground="@drawable/indicator_selector"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:tabGravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintBottom_toTopOf="@+id/next_button"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
