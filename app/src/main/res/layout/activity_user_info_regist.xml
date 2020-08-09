@@ -33,7 +33,7 @@
 
     <Button
             android:id="@+id/back_button"
-            android:text="戻る"
+            android:text="マイページへ戻る"
             android:textSize="20dp"
             android:gravity="center"
             android:background="@color/colorPrimary"
