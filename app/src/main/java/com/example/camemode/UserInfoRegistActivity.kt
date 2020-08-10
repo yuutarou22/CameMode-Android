@@ -36,10 +36,15 @@ class UserInfoRegistActivity : AppCompatActivity() {
 
         user_info_regist_view_pager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
             override fun onPageSelected(position: Int) {
-                if (position == 0) {
-                    back_button.setText("マイページへ戻る")
-                } else {
-                    back_button.setText("戻る")
+                val INDICATOR_SIZE = fragmentList.size - 1
+
+                when (position) {
+                    0 -> back_button.setText("マイページへ戻る")
+                    INDICATOR_SIZE -> next_button.setText("登録する")
+                    else -> {
+                        next_button.setText("次へ")
+                        back_button.setText("戻る")
+                    }
                 }
             }
         })
