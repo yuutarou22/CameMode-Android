@@ -64,14 +64,8 @@ Issueを使って、タスク管理を行う。下記の記事を参考にして
 - [EditTextのキーボードタイプを指定](https://www.programing-style.com/android/android-api/android-edittext-keyboard/)
   - [入力できる文字列をdigitsで制限](https://qiita.com/a__i__r/items/8a7efaeeeae9b8c56f81)
 - [RadioButtonの選択しているものを取得](https://hirauchi-genta.com/kotlin-radiobutton/)
+- [EditTextに入力中の文字がソフトキーボードで隠れるのを防ぎたい](https://medium.com/url-memo/edittext-hidden-by-softkeybord-5406484db3ec)
 
 ## 活用したサービス
 - [stories](https://stories.freepik.com/)
 - [RGBと16進数カラーコードの相互変換ツール](https://www.peko-step.com/tool/tfcolor.html)
-
-## ToDo(あとで消す)
-
-- 画面遷移
-  - 詳細検索画面
-- チュートリアル画面の作成
-- 使い方をライブラリを使用して実装
