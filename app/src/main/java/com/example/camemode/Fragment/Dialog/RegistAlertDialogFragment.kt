@@ -19,7 +19,11 @@ class RegistAlertDialogFragment : DialogFragment(){
         super.onAttach(context)
 
         try {
-            mListener = this.targetFragment as DialogOkClickListener
+            if (targetFragment != null) {
+                mListener = targetFragment as DialogOkClickListener
+            } else {
+                mListener = activity as DialogOkClickListener
+            }
         } catch (e: ClassCastException) {
             throw ClassCastException((context.toString() +
                     " must implement DialogOkClickListener"))
