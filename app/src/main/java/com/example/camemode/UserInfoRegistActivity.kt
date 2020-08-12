@@ -1,6 +1,7 @@
 package com.example.camemode
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.util.Log
@@ -25,6 +26,12 @@ import kotlinx.android.synthetic.main.fragment_user_info_regist_04.*
 class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.DialogOkClickListener {
 
     /**
+     * ローカル保持用
+     */
+    lateinit var data : SharedPreferences
+    lateinit var editor : SharedPreferences.Editor
+
+    /**
      * 登録用変数
      */
     var categoryRoleIndex: Int = 0
@@ -36,6 +43,9 @@ class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.Di
     var age: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        data = getSharedPreferences("UserInfoData", Context.MODE_PRIVATE)
+        editor = data.edit()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_info_regist)
 
@@ -139,6 +149,16 @@ class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.Di
             obj.put("age", age)
             obj.put("photoImage", photo_image_input.text.toString())
 
+            editor.putInt("categoryRole", categoryRoleIndex)
+            editor.putString("displayName", displayName)
+            editor.putString("twitterId", twitterId)
+            editor.putInt("charge", whichChargeIndex)
+            editor.putLong("region", region)
+            editor.putLong("sex", sex)
+            editor.putLong("age", age)
+            editor.putString("photoImage", photo_image_input.text.toString())
+
+            editor.commit()
             obj.saveInBackground { e ->
                 if (e != null) {
                     Log.d("TEST", "保存失敗")
