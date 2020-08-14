@@ -38,9 +38,9 @@ class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.Di
     var displayName: String = ""
     var twitterId: String = ""
     var whichChargeIndex: Int = 0
-    var region: Long = 0
-    var sex: Long = 0
-    var age: Long = 0
+    var region: Int = 0
+    var sex: Int = 0
+    var age: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         data = getSharedPreferences("UserInfoData", Context.MODE_PRIVATE)
@@ -111,9 +111,9 @@ class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.Di
                 }
                 2 -> {
                     whichChargeIndex = which_charge.indexOfChild(which_charge.findViewById<RadioButton>(which_charge.checkedRadioButtonId))
-                    region = region_spinner.selectedItemId
-                    sex = sex_spinner.selectedItemId
-                    age = age_spinner.selectedItemId
+                    region = region_spinner.selectedItemId.toInt()
+                    sex = sex_spinner.selectedItemId.toInt()
+                    age = age_spinner.selectedItemId.toInt()
                 }
                 3 -> {
                     if (photo_image_input.text.isEmpty()) {
@@ -153,9 +153,9 @@ class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.Di
             editor.putString("displayName", displayName)
             editor.putString("twitterId", twitterId)
             editor.putInt("charge", whichChargeIndex)
-            editor.putLong("region", region)
-            editor.putLong("sex", sex)
-            editor.putLong("age", age)
+            editor.putInt("region", region)
+            editor.putInt("sex", sex)
+            editor.putInt("age", age)
             editor.putString("photoImage", photo_image_input.text.toString())
 
             editor.commit()
