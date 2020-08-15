@@ -119,8 +119,9 @@ class UserInfoDetailFragment : Fragment() {
      */
     private fun getCharge(charge: Int?): String {
         return when(charge) {
-            0 -> getString(R.string.charge)
-            else -> getString(R.string.charge_not)
+            0 -> getString(R.string.charge_not)
+            1 -> getString(R.string.charge_both)
+            else -> getString(R.string.charge)
         }
     }
 

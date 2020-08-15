@@ -81,9 +81,10 @@
     <string name="age_60_adove">60代以上</string>
 
     <!-- 無償・有償 -->
-    <string name="charge_title">無償・有償</string>    
+    <string name="charge_title">無償・有償</string>
     <string name="charge_not">無償</string>
     <string name="charge">有償</string>
+    <string name="charge_both">どちらでも</string>
 
     <!-- 性別 -->
     <string name="sex_title">性別</string>
