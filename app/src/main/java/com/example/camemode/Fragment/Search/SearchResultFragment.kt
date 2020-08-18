@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.camemode.Fragment.BaseFragment
+import com.example.camemode.Model.UserInfo.Companion.FIELD_AGE
+import com.example.camemode.Model.UserInfo.Companion.FIELD_CHARGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_REGION
+import com.example.camemode.Model.UserInfo.Companion.FIELD_SEX
 import com.example.camemode.Model.UserInfoModel
 
 import com.example.camemode.R
@@ -19,6 +22,8 @@ import kotlinx.android.synthetic.main.fragment_search_result.*
 class SearchResultFragment : BaseFragment(), SearchUtil.SearchedListener {
     val searchUtil = SearchUtil()
     val displayUtil = DisplayUtil()
+
+    val NONE_VALUE = 5
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,15 +53,31 @@ class SearchResultFragment : BaseFragment(), SearchUtil.SearchedListener {
         loading_indicator.visibility = android.widget.ProgressBar.VISIBLE
         searchUtil.setSearchLitener(this)
 
-        val categoryRole = arguments?.getInt(FIELD_REGION)
-        val region = arguments?.getInt(FIELD_REGION)
+        // 検索実行時の入力値を取得
+        val categoryRoleIndex = arguments?.getInt(FIELD_REGION)
+        val whichChargeIndex = arguments?.getInt(FIELD_CHARGE, NONE_VALUE)
+        val regionIndex = arguments?.getInt(FIELD_REGION)
+        val sexIndex = arguments?.getInt(FIELD_SEX, NONE_VALUE)
+        val ageIndex = arguments?.getInt(FIELD_AGE, NONE_VALUE)
 
-        searchUtil.searchUserInfo(categoryRole, region)
+        if (isSimpleSearch(whichChargeIndex, sexIndex, ageIndex)) {
+            // １つでもNONE_VALUE（5）だった場合、かんたん検索
+            searchUtil.searchUserInfo(categoryRoleIndex, regionIndex)
 
-        swipe_refresh?.setOnRefreshListener {
-            searchUtil.searchUserInfo(categoryRole, region)
-            if (swipe_refresh.isRefreshing()) {
-                swipe_refresh.isRefreshing = false
+            swipe_refresh?.setOnRefreshListener {
+                searchUtil.searchUserInfo(categoryRoleIndex, regionIndex)
+                if (swipe_refresh.isRefreshing()) {
+                    swipe_refresh.isRefreshing = false
+                }
+            }
+        } else {
+            searchUtil.searchUserInfo(categoryRoleIndex, whichChargeIndex, regionIndex, sexIndex, ageIndex)
+
+            swipe_refresh?.setOnRefreshListener {
+                searchUtil.searchUserInfo(categoryRoleIndex, regionIndex)
+                if (swipe_refresh.isRefreshing()) {
+                    swipe_refresh.isRefreshing = false
+                }
             }
         }
     }
@@ -85,5 +106,16 @@ class SearchResultFragment : BaseFragment(), SearchUtil.SearchedListener {
         // 以下の処理がないと、ボタンが押下できない
         swipe_refresh.visibility = android.widget.TextView.GONE
         loading_indicator.visibility = android.widget.TextView.GONE
+    }
+
+    /**
+     * かんたん検索か判定する
+     * いずれか１つでもNONE_VALUE(5)だった場合、Trueを返す
+     */
+    private fun isSimpleSearch(whichChargeIndex: Int?, sexIndex: Int?, ageIndex: Int?): Boolean {
+        if (whichChargeIndex == NONE_VALUE || sexIndex == NONE_VALUE || ageIndex == NONE_VALUE) {
+            return true
+        }
+        return false
     }
 }
