@@ -158,14 +158,13 @@ class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.Di
             editor.putInt("age", age)
             editor.putString("photoImage", photo_image_input.text.toString())
 
-            editor.commit()
             obj.saveInBackground { e ->
                 if (e != null) {
                     Log.d("TEST", "保存失敗")
                 } else {
                     Log.d("TEST", "保存成功")
-                    // Todo: ローカルにもユーザ情報を保持する（登録しているフラグをたて、ユーザ情報+ObjectId）
-//                    showFragment(HomeFragment())
+                    editor.putString("objectId", obj.objectId)
+                    editor.commit()
                     finish()
                 }
             }
