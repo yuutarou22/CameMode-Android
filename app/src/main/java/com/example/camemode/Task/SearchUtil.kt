@@ -36,11 +36,46 @@ class SearchUtil {
         return userInfoList
     }
 
+    /**
+     * かんたん検索画面用　検索メソッド
+     */
     fun searchUserInfo(categoryRole: Int?, region: Int?): ArrayList<UserInfoModel>? {
         var query = NCMBQuery<NCMBObject>("UserInfo")
         query.addOrderByDescending("updateDate")
         query.whereEqualTo(FIELD_CATEGORY_ROLE, categoryRole)
         query.whereEqualTo(FIELD_REGION, region)
+        query.setLimit(15)
+        query.findInBackground { mutableList, ncmbException ->
+            if (ncmbException != null) {
+                Log.d("ERROR", "NCMB findInBackground error: " + ncmbException.message)
+            } else {
+                for (obj in mutableList) {
+                    Log.d("TEST", obj.getString("displayName"))
+                }
+                saveUserInfo(mutableList)
+            }
+        }
+        return userInfoList
+    }
+
+    /**
+     * 詳細検索画面用　検索メソッド
+     */
+    fun searchUserInfo(categoryRoleIndex: Int?,
+                       whichChargeIndex: Int?,
+                       regionIndex: Int?,
+                       sexIndex: Int?,
+                       ageIndex: Int?)
+            :ArrayList<UserInfoModel>? {
+        var query = NCMBQuery<NCMBObject>("UserInfo")
+
+        query.addOrderByDescending("updateDate")
+        query.whereEqualTo(FIELD_CATEGORY_ROLE, categoryRoleIndex)
+        query.whereEqualTo(FIELD_CHARGE, whichChargeIndex)
+        query.whereEqualTo(FIELD_REGION, regionIndex)
+        query.whereEqualTo(FIELD_SEX, sexIndex)
+        query.whereEqualTo(FIELD_AGE, ageIndex)
+
         query.setLimit(15)
         query.findInBackground { mutableList, ncmbException ->
             if (ncmbException != null) {
