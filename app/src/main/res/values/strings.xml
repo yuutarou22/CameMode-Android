@@ -15,9 +15,9 @@
     <string name="no_data_button">検索画面へ戻る</string>
 
     <!-- マイページ -->
-    <string name="mypage_mydata_button">マイデータ</string>
+    <string name="mypage_mydata_button">マイデータ登録</string>
     <string name="mypage_faq_button">よくある質問</string>
-    <string name="mypage_app_term_button">アプリ利用規約</string>
+    <string name="mypage_app_term_button">利用規約</string>
 
     <!-- カテゴリ種別 -->
     <string name="category_role_camera">カメラマン</string>
