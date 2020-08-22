@@ -99,8 +99,8 @@ class SearchResultFragment : BaseFragment(), SearchUtil.SearchedListener {
         no_data_text.visibility = android.widget.TextView.VISIBLE
         no_data_button.visibility = android.widget.Button.VISIBLE
         no_data_button?.setOnClickListener {
-            android.util.Log.d("TEST", "no_data_button")
-            showFragment(SearchSimpleFragment())
+            // かんたん検索、詳細検索関わらず、Fragmentを1つ戻す
+            fragmentManager?.popBackStack()
         }
 
         // 以下の処理がないと、ボタンが押下できない
