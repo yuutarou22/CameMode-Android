@@ -60,6 +60,10 @@ class MyDataShowFragment : BaseFragment() {
 
         edit_bubtton.visibility = View.VISIBLE
 
+        edit_bubtton.setOnClickListener {
+            showFragment(MyDataEditFragment())
+        }
+
         back_button.setOnClickListener {
             fragmentManager?.popBackStack()
         }
