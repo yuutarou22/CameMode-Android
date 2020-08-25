@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import com.example.camemode.Fragment.BaseFragment
 
 import com.example.camemode.R
+class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkClickListener {
 
-class MyDataEditFragment : BaseFragment() {
     /**
      * ローカル保持用
      */
@@ -44,7 +44,16 @@ class MyDataEditFragment : BaseFragment() {
         sex_spinner.setSelection(data.getInt(UserInfo.FIELD_SEX, 1))
         age_spinner.setSelection(data.getInt(UserInfo.FIELD_AGE, 1))
         imagination_hope.setText(data.getString(UserInfo.FIELD_PHOTO_IMAGE, ""), TextView.BufferType.NORMAL)
+
+        update_button.setOnClickListener {
+            val alertDialogFragment = RegistAlertDialogFragment().newInstance(this)
+            fragmentManager?.let { it1 -> alertDialogFragment.show(it1, "aleartDialog") }
+        }
     }
+
+    override fun onOkClicked(dialog: DialogFragment) {
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }

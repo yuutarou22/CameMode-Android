@@ -1,6 +1,8 @@
 package com.example.camemode.Fragment.Dialog
 
 import android.app.Dialog
+import androidx.fragment.app.Fragment
+
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -45,5 +47,11 @@ class RegistAlertDialogFragment : DialogFragment(){
 
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be nunll")
+    }
+
+    fun newInstance(fragment: Fragment) :RegistAlertDialogFragment {
+        var instance : RegistAlertDialogFragment = RegistAlertDialogFragment()
+        instance.setTargetFragment(fragment, 0)
+        return instance
     }
 }
