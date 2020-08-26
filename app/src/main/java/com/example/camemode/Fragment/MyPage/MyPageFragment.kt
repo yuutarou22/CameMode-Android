@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.camemode.Fragment.BaseFragment
 
 import com.example.camemode.R
@@ -60,6 +59,9 @@ class MyPageFragment : BaseFragment() {
 
     private fun initView() {
         // ToDo:レイアウトを共通化する
+
+        outputSharedPreferences()
+
         if (data.contains("displayName")) {
             my_data_label.text = "マイデータ編集"
         }
@@ -67,7 +69,7 @@ class MyPageFragment : BaseFragment() {
         my_data.setOnClickListener {
             if (data.contains("displayName")) {
                 // 登録している場合
-                Toast.makeText(this.context, "登録している", Toast.LENGTH_SHORT).show()
+                showFragment(MyDataShowFragment())
             } else {
                 // 登録していない場合
                 val intent = Intent(context, UserInfoRegistActivity::class.java)
@@ -82,5 +84,17 @@ class MyPageFragment : BaseFragment() {
         app_term.setOnClickListener {
             showFragment(AppTermFragment())
         }
+    }
+
+    private fun outputSharedPreferences() {
+        android.util.Log.d("TEST", "SharedPreferences---objectId: ${data.getString("objectId","")}")
+        android.util.Log.d("TEST", "SharedPreferences---categoryRole: ${data.getInt("categoryRole",1)}")
+        android.util.Log.d("TEST", "SharedPreferences---displayName: ${data.getString("displayName","")}")
+        android.util.Log.d("TEST", "SharedPreferences---twitterId: ${data.getString("twitterId","")}")
+        android.util.Log.d("TEST", "SharedPreferences---charge: ${data.getInt("charge",1)}")
+        android.util.Log.d("TEST", "SharedPreferences---region: ${data.getInt("region",1)}")
+        android.util.Log.d("TEST", "SharedPreferences---sex: ${data.getInt("sex",1)}")
+        android.util.Log.d("TEST", "SharedPreferences---age: ${data.getInt("age",1)}")
+        android.util.Log.d("TEST", "SharedPreferences---photoImage: ${data.getString("photoImage","")}")
     }
 }
