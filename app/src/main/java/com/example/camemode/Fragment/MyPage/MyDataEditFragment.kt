@@ -3,12 +3,23 @@ package com.example.camemode.Fragment.MyPage
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
+import android.widget.TextView
+import androidx.fragment.app.DialogFragment
 import com.example.camemode.Fragment.BaseFragment
+import com.example.camemode.Fragment.Dialog.RegistAlertDialogFragment
+import com.example.camemode.Fragment.HomeFragment
+import com.example.camemode.Model.UserInfo
 
 import com.example.camemode.R
+import com.nifcloud.mbaas.core.NCMBException
+import com.nifcloud.mbaas.core.NCMBObject
+import kotlinx.android.synthetic.main.fragment_my_data_edit.*
+
 class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkClickListener {
 
     /**
@@ -17,16 +28,28 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
     lateinit var data : SharedPreferences
     lateinit var editor : SharedPreferences.Editor
 
+    /**
+     * ユーザ情報更新用
+     */
+    var categoryRoleIndex: Int = 0
+    var displayName: String = ""
+    var twitterId: String = ""
+    var whichChargeIndex: Int = 0
+    var region: Int = 0
+    var sex: Int = 0
+    var age: Int = 0
+    var photoImage: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        data = context!!.getSharedPreferences("UserInfoData", Context.MODE_PRIVATE)
+        data = requireContext().getSharedPreferences("UserInfoData", Context.MODE_PRIVATE)
+        editor = data.edit()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_my_data_edit, container, false)
     }
 
@@ -43,15 +66,63 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
         region_spinner.setSelection(data.getInt(UserInfo.FIELD_REGION, 1))
         sex_spinner.setSelection(data.getInt(UserInfo.FIELD_SEX, 1))
         age_spinner.setSelection(data.getInt(UserInfo.FIELD_AGE, 1))
-        imagination_hope.setText(data.getString(UserInfo.FIELD_PHOTO_IMAGE, ""), TextView.BufferType.NORMAL)
+        photo_image_input_edit.setText(data.getString(UserInfo.FIELD_PHOTO_IMAGE, ""), TextView.BufferType.NORMAL)
 
         update_button.setOnClickListener {
+            // Fragmentから単純にDialogFragmentを呼び出せないので一手間かけて呼び出す
             val alertDialogFragment = RegistAlertDialogFragment().newInstance(this)
             fragmentManager?.let { it1 -> alertDialogFragment.show(it1, "aleartDialog") }
         }
     }
 
     override fun onOkClicked(dialog: DialogFragment) {
+        var obj = NCMBObject("UserInfo")
+
+        categoryRoleIndex = category_role.indexOfChild(category_role.findViewById<RadioButton>(category_role.checkedRadioButtonId))
+        displayName = editText.text.toString()
+        twitterId = editText2.text.toString()
+        whichChargeIndex = which_charge.indexOfChild(which_charge.findViewById<RadioButton>(which_charge.checkedRadioButtonId))
+        region = region_spinner.selectedItemId.toInt()
+        sex = sex_spinner.selectedItemId.toInt()
+        age = age_spinner.selectedItemId.toInt()
+        photoImage = photo_image_input_edit.text.toString()
+
+        try {
+            obj.put("categoryRole", categoryRoleIndex)
+            obj.put("displayName", displayName)
+            obj.put("twitterId", twitterId)
+            obj.put("charge", whichChargeIndex)
+            obj.put("region", region)
+            obj.put("sex", sex)
+            obj.put("age", age)
+            obj.put("photoImage", photoImage)
+
+            editor.putInt("categoryRole", categoryRoleIndex)
+            editor.putString("displayName", displayName)
+            editor.putString("twitterId", twitterId)
+            editor.putInt("charge", whichChargeIndex)
+            editor.putInt("region", region)
+            editor.putInt("sex", sex)
+            editor.putInt("age", age)
+            editor.putString("photoImage", photoImage)
+
+            // ObjectIdを指定し、登録処理をすると更新処理を実行する
+            obj.objectId = data.getString("objectId", "")
+
+            obj.saveInBackground { e ->
+                if (e != null) {
+                    Log.d("TEST", "保存失敗")
+                } else {
+                    Log.d("TEST", "保存成功")
+                    editor.putString("objectId", obj.objectId)
+                    editor.commit()
+                    showFragment(HomeFragment())
+                }
+            }
+
+        } catch (e: NCMBException) {
+            e.printStackTrace()
+        }
     }
 
     override fun onAttach(context: Context) {
