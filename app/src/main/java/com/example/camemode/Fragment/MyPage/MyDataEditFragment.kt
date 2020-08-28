@@ -114,8 +114,6 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
                     Log.d("TEST", "保存失敗")
                 } else {
                     Log.d("TEST", "保存成功")
-                    editor.putString("objectId", obj.objectId)
-                    editor.commit()
                     showFragment(HomeFragment())
                 }
             }
