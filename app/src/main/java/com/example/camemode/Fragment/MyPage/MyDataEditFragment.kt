@@ -2,6 +2,7 @@ package com.example.camemode.Fragment.MyPage
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +14,8 @@ import androidx.fragment.app.DialogFragment
 import com.example.camemode.Fragment.BaseFragment
 import com.example.camemode.Fragment.Dialog.RegistAlertDialogFragment
 import com.example.camemode.Fragment.HomeFragment
+import com.example.camemode.Fragment.UserInfoRegist.UserInfoRegistFragment04
+import com.example.camemode.Interface.TextWatchable
 import com.example.camemode.Model.UserInfo
 
 import com.example.camemode.R
@@ -67,6 +70,17 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
         sex_spinner.setSelection(data.getInt(UserInfo.FIELD_SEX, 1))
         age_spinner.setSelection(data.getInt(UserInfo.FIELD_AGE, 1))
         photo_image_input_edit.setText(data.getString(UserInfo.FIELD_PHOTO_IMAGE, ""), TextView.BufferType.NORMAL)
+
+        photo_image_input_edit.addTextChangedListener(object : TextWatchable {
+            override fun onTextChanged(str: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                var textColor: Int = Color.GRAY
+                var textLength: Int = str!!.length
+                photo_image_text_count_edit.text = "${textLength}/200"
+                if (textLength >= UserInfoRegistFragment04.MAX_PHOTO_IMAGE_LENGTH)
+                    textColor = Color.RED
+                photo_image_text_count_edit.setTextColor(textColor)
+            }
+        })
 
         update_button.setOnClickListener {
             // Fragmentから単純にDialogFragmentを呼び出せないので一手間かけて呼び出す
