@@ -6,4 +6,5 @@
     <color name="colorBottomNavigationBackground">#eeeeee</color>
 
     <color name="colorEditTextBackground">#EDEDED</color>
+    <color name="colorFragmentBackground">#DFEFEF</color>
 </resources>
