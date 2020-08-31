@@ -120,6 +120,10 @@ class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.Di
                         photo_image_input.setError("撮影イメージを入力してください！")
                         photo_image_input.isFocusable = true
                         validation_result = false
+                    } else if (photo_image_input.text.length > 200) {
+                        photo_image_input.setError("文字数制限を超えています！")
+                        photo_image_input.isFocusable = true
+                        validation_result = false
                     }
                 }
                 else -> {}
