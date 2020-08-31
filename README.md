@@ -69,3 +69,4 @@ Issueを使って、タスク管理を行う。下記の記事を参考にして
 ## 活用したサービス
 - [stories](https://stories.freepik.com/)
 - [RGBと16進数カラーコードの相互変換ツール](https://www.peko-step.com/tool/tfcolor.html)
+- [規約ジェネレータKIYAKU](https://www.kiyaku.app/)
