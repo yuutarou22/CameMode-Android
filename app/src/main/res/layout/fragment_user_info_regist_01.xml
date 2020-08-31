@@ -1,49 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Fragment.UserInfoRegist.UserInfoRegistFragment01">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.UserInfoRegist.UserInfoRegistFragment01">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/userinfo_regist_layout_margin_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
             android:id="@+id/category_role_label"
-            android:text="希望カテゴリ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
+            android:text="希望カテゴリ"
+            android:textColor="@color/colorTitleUserInfoRegist"
+            android:textSize="@dimen/userinfo_regist_title_text_size" />
 
-    <RadioGroup
+        <RadioGroup
             android:id="@+id/category_role"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/category_role_label">
+            android:orientation="vertical">
 
-        <RadioButton
+            <RadioButton
                 android:id="@+id/category_role_cameraman"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/category_role_camera"/>
+                android:text="@string/category_role_camera" />
 
-        <RadioButton
+            <RadioButton
                 android:id="@+id/category_role_model"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/category_role_model"/>
+                android:text="@string/category_role_model" />
 
-        <RadioButton
+            <RadioButton
                 android:id="@+id/category_role_none"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="@string/category_role_camera_model"/>
-    </RadioGroup>
+                android:text="@string/category_role_camera_model" />
+        </RadioGroup>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
