@@ -1,126 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.UserInfoRegist.UserInfoRegistFragment03">
 
-    <TextView
-        android:id="@+id/which_charge_label"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="有償・無償"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioGroup
-        android:id="@+id/which_charge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginHorizontal="@dimen/userinfo_regist_layout_margin_horizontal"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/which_charge_label">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <RadioButton
-            android:id="@+id/no_charge"
+        <TextView
+            android:id="@+id/which_charge_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="無償" />
+            android:text="有償・無償"
+            android:textColor="@color/colorTitleUserInfoRegist"
+            android:textSize="@dimen/userinfo_regist_title_text_size" />
 
-        <RadioButton
-            android:id="@+id/either"
+        <RadioGroup
+            android:id="@+id/which_charge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="どちらでも" />
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/charge"
+            <RadioButton
+                android:id="@+id/no_charge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="無償" />
+
+            <RadioButton
+                android:id="@+id/either"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="どちらでも" />
+
+            <RadioButton
+                android:id="@+id/charge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="有償" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/region_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="有償" />
-    </RadioGroup>
+            android:layout_marginTop="@dimen/userinfo_regist_layout_margin_top_element"
+            android:text="地域"
+            android:textColor="@color/colorTitleUserInfoRegist"
+            android:textSize="@dimen/userinfo_regist_title_text_size" />
 
-    <TextView
-        android:id="@+id/region_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="地域"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/which_charge" />
+        <Spinner
+            android:id="@+id/region_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/region_item_add"
+            android:spinnerMode="dialog" />
 
-    <Spinner
-        android:id="@+id/region_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:entries="@array/region_item_add"
-        android:spinnerMode="dialog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/region_label" />
+        <TextView
+            android:id="@+id/sex_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/userinfo_regist_layout_margin_top_element"
+            android:text="性別"
+            android:textColor="@color/colorTitleUserInfoRegist"
+            android:textSize="@dimen/userinfo_regist_title_text_size" />
 
-    <TextView
-        android:id="@+id/sex_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="性別"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/region_spinner" />
+        <Spinner
+            android:id="@+id/sex_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/sex_item"
+            android:spinnerMode="dialog" />
 
-    <Spinner
-        android:id="@+id/sex_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:entries="@array/sex_item"
-        android:spinnerMode="dialog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sex_label" />
+        <TextView
+            android:id="@+id/age_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/userinfo_regist_layout_margin_top_element"
+            android:text="年代"
+            android:textColor="@color/colorTitleUserInfoRegist"
+            android:textSize="@dimen/userinfo_regist_title_text_size" />
 
-    <TextView
-        android:id="@+id/age_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="年代"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sex_spinner" />
-
-    <Spinner
-        android:id="@+id/age_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:entries="@array/age_item"
-        android:spinnerMode="dialog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/age_label" />
-
+        <Spinner
+            android:id="@+id/age_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/age_item"
+            android:spinnerMode="dialog" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
