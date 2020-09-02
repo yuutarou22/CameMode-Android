@@ -1,5 +1,7 @@
 package com.example.camemode
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -38,16 +40,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         NCMB.initialize(this.applicationContext, Config.KEY_APPLICATION, Config.KEY_CLIENT)
-//        var obj:NCMBObject = NCMBObject("UserInfo")
         initView()
     }
 
     private fun initView() {
         setContentView(R.layout.activity_main)
-        showFragment(HomeFragment())
-        val navView: BottomNavigationView = findViewById(R.id.bottom_navigation)
 
-        navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        val data = getSharedPreferences("status", Context.MODE_PRIVATE)
+
+        if (!data.getBoolean("isTutorialAndAppTermFinished", false)) {
+            val intent = Intent(this, TutorialActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else {
+            showFragment(HomeFragment())
+            val navView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+            navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        }
     }
 
     fun showFragment(f: Fragment) {
