@@ -83,9 +83,17 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
         })
 
         update_button.setOnClickListener {
-            // Fragmentから単純にDialogFragmentを呼び出せないので一手間かけて呼び出す
-            val alertDialogFragment = RegistAlertDialogFragment().newInstance(this)
-            fragmentManager?.let { it1 -> alertDialogFragment.show(it1, "aleartDialog") }
+            if (photo_image_input_edit.text.isEmpty()) {
+                photo_image_input_edit.setError("撮影イメージを入力してください！")
+                photo_image_input_edit.isFocusable = true
+            } else if (photo_image_input_edit.text.length > 200) {
+                photo_image_input_edit.setError("文字数制限を超えています！")
+                photo_image_input_edit.isFocusable = true
+            } else {
+                // Fragmentから単純にDialogFragmentを呼び出せないので一手間かけて呼び出す
+                val alertDialogFragment = RegistAlertDialogFragment().newInstance(this)
+                fragmentManager?.let { it1 -> alertDialogFragment.show(it1, "aleartDialog") }
+            }
         }
     }
 

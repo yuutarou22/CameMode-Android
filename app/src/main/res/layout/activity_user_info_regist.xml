@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff">
 
+    <!--タッチイベントなどを無効にする独自のViewPager(UserInfoRegistViewPager)を実装-->
     <com.example.camemode.UserInfoRegistViewPager
         android:id="@+id/user_info_regist_view_pager"
         android:layout_width="match_parent"
