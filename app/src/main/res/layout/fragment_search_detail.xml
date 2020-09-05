@@ -14,6 +14,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="希望カテゴリ"
+        android:textSize="@dimen/userinfo_detail_search_title_text_size"
+        android:textColor="@color/colorContentTitleText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -59,6 +61,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="有償・無償"
+        android:textSize="@dimen/userinfo_detail_search_title_text_size"
+        android:textColor="@color/colorContentTitleText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/category_role" />
@@ -104,6 +108,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="地域"
+        android:textSize="@dimen/userinfo_detail_search_title_text_size"
+        android:textColor="@color/colorContentTitleText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/which_charge" />
@@ -127,6 +133,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="性別"
+        android:textSize="@dimen/userinfo_detail_search_title_text_size"
+        android:textColor="@color/colorContentTitleText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/region_spinner" />
@@ -150,20 +158,22 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="年代"
+        android:textSize="@dimen/userinfo_detail_search_title_text_size"
+        android:textColor="@color/colorContentTitleText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sex_spinner" />
 
     <Spinner
-        android:id="@+id/age_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:entries="@array/age_item"
-        android:spinnerMode="dialog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/age_label" />
+            android:id="@+id/age_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/age_item"
+            android:spinnerMode="dialog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/age_label"/>
 
     <ImageButton
         android:id="@+id/search_detail_button_execute"
