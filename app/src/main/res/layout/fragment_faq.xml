@@ -5,4 +5,8 @@
              android:layout_height="match_parent"
              tools:context=".Fragment.MyPage.FaqFragment">
 
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/faq_info_list"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
 </FrameLayout>
