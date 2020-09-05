@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="表示名"
-            android:textColor="@color/colorTitleUserInfoRegist"
+            android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
 
         <EditText
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/userinfo_regist_layout_margin_top_element"
             android:text="TwitterアカウントID"
-            android:textColor="@color/colorTitleUserInfoRegist"
+            android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
 
         <EditText
