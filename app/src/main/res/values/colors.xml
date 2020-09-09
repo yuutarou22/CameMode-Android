@@ -6,7 +6,7 @@
     <color name="colorBottomNavigationBackground">#eeeeee</color>
 
     <color name="colorEditTextBackground">#EDEDED</color>
-    <color name="colorTitleUserInfoRegist">#202020</color>
+    <color name="colorContentTitleText">#202020</color>
     <color name="colorFragmentBackground">#DFEFEF</color>
 
 </resources>

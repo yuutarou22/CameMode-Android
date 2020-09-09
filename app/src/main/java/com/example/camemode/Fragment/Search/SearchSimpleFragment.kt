@@ -1,11 +1,13 @@
 package com.example.camemode.Fragment.Search
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import android.widget.Toast
 import com.example.camemode.Fragment.BaseFragment
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_REGION
@@ -44,15 +46,24 @@ class SearchSimpleFragment : BaseFragment() {
     }
 
     private fun initView() {
+        radio_group.setOnCheckedChangeListener { radioGroup, checkedId ->
+            var checkedRadioButton = radio_group.findViewById<RadioButton>(checkedId)
+            if (checkedRadioButton == radio_camera) {
+                radio_camera.setBackgroundColor(Color.RED)
+                radio_model.setBackgroundColor(Color.WHITE)
+            } else {
+                radio_model.setBackgroundColor(Color.RED)
+                radio_camera.setBackgroundColor(Color.WHITE)
+            }
+        }
+
         search_simple_button_execute?.setOnClickListener {
             val categoryRoleIndex = radio_group.indexOfChild(radio_group.findViewById<RadioButton>(radio_group.checkedRadioButtonId))
             val regionIndex  = spinner_region.selectedItemPosition
 
             if (categoryRoleIndex.equals(-1)) {
-                android.util.Log.d("TEST", "ERROR initView index: " + categoryRoleIndex + ", regionIndex: " + regionIndex)
-                // ToDo: エラーダイアログ表示
+                Toast.makeText(activity, "カテゴリ種別を選択してください！", Toast.LENGTH_SHORT).show()
             } else {
-                android.util.Log.d("TEST", "initView index: " + categoryRoleIndex + ", regionIndex: " + regionIndex)
                 val bundle = Bundle()
                 val searchResultFragment = SearchResultFragment()
 

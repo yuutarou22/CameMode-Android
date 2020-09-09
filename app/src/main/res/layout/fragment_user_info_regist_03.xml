@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="有償・無償"
-            android:textColor="@color/colorTitleUserInfoRegist"
+            android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
 
         <RadioGroup
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/userinfo_regist_layout_margin_top_element"
             android:text="地域"
-            android:textColor="@color/colorTitleUserInfoRegist"
+            android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
 
         <Spinner
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/userinfo_regist_layout_margin_top_element"
             android:text="性別"
-            android:textColor="@color/colorTitleUserInfoRegist"
+            android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
 
         <Spinner
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/userinfo_regist_layout_margin_top_element"
             android:text="年代"
-            android:textColor="@color/colorTitleUserInfoRegist"
+            android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
 
         <Spinner
