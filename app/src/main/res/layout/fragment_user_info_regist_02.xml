@@ -24,6 +24,11 @@
             android:text="表示名"
             android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/regist_02_display_name_exp"/>
 
         <EditText
             android:id="@+id/display_name_input"
@@ -38,6 +43,12 @@
             android:text="TwitterアカウントID"
             android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/regist_02_twitter_id_exp"/>
 
         <EditText
             android:id="@+id/twitter_id_input"

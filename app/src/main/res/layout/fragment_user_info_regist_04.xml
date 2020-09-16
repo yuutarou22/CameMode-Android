@@ -23,6 +23,12 @@
             android:text="撮影イメージ"
             android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/regist_04_photo_image"/>
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nest"

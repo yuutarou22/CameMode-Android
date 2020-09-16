@@ -267,6 +267,11 @@
     </string>
 	
 	<!-- ユーザ情報登録画面 -->
+	<string name="regist_01_category_role_exp">あなたの専門を選択ください。</string>
+	<string name="regist_02_display_name_exp">アプリ内での表示名を入力ください。</string>
+	<string name="regist_02_twitter_id_exp">連携するTwitterのIDを入力ください。</string>
+	<string name="regist_03_exp">下の各項目を入力ください。</string>
+	<string name="regist_04_photo_image">撮影時のイメージなど、ご自由に入力ください。</string>
 	<string name="regist_alert_dialog_confirm_title">登録確認</string>
 	<string name="regist_alert_dialog_confirm_message">この情報で登録してよろしいですか？</string>
 	
