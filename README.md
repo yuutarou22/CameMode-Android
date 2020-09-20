@@ -79,6 +79,9 @@
 <img width="1384" alt="スクリーンショット 2020-04-09 8 14 08" src="https://user-images.githubusercontent.com/23667931/78842568-49522200-7a3b-11ea-8d89-cb09aedc8e3c.png">
 ※Moqupｓにて作成
 
+## 2020/09/19時点での画面遷移
+![CameMode画面遷移図 (1)](https://user-images.githubusercontent.com/23667931/93691608-5878e800-fb22-11ea-9425-289c666a059a.jpg)
+
 ## 実際に操作してもらった際のFB
 
 ### 2019/08/17 実際に撮影させてもらったモデルさんにアプリを操作してもらった際に気づいた点
