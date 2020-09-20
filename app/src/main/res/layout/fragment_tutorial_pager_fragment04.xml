@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".Fragment.Tutorial.TutorialPagerFragment04">
     
     <ImageView
@@ -34,6 +35,7 @@
         android:layout_marginBottom="8dp"
         android:onClick="onClickNextAppTerm"
         android:text="次へ進む"
+        android:background="@color/colorThema"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
