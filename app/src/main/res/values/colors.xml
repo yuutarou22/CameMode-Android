@@ -7,6 +7,13 @@
 
     <color name="colorEditTextBackground">#EDEDED</color>
     <color name="colorContentTitleText">#202020</color>
-    <color name="colorFragmentBackground">#DFEFEF</color>
 
+    <color name="colorThema">#F08C82</color>
+    <color name="colorPagerIndicator">#FF6B65</color>
+    <color name="colorContrast">#0F737D</color>
+    <color name="colorSub">#82E6F0</color>
+    <color name="colorFragmentBackground">#DFEFEF</color>
+    <color name="colorWhite">#F7F7F7</color>
+    <color name="colorNegative">#999999</color>
+    <color name="colorText" >#444444</color>
 </resources>
