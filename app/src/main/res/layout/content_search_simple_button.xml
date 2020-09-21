@@ -26,6 +26,7 @@
         <TextView
                 android:id="@+id/app_term"
                 android:text="@string/search_simple_button"
+                android:fontFamily="@font/smart_font"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"

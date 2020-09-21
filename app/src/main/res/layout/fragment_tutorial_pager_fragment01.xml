@@ -22,6 +22,7 @@
 		android:paddingHorizontal="20dp"
 		android:text="@string/tutorial_pager_1"
 		android:textSize="15dp"
+		android:fontFamily="@font/smart_font"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
