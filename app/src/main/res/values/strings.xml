@@ -6,10 +6,10 @@
 	<string name="bottom_nav_title_mypage">マイページ</string>
 	
 	<!--  初回起動時のチュートリアル文言 -->
-	<string name="tutorial_pager_1">このアプリは、カメラマンとモデルの\n「ポートレート撮影したい」という思いを叶えるためのアプリです。</string>
+	<string name="tutorial_pager_1">このアプリは、カメラマンとモデルの「ポートレート撮影したい」という思いを叶えるためのアプリです。</string>
 	<string name="tutorial_pager_2">①　撮影したいモデル、撮影してもらいたいカメラマンを探します。</string>
 	<string name="tutorial_pager_3">②　条件に合う人が見つかったら各SNS上でやり取りをし、実際に撮影をします。</string>
-	<string name="tutorial_pager_4">人に迷惑かけるようなことはやめましょう！\n\n「迷惑行為をしない」という方は、下のボタンをタップ！</string>
+	<string name="tutorial_pager_4">迷惑行為などを避け、楽しくポートレイト活動をしていきましょう！\n\n下のボタンをタップ！</string>
 	
 	<!-- 検索画面 -->
 	<string name="search_simple_button">かんたん検索</string>

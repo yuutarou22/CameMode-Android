@@ -36,7 +36,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginBottom="8dp"
-		android:text="次へ進む"
+		android:text="アプリを始める！"
 		android:background="@color/colorNegative"
 		app:layout_constraintBottom_toBottomOf="parent" />
 

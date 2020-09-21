@@ -36,5 +36,13 @@ class AppTermCheckActivity : AppCompatActivity() {
                 Toast.makeText(this, "利用規約に同意してください！", Toast.LENGTH_SHORT).show()
             }
         }
+        
+        app_term_check.setOnCheckedChangeListener { compoundButton, isChecked ->
+            if (isChecked) {
+                app_term_checked_button.setBackgroundColor(getColor(R.color.colorThema))
+            } else {
+                app_term_checked_button.setBackgroundColor(getColor(R.color.colorNegative))
+            }
+        }
     }
 }
