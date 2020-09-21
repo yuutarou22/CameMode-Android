@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="希望カテゴリ"
+            android:fontFamily="@font/smart_font"
             android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
 
@@ -35,20 +36,23 @@
                 android:id="@+id/category_role_cameraman"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/category_role_camera" />
+                android:text="@string/category_role_camera"
+                android:fontFamily="@font/smart_font"/>
 
             <RadioButton
                 android:id="@+id/category_role_model"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/category_role_model" />
+                android:text="@string/category_role_model"
+                android:fontFamily="@font/smart_font"/>
 
             <RadioButton
                 android:id="@+id/category_role_none"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="@string/category_role_camera_model" />
+                android:text="@string/category_role_camera_model"
+                android:fontFamily="@font/smart_font"/>
         </RadioGroup>
     </LinearLayout>
 

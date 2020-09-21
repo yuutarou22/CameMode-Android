@@ -21,23 +21,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="撮影イメージ"
+            android:fontFamily="@font/smart_font"
             android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/nest"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/photo_image_label"
-            tools:layout_editor_absoluteX="-8dp">
+        <!--<androidx.core.widget.NestedScrollView-->
+            <!--android:id="@+id/nest"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="150dp"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:background="#ff00ff"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/photo_image_label"-->
+            <!--tools:layout_editor_absoluteX="-8dp">-->
 
             <EditText
                 android:id="@+id/photo_image_input"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="150dp"
+                android:fontFamily="@font/smart_font"
                 android:background="@color/colorEditTextBackground" />
-        </androidx.core.widget.NestedScrollView>
+        <!--</androidx.core.widget.NestedScrollView>-->
 
         <TextView
             android:id="@+id/photo_image_text_count"

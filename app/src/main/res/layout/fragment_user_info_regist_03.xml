@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="有償・無償"
+            android:fontFamily="@font/smart_font"
             android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
 
@@ -34,20 +35,23 @@
                 android:id="@+id/no_charge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="無償" />
+                android:text="無償"
+                android:fontFamily="@font/smart_font"/>
 
             <RadioButton
                 android:id="@+id/either"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="どちらでも" />
+                android:text="どちらでも"
+                android:fontFamily="@font/smart_font" />
 
             <RadioButton
                 android:id="@+id/charge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="有償" />
+                android:text="有償"
+                android:fontFamily="@font/smart_font"/>
         </RadioGroup>
 
         <TextView
@@ -56,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/userinfo_regist_layout_margin_top_element"
             android:text="地域"
+            android:fontFamily="@font/smart_font"
             android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
 
@@ -64,7 +69,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:entries="@array/region_item_add"
-            android:spinnerMode="dialog" />
+            android:spinnerMode="dialog"
+            android:fontFamily="@font/smart_font"/>
 
         <TextView
             android:id="@+id/sex_label"
@@ -72,6 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/userinfo_regist_layout_margin_top_element"
             android:text="性別"
+            android:fontFamily="@font/smart_font"
             android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
 
@@ -80,7 +87,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:entries="@array/sex_item"
-            android:spinnerMode="dialog" />
+            android:spinnerMode="dialog"
+            android:fontFamily="@font/smart_font"/>
 
         <TextView
             android:id="@+id/age_label"
@@ -88,6 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/userinfo_regist_layout_margin_top_element"
             android:text="年代"
+            android:fontFamily="@font/smart_font"
             android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_regist_title_text_size" />
 
@@ -96,6 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:entries="@array/age_item"
-            android:spinnerMode="dialog" />
+            android:spinnerMode="dialog"
+            android:fontFamily="@font/smart_font"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
