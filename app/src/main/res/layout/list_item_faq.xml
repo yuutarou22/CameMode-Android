@@ -30,7 +30,8 @@
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_vertical"
 			android:layout_weight="1"
-			android:src="@drawable/ic_search_black_24dp" />
+			android:background="@color/colorThema"
+			android:src="@drawable/ic_faq_open_24dp" />
 	</LinearLayout>
 	
 	

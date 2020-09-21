@@ -72,8 +72,14 @@ class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.Di
 
                 when (position) {
                     0 -> back_button.setText("マイページへ戻る")
-                    INDICATOR_SIZE -> next_button.setText("登録する")
+                    INDICATOR_SIZE -> {
+                        next_button.setText("登録する")
+                        next_button.setBackgroundColor(getColor(R.color.colorThema))
+                        next_button.setTextColor(getColor(R.color.colorContrast))
+                    }
                     else -> {
+                        next_button.setBackgroundColor(getColor(R.color.colorContrast))
+                        next_button.setTextColor(getColor(R.color.colorWhite))
                         next_button.setText("次へ")
                         back_button.setText("戻る")
                     }

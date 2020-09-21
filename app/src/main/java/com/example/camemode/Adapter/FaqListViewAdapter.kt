@@ -46,7 +46,16 @@ public class FaqListViewAdapter(list: ArrayList<FaqInfo>, fragmentManager: Fragm
         val FaqInfoItem = list.get(position)
 
         viewHolder.mOpenCloseButton.setOnClickListener {
-            viewHolder.mAnswerText.visibility = if(viewHolder.mAnswerText.visibility == View.GONE) View.VISIBLE else View.GONE
+
+            if (viewHolder.mAnswerText.visibility == View.GONE) {
+                viewHolder.mAnswerText.visibility = View.VISIBLE
+                viewHolder.mOpenCloseButton.setImageResource(R.drawable.ic_faq_close_24dp)
+                viewHolder.mOpenCloseButton.setBackgroundResource(R.color.colorSub)
+            } else {
+                viewHolder.mAnswerText.visibility = View.GONE
+                viewHolder.mOpenCloseButton.setImageResource(R.drawable.ic_faq_open_24dp)
+                viewHolder.mOpenCloseButton.setBackgroundResource(R.color.colorThema)
+            }
 
         }
 
