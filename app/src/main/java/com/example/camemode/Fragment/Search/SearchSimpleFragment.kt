@@ -49,11 +49,11 @@ class SearchSimpleFragment : BaseFragment() {
         radio_group.setOnCheckedChangeListener { radioGroup, checkedId ->
             var checkedRadioButton = radio_group.findViewById<RadioButton>(checkedId)
             if (checkedRadioButton == radio_camera) {
-                radio_camera.setBackgroundColor(Color.RED)
-                radio_model.setBackgroundColor(Color.WHITE)
+                radio_camera.setBackgroundResource(R.color.colorThema)
+                radio_model.setBackgroundResource(R.color.colorWhite)
             } else {
-                radio_model.setBackgroundColor(Color.RED)
-                radio_camera.setBackgroundColor(Color.WHITE)
+                radio_model.setBackgroundResource(R.color.colorThema)
+                radio_camera.setBackgroundResource(R.color.colorWhite)
             }
         }
 
