@@ -4,6 +4,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:background="@color/colorContrast"
 	tools:context=".TutorialActivity">
 	
 	<Button
@@ -40,7 +41,9 @@
 			android:layout_weight="0.5"
 			app:tabBackground="@drawable/indicator_selector"
 			app:tabGravity="center"
-			app:tabIndicatorHeight="0dp" />
+			app:tabIndicatorColor="@color/colorPagerIndicator"
+			app:tabIndicatorHeight="0dp"
+			android:background="@color/colorWhite"/>
 	</LinearLayout>
 	
 	<Button

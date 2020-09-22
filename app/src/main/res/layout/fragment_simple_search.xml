@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".Fragment.Search.SearchSimpleFragment">
     
     <LinearLayout
@@ -25,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="希望カテゴリ"
+            android:fontFamily="@font/smart_font"
             android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_simple_search_title_text_size" />
     
@@ -32,6 +34,7 @@
             android:id="@+id/radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
             android:orientation="horizontal">
         
             <RadioButton
@@ -40,7 +43,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/search_simple_radio_camera" />
+                android:text="@string/search_simple_radio_camera"
+                android:fontFamily="@font/smart_font"/>
         
             <RadioButton
                 android:id="@+id/radio_model"
@@ -48,7 +52,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/search_simple_radio_model" />
+                android:text="@string/search_simple_radio_model"
+                android:fontFamily="@font/smart_font"/>
         </RadioGroup>
     
         <TextView
@@ -57,6 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="地域"
+            android:fontFamily="@font/smart_font"
             android:textColor="@color/colorContentTitleText"
             android:textSize="@dimen/userinfo_simple_search_title_text_size" />
     
@@ -65,7 +71,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/region_item_add"
-            android:spinnerMode="dialog" />
+            android:spinnerMode="dialog"
+            android:fontFamily="@font/smart_font"/>
 
     </LinearLayout>
     
@@ -73,9 +80,9 @@
         android:id="@+id/search_simple_button_execute"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#FFE7E6"
+        android:background="@color/colorThema"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_search_red_24dp"
+        android:src="@drawable/ic_search_24dp"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

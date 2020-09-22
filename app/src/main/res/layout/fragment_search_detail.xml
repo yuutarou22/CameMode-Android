@@ -14,6 +14,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="希望カテゴリ"
+        android:fontFamily="@font/smart_font"
         android:textSize="@dimen/userinfo_detail_search_title_text_size"
         android:textColor="@color/colorContentTitleText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,20 +38,23 @@
             android:id="@+id/category_role_cameraman"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/category_role_camera" />
+            android:text="@string/category_role_camera"
+            android:fontFamily="@font/smart_font"/>
 
         <RadioButton
             android:id="@+id/category_role_model"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/category_role_model" />
+            android:text="@string/category_role_model"
+            android:fontFamily="@font/smart_font"/>
 
         <RadioButton
             android:id="@+id/category_role_none"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="@string/category_role_camera_model" />
+            android:text="@string/category_role_camera_model"
+            android:fontFamily="@font/smart_font"/>
     </RadioGroup>
 
     <TextView
@@ -61,6 +65,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="有償・無償"
+        android:fontFamily="@font/smart_font"
         android:textSize="@dimen/userinfo_detail_search_title_text_size"
         android:textColor="@color/colorContentTitleText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,20 +89,23 @@
             android:id="@+id/no_charge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="無償" />
+            android:text="無償"
+            android:fontFamily="@font/smart_font"/>
 
         <RadioButton
             android:id="@+id/either"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="どちらでも" />
+            android:text="どちらでも"
+            android:fontFamily="@font/smart_font"/>
 
         <RadioButton
             android:id="@+id/charge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="有償" />
+            android:text="有償"
+            android:fontFamily="@font/smart_font"/>
     </RadioGroup>
 
     <TextView
@@ -108,6 +116,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="地域"
+        android:fontFamily="@font/smart_font"
         android:textSize="@dimen/userinfo_detail_search_title_text_size"
         android:textColor="@color/colorContentTitleText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,6 +129,7 @@
         android:layout_height="wrap_content"
         android:entries="@array/region_item_add"
         android:spinnerMode="dialog"
+        android:fontFamily="@font/smart_font"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,6 +143,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="性別"
+        android:fontFamily="@font/smart_font"
         android:textSize="@dimen/userinfo_detail_search_title_text_size"
         android:textColor="@color/colorContentTitleText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,6 +156,7 @@
         android:layout_height="wrap_content"
         android:entries="@array/sex_item"
         android:spinnerMode="dialog"
+        android:fontFamily="@font/smart_font"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
@@ -158,6 +170,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="年代"
+        android:fontFamily="@font/smart_font"
         android:textSize="@dimen/userinfo_detail_search_title_text_size"
         android:textColor="@color/colorContentTitleText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -170,6 +183,7 @@
             android:layout_height="wrap_content"
             android:entries="@array/age_item"
             android:spinnerMode="dialog"
+            android:fontFamily="@font/smart_font"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
@@ -179,9 +193,9 @@
         android:id="@+id/search_detail_button_execute"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#FFE7E6"
+        android:background="@color/colorThema"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_search_red_24dp"
+        android:src="@drawable/ic_search_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
