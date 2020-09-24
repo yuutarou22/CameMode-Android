@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
+        setTheme(R.style.AppTheme)
         setContentView(R.layout.activity_main)
 
         val data = getSharedPreferences("status", Context.MODE_PRIVATE)
