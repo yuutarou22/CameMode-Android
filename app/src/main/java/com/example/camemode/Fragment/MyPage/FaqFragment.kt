@@ -33,11 +33,12 @@ class FaqFragment : BaseFragment() {
 
     private fun initView() {
         val faqInfoList = ArrayList<FaqInfo>()
-        faqInfoList.add(FaqInfo("質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１質問文１", "回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１回答文１"))
-        faqInfoList.add(FaqInfo("質問文２", "回答文２"))
-        faqInfoList.add(FaqInfo("質問文３", "回答文３"))
-        faqInfoList.add(FaqInfo("質問文４", "回答文４"))
-        faqInfoList.add(FaqInfo("質問文５", "回答文５"))
+        faqInfoList.add(FaqInfo(getString(R.string.faq_question_01), getString(R.string.faq_answer_01)))
+        faqInfoList.add(FaqInfo(getString(R.string.faq_question_02), getString(R.string.faq_answer_02)))
+        faqInfoList.add(FaqInfo(getString(R.string.faq_question_03), getString(R.string.faq_answer_03)))
+        faqInfoList.add(FaqInfo(getString(R.string.faq_question_04), getString(R.string.faq_answer_04)))
+        faqInfoList.add(FaqInfo(getString(R.string.faq_question_05), getString(R.string.faq_answer_05)))
+        faqInfoList.add(FaqInfo(getString(R.string.faq_question_06), getString(R.string.faq_answer_06)))
 
         val mAdapter = context?.let { FaqListViewAdapter(faqInfoList, parentFragmentManager, it) }
         faq_info_list.apply {

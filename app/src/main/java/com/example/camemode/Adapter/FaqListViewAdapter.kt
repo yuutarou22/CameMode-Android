@@ -10,7 +10,7 @@ import com.example.camemode.Model.FaqInfo
 import com.example.camemode.R
 import com.example.camemode.ViewHolder.FaqListViewHolder
 
-public class FaqListViewAdapter(list: ArrayList<FaqInfo>, fragmentManager: FragmentManager, context: Context) :
+class FaqListViewAdapter(list: ArrayList<FaqInfo>, fragmentManager: FragmentManager, context: Context) :
         RecyclerView.Adapter<FaqListViewHolder>() {
 
     private var list: ArrayList<FaqInfo> = list
@@ -45,8 +45,7 @@ public class FaqListViewAdapter(list: ArrayList<FaqInfo>, fragmentManager: Fragm
     override fun onBindViewHolder(viewHolder: FaqListViewHolder, position: Int) {
         val FaqInfoItem = list.get(position)
 
-        viewHolder.mOpenCloseButton.setOnClickListener {
-
+        val faqOpenCloseListener = View.OnClickListener {
             if (viewHolder.mAnswerText.visibility == View.GONE) {
                 viewHolder.mAnswerText.visibility = View.VISIBLE
                 viewHolder.mOpenCloseButton.setImageResource(R.drawable.ic_faq_close_24dp)
@@ -56,8 +55,11 @@ public class FaqListViewAdapter(list: ArrayList<FaqInfo>, fragmentManager: Fragm
                 viewHolder.mOpenCloseButton.setImageResource(R.drawable.ic_faq_open_24dp)
                 viewHolder.mOpenCloseButton.setBackgroundResource(R.color.colorThema)
             }
-
         }
+
+        viewHolder.mOpenCloseButton.setOnClickListener(faqOpenCloseListener)
+        viewHolder.mQuestionText.setOnClickListener(faqOpenCloseListener)
+        viewHolder.mAnswerText.setOnClickListener(faqOpenCloseListener)
 
         viewHolder.mQuestionText.text = FaqInfoItem.question
         viewHolder.mAnswerText.text = FaqInfoItem.answer
