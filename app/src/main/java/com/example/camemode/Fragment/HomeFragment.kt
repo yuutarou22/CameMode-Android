@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.camemode.Listener.EndlessScrollListener
 import com.example.camemode.Model.UserInfoModel
 import com.example.camemode.R
 import com.example.camemode.Task.DisplayUtil
@@ -58,6 +59,9 @@ class HomeFragment : BaseFragment(), SearchUtil.SearchedListener {
                 swipe_refresh.isRefreshing = false
             }
         }
+
+        val endlessScrollListener = EndlessScrollListener()
+        user_info_list_home.addOnScrollListener(endlessScrollListener)
     }
 
     override fun onSuccess(list: ArrayList<UserInfoModel>) {
