@@ -60,8 +60,10 @@ class HomeFragment : BaseFragment(), SearchUtil.SearchedListener {
             }
         }
 
-        val endlessScrollListener = EndlessScrollListener()
-        user_info_list_home.addOnScrollListener(endlessScrollListener)
+        val endlessScrollListener = EndlessScrollListener(requireContext())
+        if (endlessScrollListener != null) {
+            user_info_list_home.addOnScrollListener(endlessScrollListener)
+        }
     }
 
     override fun onSuccess(list: ArrayList<UserInfoModel>) {
