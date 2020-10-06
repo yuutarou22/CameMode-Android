@@ -25,13 +25,12 @@ import com.example.camemode.Model.UserInfoModel
 import com.example.camemode.R
 import com.example.camemode.ViewHolder.UserInfoViewHolder
 
-public class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager: FragmentManager, context: Context) :
+class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager: FragmentManager, context: Context) :
     RecyclerView.Adapter<UserInfoViewHolder>() {
 
     private var list: ArrayList<UserInfoModel> = list
     private var fragmentManager: FragmentManager = fragmentManager
     private var context: Context = context
-//    private lateinit var listener: View.OnClickListener
 
     /**
      * リスト要素の総数を返す
