@@ -13,12 +13,52 @@ import com.example.camemode.Model.UserInfo.Companion.FIELD_TWITTER_ID
 import com.example.camemode.Model.UserInfoModel
 import com.nifcloud.mbaas.core.NCMBObject
 import com.nifcloud.mbaas.core.NCMBQuery
+import java.util.Date
+
+import java.text.SimpleDateFormat
 
 class SearchUtil {
 
     lateinit var listener: SearchedListener
-    var userInfoList: ArrayList<UserInfoModel> = arrayListOf()
 
+    /**
+     * ユーザ情報の最後の更新日保持用
+     * （最下部スクロール時に使用）
+     */
+    object lastUpdateDate {
+        var date: String? = null
+
+        fun get(): Date? {
+            val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+            return format.parse(date)
+        }
+        fun set(date: String) {
+            this.date = date
+        }
+    }
+
+    /**
+     * ユーザ情報リスト
+     */
+    object userInfoList {
+        var userInfoList: ArrayList<UserInfoModel> = arrayListOf()
+
+        fun get(): ArrayList<UserInfoModel> {
+            return userInfoList
+        }
+
+        fun add(userInfo: UserInfoModel) {
+            userInfoList.add(userInfo)
+        }
+
+        fun clear() {
+            userInfoList.clear()
+        }
+    }
+
+    /**
+     * ホーム画面表示時　検索メソッド
+     */
     fun searchUserInfo(): ArrayList<UserInfoModel>? {
         var query = NCMBQuery<NCMBObject>("UserInfo")
         query.addOrderByDescending("updateDate")
@@ -30,10 +70,29 @@ class SearchUtil {
                 for (obj in mutableList) {
                     Log.d("TEST", obj.getString("displayName"))
                 }
-                saveUserInfo(mutableList)
+                saveUserInfo(mutableList, false)
             }
         }
-        return userInfoList
+        return userInfoList.get()
+    }
+
+    /**
+     * スクロール時の自動更新　検索メソッド
+     */
+    fun searchUserInfoAuto(): ArrayList<UserInfoModel>? {
+        var query = NCMBQuery<NCMBObject>("UserInfo")
+        query.addOrderByDescending("updateDate")
+        query.setLimit(30)
+        query.whereLessThan("updateDate", lastUpdateDate.get())
+
+        query.findInBackground { mutableList, ncmbException ->
+            if (ncmbException != null) {
+                Log.d("ERROR", "NCMB findInBackground error: " + ncmbException.message)
+            } else {
+                saveUserInfo(mutableList, true)
+            }
+        }
+        return userInfoList.get()
     }
 
     /**
@@ -52,10 +111,10 @@ class SearchUtil {
                 for (obj in mutableList) {
                     Log.d("TEST", obj.getString("displayName"))
                 }
-                saveUserInfo(mutableList)
+                saveUserInfo(mutableList, false)
             }
         }
-        return userInfoList
+        return userInfoList.get()
     }
 
     /**
@@ -84,21 +143,41 @@ class SearchUtil {
                 for (obj in mutableList) {
                     Log.d("TEST", obj.getString("displayName"))
                 }
-                saveUserInfo(mutableList)
+                // ToDo:ここどうしてsaveUserInfoじゃないんだ？（過去の自分よ）
+                saveUserInfoAutoLoad(mutableList)
             }
         }
-        return userInfoList
+        return userInfoList.get()
     }
 
-    fun saveUserInfo(list: List<NCMBObject>) {
-        // 2回目以降の更新時のため、リストを初期化
-        userInfoList.clear()
+    fun saveUserInfo(list: List<NCMBObject>, isAutoLord: Boolean) {
+        if (!isAutoLord) {
+            // 2回目以降の更新時のため、リストを初期化
+            userInfoList.clear()
+        }
 
         for (obj in list)
             userInfoList.add(convertUserInfo(obj))
 
         if (listener != null)
-            listener.onSuccess(userInfoList)
+            listener.onSuccess(userInfoList.get())
+
+        // 取得したユーザ情報、最後データの更新日時を取得
+        if (list.isNotEmpty()) {
+            lastUpdateDate.set(list.get(list.size-1).getString("updateDate"))
+        }
+    }
+
+    fun saveUserInfoAutoLoad(list: List<NCMBObject>) {
+        for (obj in list)
+            userInfoList.add(convertUserInfo(obj))
+
+        if (listener != null)
+            listener.onSuccess(userInfoList.get())
+
+        if (list.isNotEmpty()) {
+            lastUpdateDate.set(list.get(list.size-1).getString("updateDate"))
+        }
     }
 
     fun convertUserInfo(obj: NCMBObject): UserInfoModel {
@@ -123,5 +202,4 @@ class SearchUtil {
     interface SearchedListener {
         fun onSuccess(list: ArrayList<UserInfoModel>)
     }
-
 }

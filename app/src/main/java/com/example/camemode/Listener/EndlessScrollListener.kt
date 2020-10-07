@@ -36,7 +36,7 @@ class EndlessScrollListener(context: Context): RecyclerView.OnScrollListener(), 
 
         var displayUtil = DisplayUtil()
 
-        (context as FragmentActivity).supportFragmentManager?.let { displayUtil.displayUserInfo(list, it, context, context.user_info_list_home) }
+        (context as FragmentActivity).supportFragmentManager?.let { displayUtil.displayUserInfo(list) }
         context.loading_indicator.visibility = android.widget.ProgressBar.INVISIBLE
     }
 }

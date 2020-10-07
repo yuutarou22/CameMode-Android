@@ -150,4 +150,12 @@ class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager: Fragm
 
         return bundle
     }
+
+    /**
+     * Adapterを再生成せず、ユーザリストに要素を追加する
+     * @param list ユーザ情報リスト
+     */
+    fun addUserInfoList(list: ArrayList<UserInfoModel>) {
+        this.list = list
+    }
 }
