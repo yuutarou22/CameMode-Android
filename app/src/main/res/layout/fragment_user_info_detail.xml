@@ -29,24 +29,26 @@
                 app:layout_constraintBottom_toTopOf="@+id/display_name" />
 
             <TextView
-                android:id="@+id/display_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center_horizontal"
-                android:textColor="#444444"
-                android:textSize="22dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/category_role_text"
-                app:layout_constraintTop_toTopOf="parent" />
+                    android:id="@+id/category_role_text"
+                    android:text="カメラマン / モデル"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/smart_font"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/sex" />
 
             <TextView
-                android:id="@+id/category_role_text"
+                android:id="@+id/display_name"
+                android:text="アカウント名"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:gravity="center_horizontal"
-                app:layout_constraintBottom_toTopOf="@+id/sex" />
+                android:textColor="#444444"
+                android:textSize="25sp"
+                android:fontFamily="@font/smart_font"
+                android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/sns_transition_button"
@@ -54,19 +56,61 @@
                 android:layout_height="40dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="30dp"
+                android:elevation="7dp"
+                
                 android:background="#1da1f2"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_twitter_logo_whiteonimage" />
 
-            <include layout="@layout/content_user_info_sex" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="horizontal">
+                <include
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    layout="@layout/content_user_info_sex" />
+    
+                <include
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    layout="@layout/content_user_info_age" />
+                
+            </LinearLayout>
+    
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <include
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    layout="@layout/content_user_info_region" />
+        
+                <include
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    layout="@layout/content_user_info_charge" />
+    
+            </LinearLayout>
 
-            <include layout="@layout/content_user_info_age" />
-
-            <include layout="@layout/content_user_info_region" />
-
-            <include layout="@layout/content_user_info_charge" />
-
-            <include layout="@layout/content_user_info_photo_image" />
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="20dp"
+                layout="@layout/content_user_info_photo_image" />
 
         </LinearLayout>
     </ScrollView>
