@@ -35,7 +35,6 @@
             android:id="@+id/display_name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="アイウエオあいうえお"
             android:fontFamily="@font/smart_font"/>
 
         <TextView
@@ -60,7 +59,6 @@
             android:layout_height="wrap_content"
             android:digits="@string/twitter_id_rules"
             android:inputType="textEmailAddress"
-            android:text="abcdefghiYutaroM0224"
             android:fontFamily="@font/imagine_yokohama"/>
     </LinearLayout>
 
