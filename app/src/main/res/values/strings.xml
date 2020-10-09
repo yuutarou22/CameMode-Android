@@ -272,16 +272,18 @@
 	<string name="faq_question_03">登録情報を削除したいけど、どうしたらいい？</string>
 	<string name="faq_question_04">登録情報の引き継ぎをしたいんだけど、できる？</string>
 	<string name="faq_question_05">登録情報の取り扱いが不安……</string>
-	<string name="faq_question_06">〜上記以外のお問い合わせ〜</string>
-	
+	<string name="faq_question_06">Instagramには対応していないの？</string>
+	<string name="faq_question_last">〜上記以外のお問い合わせ〜</string>
+
 	<!-- よくある質問　回答文 -->
 	<string name="faq_answer_01">マイページ画面の『マイデータ登録』から登録することができます。</string>
 	<string name="faq_answer_02">メッセージ機能は、現在では検討中です。\n今後のアップデートにご期待ください！</string>
 	<string name="faq_answer_03">データの削除方法は、現在未定のため検討中です。</string>
 	<string name="faq_answer_04">データの引き継ぎは、現在未定のため検討中です。</string>
 	<string name="faq_answer_05">詳しくは、マイページ画面の『利用規約』をご確認ください。\nこのアプリはサードパーティ（他社）製のサービスを利用して、データを管理しています。</string>
-	<string name="faq_answer_06">お手数ですが、こちら(yutaroapp@gmail.com)までご連絡いただけると幸いです。\n個人運営のため、返信に3日ほどかかる場合がございます。\n予めご了承ください。</string>
-	
+	<string name="faq_answer_06">今後のアップデートで対応する予定です。\nご期待ください！</string>
+	<string name="faq_answer_last">お手数ですが、こちら(yutaroapp@gmail.com)までご連絡いただけると幸いです。\n個人運営のため、返信に3日ほどかかる場合がございます。\n予めご了承ください。</string>
+
 	<!-- ユーザ情報登録画面 -->
 	<string name="regist_01_category_role_exp">あなたの専門を選択ください。</string>
 	<string name="regist_02_display_name_exp">アプリ内での表示名を入力ください。</string>
