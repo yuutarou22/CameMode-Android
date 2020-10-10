@@ -167,9 +167,9 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
         if (0 == data.getInt(UserInfo.FIELD_CHARGE, 1)) {
             return R.id.no_charge_edit
         } else if(1 == data.getInt(UserInfo.FIELD_CHARGE, 1)) {
-            return R.id.charge_edit
+            return R.id.either_edit
         } else {
-            return R.id.charge_either_edit
+            return R.id.charge_edit
         }
     }
 }
