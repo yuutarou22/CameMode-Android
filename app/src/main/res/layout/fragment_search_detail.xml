@@ -1,243 +1,245 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	tools:context=".Fragment.Search.SearchDetailFragment">
-	
-	<ScrollView
-		android:layout_width="match_parent"
-		android:layout_height="match_parent">
-		
-		<androidx.constraintlayout.widget.ConstraintLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			tools:ignore="MissingConstraints">
-			
-			<TextView
-				android:id="@+id/category_role_label"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="8dp"
-				android:layout_marginTop="8dp"
-				android:layout_marginEnd="8dp"
-				android:fontFamily="@font/smart_font"
-				android:text="希望カテゴリ"
-				android:textColor="@color/colorContentTitleText"
-				android:textSize="@dimen/userinfo_detail_search_title_text_size"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toTopOf="parent" />
-			
-			<RadioGroup
-				android:id="@+id/category_role"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_margin="8dp"
-				android:layout_marginStart="8dp"
-				android:layout_marginTop="8dp"
-				android:layout_marginEnd="8dp"
-				android:orientation="vertical"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@+id/category_role_label">
-				
-				<RadioButton
-					android:id="@+id/category_role_cameraman"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:fontFamily="@font/smart_font"
-					android:text="@string/category_role_camera" />
-				
-				<RadioButton
-					android:id="@+id/category_role_model"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:fontFamily="@font/smart_font"
-					android:text="@string/category_role_model" />
-				
-				<RadioButton
-					android:id="@+id/category_role_none"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:checked="true"
-					android:fontFamily="@font/smart_font"
-					android:text="@string/category_role_camera_model" />
-			</RadioGroup>
-			
-			<View
-				android:layout_width="match_parent"
-				android:layout_height="1dp"
-				android:layout_marginTop="8dp"
-				android:background="@color/colorNegative"
-				app:layout_constraintTop_toBottomOf="@+id/category_role" />
-			
-			<TextView
-				android:id="@+id/which_charge_label"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="8dp"
-				android:layout_marginTop="24dp"
-				android:layout_marginEnd="8dp"
-				android:fontFamily="@font/smart_font"
-				android:text="有償・無償"
-				android:textColor="@color/colorContentTitleText"
-				android:textSize="@dimen/userinfo_detail_search_title_text_size"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@+id/category_role" />
-			
-			<RadioGroup
-				android:id="@+id/which_charge"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_margin="8dp"
-				android:layout_marginStart="8dp"
-				android:layout_marginTop="8dp"
-				android:layout_marginEnd="8dp"
-				android:orientation="vertical"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@+id/which_charge_label">
-				
-				<RadioButton
-					android:id="@+id/no_charge"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:fontFamily="@font/smart_font"
-					android:text="無償" />
-				
-				<RadioButton
-					android:id="@+id/either"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:checked="true"
-					android:fontFamily="@font/smart_font"
-					android:text="どちらでも" />
-				
-				<RadioButton
-					android:id="@+id/charge"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:fontFamily="@font/smart_font"
-					android:text="有償" />
-			</RadioGroup>
-			
-			<View
-				android:layout_width="match_parent"
-				android:layout_height="1dp"
-				android:layout_marginTop="8dp"
-				android:background="@color/colorNegative"
-				app:layout_constraintTop_toBottomOf="@+id/which_charge" />
-			
-			<TextView
-				android:id="@+id/region_label"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="8dp"
-				android:layout_marginTop="24dp"
-				android:layout_marginEnd="8dp"
-				android:fontFamily="@font/smart_font"
-				android:text="地域"
-				android:textColor="@color/colorContentTitleText"
-				android:textSize="@dimen/userinfo_detail_search_title_text_size"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@+id/which_charge" />
-			
-			<Spinner
-				android:id="@+id/region_spinner"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:entries="@array/region_item_add"
-				android:fontFamily="@font/smart_font"
-				android:spinnerMode="dialog"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintHorizontal_bias="0.1"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@+id/region_label" />
-			
-			<View
-				android:layout_width="match_parent"
-				android:layout_height="1dp"
-				android:layout_marginTop="8dp"
-				android:background="@color/colorNegative"
-				app:layout_constraintTop_toBottomOf="@+id/region_spinner" />
-			
-			<TextView
-				android:id="@+id/sex_label"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="8dp"
-				android:layout_marginTop="24dp"
-				android:layout_marginEnd="8dp"
-				android:fontFamily="@font/smart_font"
-				android:text="性別"
-				android:textColor="@color/colorContentTitleText"
-				android:textSize="@dimen/userinfo_detail_search_title_text_size"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@+id/region_spinner" />
-			
-			<Spinner
-				android:id="@+id/sex_spinner"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:entries="@array/sex_item"
-				android:fontFamily="@font/smart_font"
-				android:spinnerMode="dialog"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintHorizontal_bias="0.1"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@+id/sex_label" />
-			
-			<View
-				android:layout_width="match_parent"
-				android:layout_height="1dp"
-				android:layout_marginTop="8dp"
-				android:background="@color/colorNegative"
-				app:layout_constraintTop_toBottomOf="@+id/sex_spinner" />
-			
-			<TextView
-				android:id="@+id/age_label"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="8dp"
-				android:layout_marginTop="24dp"
-				android:layout_marginEnd="8dp"
-				android:fontFamily="@font/smart_font"
-				android:text="年代"
-				android:textColor="@color/colorContentTitleText"
-				android:textSize="@dimen/userinfo_detail_search_title_text_size"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@+id/sex_spinner" />
-			
-			<Spinner
-				android:id="@+id/age_spinner"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:entries="@array/age_item"
-				android:fontFamily="@font/smart_font"
-				android:spinnerMode="dialog"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintHorizontal_bias="0.1"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@+id/age_label" />
-		
-		</androidx.constraintlayout.widget.ConstraintLayout>
-	</ScrollView>
-	
-	<ImageButton
-		android:id="@+id/search_detail_button_execute"
-		android:layout_width="match_parent"
-		android:layout_height="60dp"
-		android:background="@color/colorThema"
-		android:scaleType="fitCenter"
-		android:src="@drawable/ic_search_24dp"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="1.0"
-		app:layout_constraintStart_toStartOf="parent" />
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.Search.SearchDetailFragment">
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/search_detail_button_execute"
+        app:layout_constraintTop_toTopOf="parent">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+            
+            <TextView
+                android:id="@+id/category_role_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/smart_font"
+                android:text="希望カテゴリ"
+                android:textColor="@color/colorContentTitleText"
+                android:textSize="@dimen/userinfo_detail_search_title_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            
+            <RadioGroup
+                android:id="@+id/category_role"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/category_role_label">
+                
+                <RadioButton
+                    android:id="@+id/category_role_cameraman"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/smart_font"
+                    android:text="@string/category_role_camera" />
+                
+                <RadioButton
+                    android:id="@+id/category_role_model"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/smart_font"
+                    android:text="@string/category_role_model" />
+                
+                <RadioButton
+                    android:id="@+id/category_role_none"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:fontFamily="@font/smart_font"
+                    android:text="@string/category_role_camera_model" />
+            </RadioGroup>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorNegative"
+                app:layout_constraintTop_toBottomOf="@+id/category_role" />
+            
+            <TextView
+                android:id="@+id/which_charge_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/smart_font"
+                android:text="有償・無償"
+                android:textColor="@color/colorContentTitleText"
+                android:textSize="@dimen/userinfo_detail_search_title_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/category_role" />
+            
+            <RadioGroup
+                android:id="@+id/which_charge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/which_charge_label">
+                
+                <RadioButton
+                    android:id="@+id/no_charge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/smart_font"
+                    android:text="無償" />
+                
+                <RadioButton
+                    android:id="@+id/either"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:fontFamily="@font/smart_font"
+                    android:text="どちらでも" />
+                
+                <RadioButton
+                    android:id="@+id/charge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/smart_font"
+                    android:text="有償" />
+            </RadioGroup>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorNegative"
+                app:layout_constraintTop_toBottomOf="@+id/which_charge" />
+            
+            <TextView
+                android:id="@+id/region_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/smart_font"
+                android:text="地域"
+                android:textColor="@color/colorContentTitleText"
+                android:textSize="@dimen/userinfo_detail_search_title_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/which_charge" />
+            
+            <Spinner
+                android:id="@+id/region_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/region_item_add"
+                android:fontFamily="@font/smart_font"
+                android:spinnerMode="dialog"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/region_label" />
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorNegative"
+                app:layout_constraintTop_toBottomOf="@+id/region_spinner" />
+            
+            <TextView
+                android:id="@+id/sex_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/smart_font"
+                android:text="性別"
+                android:textColor="@color/colorContentTitleText"
+                android:textSize="@dimen/userinfo_detail_search_title_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/region_spinner" />
+            
+            <Spinner
+                android:id="@+id/sex_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/sex_item"
+                android:fontFamily="@font/smart_font"
+                android:spinnerMode="dialog"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sex_label" />
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorNegative"
+                app:layout_constraintTop_toBottomOf="@+id/sex_spinner" />
+            
+            <TextView
+                android:id="@+id/age_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/smart_font"
+                android:text="年代"
+                android:textColor="@color/colorContentTitleText"
+                android:textSize="@dimen/userinfo_detail_search_title_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sex_spinner" />
+            
+            <Spinner
+                android:id="@+id/age_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/age_item"
+                android:fontFamily="@font/smart_font"
+                android:spinnerMode="dialog"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/age_label" />
+        
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    
+    <ImageButton
+        android:id="@+id/search_detail_button_execute"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorThema"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_search_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
