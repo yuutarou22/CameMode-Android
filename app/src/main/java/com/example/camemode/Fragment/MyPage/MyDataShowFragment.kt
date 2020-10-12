@@ -6,9 +6,7 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import com.example.camemode.Fragment.BaseFragment
 import com.example.camemode.Model.UserInfo
 
@@ -30,7 +28,7 @@ class MyDataShowFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        data = context!!.getSharedPreferences("UserInfoData", Context.MODE_PRIVATE)
+        data = requireContext().getSharedPreferences("UserInfoData", Context.MODE_PRIVATE)
     }
 
     override fun onCreateView(

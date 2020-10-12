@@ -22,15 +22,18 @@ class MainActivity : AppCompatActivity() {
                 // HomeFragmentを開いている場合、再度読み込まない
                 if (fragmentManager.fragments.get(0) !is HomeFragment ) {
                     showFragment(HomeFragment())
+                    supportActionBar?.title = resources.getString(R.string.bottom_nav_title_home)
                     return@OnNavigationItemSelectedListener true
                 }
             }
             R.id.navigation_search -> {
                 showFragment(SearchFragment())
+                supportActionBar?.title = resources.getString(R.string.bottom_nav_title_search)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_mypage -> {
                 showFragment(MyPageFragment())
+                supportActionBar?.title = resources.getString(R.string.bottom_nav_title_mypage)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -46,6 +49,7 @@ class MainActivity : AppCompatActivity() {
     private fun initView() {
         setTheme(R.style.AppTheme)
         setContentView(R.layout.activity_main)
+        supportActionBar?.title = resources.getString(R.string.bottom_nav_title_home)
 
         val data = getSharedPreferences("status", Context.MODE_PRIVATE)
 
