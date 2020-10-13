@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.camemode.Fragment.BaseFragment
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_REGION
@@ -46,6 +47,8 @@ class SearchSimpleFragment : BaseFragment() {
     }
 
     private fun initView() {
+        (activity as AppCompatActivity).supportActionBar?.title = "かんたん検索"
+
         radio_group.setOnCheckedChangeListener { radioGroup, checkedId ->
             var checkedRadioButton = radio_group.findViewById<RadioButton>(checkedId)
             if (checkedRadioButton == radio_camera) {

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.camemode.Adapter.FaqListViewAdapter
 import com.example.camemode.Fragment.BaseFragment
@@ -32,6 +33,8 @@ class FaqFragment : BaseFragment() {
     }
 
     private fun initView() {
+        (activity as AppCompatActivity).supportActionBar?.title = "よくある質問"
+
         val faqInfoList = ArrayList<FaqInfo>()
         faqInfoList.add(FaqInfo(getString(R.string.faq_question_01), getString(R.string.faq_answer_01)))
         faqInfoList.add(FaqInfo(getString(R.string.faq_question_02), getString(R.string.faq_answer_02)))

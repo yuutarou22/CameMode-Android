@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import androidx.appcompat.app.AppCompatActivity
 import com.example.camemode.Fragment.BaseFragment
 import com.example.camemode.Model.UserInfo.Companion.FIELD_AGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
@@ -44,8 +45,9 @@ class SearchDetailFragment : BaseFragment() {
     }
 
     private fun initView() {
-        search_detail_button_execute.setOnClickListener {
+        (activity as AppCompatActivity).supportActionBar?.title = "詳細検索"
 
+        search_detail_button_execute.setOnClickListener {
             val categoryRoleIndex = category_role.indexOfChild(category_role.findViewById<RadioButton>(category_role.checkedRadioButtonId))
             val whichChargeIndex = which_charge.indexOfChild(which_charge.findViewById<RadioButton>(which_charge.checkedRadioButtonId))
             val regionIndex  = region_spinner.selectedItemPosition

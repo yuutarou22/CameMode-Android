@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import com.example.camemode.Fragment.BaseFragment
 
 import com.example.camemode.R
@@ -19,8 +20,12 @@ class AppTermFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_app_term, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView()
     }
 
     override fun onAttach(context: Context) {
@@ -29,5 +34,9 @@ class AppTermFragment : BaseFragment() {
 
     override fun onDetach() {
         super.onDetach()
+    }
+
+    private fun initView() {
+        (activity as AppCompatActivity).supportActionBar?.title = "利用規約"
     }
 }
