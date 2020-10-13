@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import com.example.camemode.Model.UserInfo.Companion.FIELD_AGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CHARGE
@@ -52,6 +53,7 @@ class UserInfoDetailFragment : Fragment() {
     }
 
     private fun initView() {
+        (activity as AppCompatActivity).supportActionBar?.hide()
         region.text = getRegion(arguments?.getInt(FIELD_REGION))
         category_role_icon.setImageResource(getUserIcon(arguments?.getInt(FIELD_CATEGORY_ROLE)))
         category_role_icon.setBackgroundColor(getUserIconBg(arguments?.getInt(FIELD_CATEGORY_ROLE)))
@@ -64,6 +66,7 @@ class UserInfoDetailFragment : Fragment() {
 
         back_button.setOnClickListener {
             fragmentManager?.popBackStack()
+            (activity as AppCompatActivity).supportActionBar?.show()
         }
 
         sns_transition_button.setOnClickListener {
