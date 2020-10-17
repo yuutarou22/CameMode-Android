@@ -1,7 +1,6 @@
 package com.example.camemode.Fragment.Search
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -47,7 +46,7 @@ class SearchSimpleFragment : BaseFragment() {
     }
 
     private fun initView() {
-        (activity as AppCompatActivity).supportActionBar?.title = "かんたん検索"
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.search_simple_button)
 
         radio_group.setOnCheckedChangeListener { radioGroup, checkedId ->
             var checkedRadioButton = radio_group.findViewById<RadioButton>(checkedId)

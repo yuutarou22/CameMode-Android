@@ -33,7 +33,7 @@ class FaqFragment : BaseFragment() {
     }
 
     private fun initView() {
-        (activity as AppCompatActivity).supportActionBar?.title = "よくある質問"
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.mypage_faq_button)
 
         val faqInfoList = ArrayList<FaqInfo>()
         faqInfoList.add(FaqInfo(getString(R.string.faq_question_01), getString(R.string.faq_answer_01)))

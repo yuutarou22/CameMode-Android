@@ -45,7 +45,7 @@ class SearchDetailFragment : BaseFragment() {
     }
 
     private fun initView() {
-        (activity as AppCompatActivity).supportActionBar?.title = "詳細検索"
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.search_detail_buttin)
 
         search_detail_button_execute.setOnClickListener {
             val categoryRoleIndex = category_role.indexOfChild(category_role.findViewById<RadioButton>(category_role.checkedRadioButtonId))
