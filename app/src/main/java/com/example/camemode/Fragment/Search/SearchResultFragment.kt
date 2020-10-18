@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.camemode.Fragment.BaseFragment
 import com.example.camemode.Model.UserInfo.Companion.FIELD_AGE
+import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CHARGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_REGION
 import com.example.camemode.Model.UserInfo.Companion.FIELD_SEX
@@ -54,7 +55,7 @@ class SearchResultFragment : BaseFragment(), SearchUtil.SearchedListener {
         searchUtil.setSearchLitener(this)
 
         // 検索実行時の入力値を取得
-        val categoryRoleIndex = arguments?.getInt(FIELD_REGION)
+        val categoryRoleIndex = arguments?.getInt(FIELD_CATEGORY_ROLE)
         val whichChargeIndex = arguments?.getInt(FIELD_CHARGE, NONE_VALUE)
         val regionIndex = arguments?.getInt(FIELD_REGION)
         val sexIndex = arguments?.getInt(FIELD_SEX, NONE_VALUE)
