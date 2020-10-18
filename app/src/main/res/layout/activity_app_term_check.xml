@@ -28,6 +28,7 @@
 		android:id="@+id/app_term_check"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:layout_marginVertical="20dp"
 		android:text="利用規約に同意する"
 		app:layout_constraintBottom_toTopOf="@+id/app_term_checked_button" />
 	
@@ -36,6 +37,9 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginBottom="8dp"
+		android:fontFamily="@font/smart_font"
+		android:textColor="@color/colorText"
+		android:textSize="20sp"
 		android:text="アプリを始める！"
 		android:background="@color/colorNegative"
 		app:layout_constraintBottom_toBottomOf="parent" />
