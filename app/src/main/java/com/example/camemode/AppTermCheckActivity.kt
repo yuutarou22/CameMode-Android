@@ -40,8 +40,10 @@ class AppTermCheckActivity : AppCompatActivity() {
         app_term_check.setOnCheckedChangeListener { compoundButton, isChecked ->
             if (isChecked) {
                 app_term_checked_button.setBackgroundColor(getColor(R.color.colorThema))
+                app_term_checked_button.setTextColor(getColor(R.color.colorWhite))
             } else {
                 app_term_checked_button.setBackgroundColor(getColor(R.color.colorNegative))
+                app_term_checked_button.setTextColor(getColor(R.color.colorText))
             }
         }
     }
