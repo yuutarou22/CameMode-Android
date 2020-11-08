@@ -19,7 +19,36 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    // フレーバー設定
+    flavorDimensions "default"
+
+    productFlavors {
+        develop {
+            dimension "default"
+        }
+
+        product {
+            dimension "default"
+        }
+    }
+
+    // リソースの切り替え
+    sourceSets {
+        develop {
+            java.srcDirs = ['src/develop/java']
+        }
+        product {
+            java.srcDirs = ['src/product/java']
+        }
+    }
+
+    // ビルド定義
     buildTypes {
+        debug {
+            debuggable true
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -32,6 +61,7 @@ repositories {
     maven { url "https://kotlin.bintray.com/kotlinx" }
 }
 
+// ライブラリ依存関係
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

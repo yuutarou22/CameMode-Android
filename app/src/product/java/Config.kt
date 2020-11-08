@@ -1,5 +1,11 @@
 package com.example.camemode
 
+
+/**
+ * 本番用
+ * @param KEY_APPLICATION アプリケーションキー
+ * @param KEY_CLIENT クライアントキー
+ */
 class Config {
 
     companion object {
