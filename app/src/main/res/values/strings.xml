@@ -19,6 +19,7 @@
 	<string name="no_data_dogeza">🙇‍</string>
 	<string name="no_data_text">検索結果がありませんでした…\nほかの条件で検索してみましょう！</string>
 	<string name="no_data_button">検索画面へ戻る</string>
+    <string name="search_button_text">見つける！</string>
 	
 	<!-- マイページ -->
 	<string name="mypage_mydata_button">マイデータ登録</string>
