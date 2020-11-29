@@ -36,6 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/smart_font"
+            android:inputType="text"
             android:maxLines="1"
             android:maxLength="20"/>
 
@@ -60,8 +61,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="@string/twitter_id_rules"
-            android:inputType="textEmailAddress"
+            android:inputType="textEmailAddress|text"
             android:maxLength="15"
+            android:lines="1"
             android:fontFamily="@font/imagine_yokohama"/>
     </LinearLayout>
 
