@@ -128,6 +128,8 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
             editor.putInt("age", age)
             editor.putString("photoImage", photoImage)
 
+            editor.commit()
+
             // ObjectIdを指定し、登録処理をすると更新処理を実行する
             obj.objectId = data.getString("objectId", "")
 
