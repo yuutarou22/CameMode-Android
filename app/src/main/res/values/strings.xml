@@ -1,5 +1,6 @@
 <resources>
 	<string name="app_name">CameMode</string>
+    <string name="app_name_dev">【Dev】CameMode</string>
 	<!-- タブ -->
 	<string name="bottom_nav_title_home">ホーム</string>
 	<string name="bottom_nav_title_search">見つける</string>

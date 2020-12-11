@@ -16,6 +16,15 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        productFlavors {
+            develop {
+                manifestPlaceholders = [appName:"@string/app_name_dev"]
+                applicationIdSuffix ".develop"
+            }
+            product {
+                manifestPlaceholders = [appName:"@string/app_name"]
+            }
+        }
     }
 
     // フレーバー設定
