@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:105384883141:android:bcf7efb29c1ee03446d1ac",
+        "mobilesdk_app_id": "1:105384883141:android:eae3e1763d97c6ab46d1ac",
         "android_client_info": {
-          "package_name": "com.yutaroM.camemode"
+          "package_name": "com.yutaroM.camemode.develop"
         }
       },
       "oauth_client": [
