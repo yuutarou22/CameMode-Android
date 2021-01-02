@@ -11,11 +11,13 @@ import com.example.camemode.Model.UserInfo.Companion.FIELD_REGION
 import com.example.camemode.Model.UserInfo.Companion.FIELD_SEX
 import com.example.camemode.Model.UserInfo.Companion.FIELD_TWITTER_ID
 import com.example.camemode.Model.UserInfoModel
+import com.nifcloud.mbaas.core.NCMBBase
 import com.nifcloud.mbaas.core.NCMBObject
 import com.nifcloud.mbaas.core.NCMBQuery
-import java.util.Date
 
 import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class SearchUtil {
 
@@ -77,7 +79,7 @@ class SearchUtil {
     }
 
     /**
-     * スクロール時の自動更新　検索メソッド
+     * ホーム画面スクロール時　検索メソッド（自動更新用）
      */
     fun searchUserInfoAuto(): ArrayList<UserInfoModel>? {
         var query = NCMBQuery<NCMBObject>("UserInfo")
@@ -100,10 +102,45 @@ class SearchUtil {
      */
     fun searchUserInfo(categoryRole: Int?, region: Int?): ArrayList<UserInfoModel>? {
         var query = NCMBQuery<NCMBObject>("UserInfo")
+        var queryA = NCMBQuery<NCMBObject>("UserInfo")
+        var queryB = NCMBQuery<NCMBObject>("UserInfo")
+
+        queryA.whereEqualTo(FIELD_CATEGORY_ROLE, categoryRole)
+        queryB.whereEqualTo(FIELD_CATEGORY_ROLE, 2)
+
+        query.or(Arrays.asList(queryA, queryB) as Collection<NCMBQuery<NCMBBase>>?)
         query.addOrderByDescending("updateDate")
-        query.whereEqualTo(FIELD_CATEGORY_ROLE, categoryRole)
         query.whereEqualTo(FIELD_REGION, region)
-        query.setLimit(15)
+        query.setLimit(7)
+        query.findInBackground { mutableList, ncmbException ->
+            if (ncmbException != null) {
+                Log.d("ERROR", "NCMB findInBackground error: " + ncmbException.message)
+            } else {
+                for (obj in mutableList) {
+                    Log.d("TEST", obj.getString("displayName"))
+                }
+                saveUserInfo(mutableList, false)
+            }
+        }
+        return userInfoList.get()
+    }
+
+    /**
+     * かんたん検索画面用　検索メソッド（自動更新用）
+     */
+    fun searchUserInfoAuto(categoryRole: Int?, region: Int?): ArrayList<UserInfoModel>? {
+        var query = NCMBQuery<NCMBObject>("UserInfo")
+        var queryA = NCMBQuery<NCMBObject>("UserInfo")
+        var queryB = NCMBQuery<NCMBObject>("UserInfo")
+
+        queryA.whereEqualTo(FIELD_CATEGORY_ROLE, categoryRole)
+        queryB.whereEqualTo(FIELD_CATEGORY_ROLE, 2)
+
+        query.or(Arrays.asList(queryA, queryB) as Collection<NCMBQuery<NCMBBase>>?)
+        query.addOrderByDescending("updateDate")
+        query.whereLessThan("updateDate", lastUpdateDate.get())
+        query.whereEqualTo(FIELD_REGION, region)
+        query.setLimit(7)
         query.findInBackground { mutableList, ncmbException ->
             if (ncmbException != null) {
                 Log.d("ERROR", "NCMB findInBackground error: " + ncmbException.message)
@@ -121,6 +158,39 @@ class SearchUtil {
      * 詳細検索画面用　検索メソッド
      */
     fun searchUserInfo(categoryRoleIndex: Int?,
+                       whichChargeIndex: Int?,
+                       regionIndex: Int?,
+                       sexIndex: Int?,
+                       ageIndex: Int?)
+            :ArrayList<UserInfoModel>? {
+        var query = NCMBQuery<NCMBObject>("UserInfo")
+
+        query.addOrderByDescending("updateDate")
+        query.whereEqualTo(FIELD_CATEGORY_ROLE, categoryRoleIndex)
+        query.whereEqualTo(FIELD_CHARGE, whichChargeIndex)
+        query.whereEqualTo(FIELD_REGION, regionIndex)
+        query.whereEqualTo(FIELD_SEX, sexIndex)
+        query.whereEqualTo(FIELD_AGE, ageIndex)
+
+        query.setLimit(15)
+        query.findInBackground { mutableList, ncmbException ->
+            if (ncmbException != null) {
+                Log.d("ERROR", "NCMB findInBackground error: " + ncmbException.message)
+            } else {
+                for (obj in mutableList) {
+                    Log.d("TEST", obj.getString("displayName"))
+                }
+                // ToDo:ここどうしてsaveUserInfoじゃないんだ？（過去の自分よ）
+                saveUserInfoAutoLoad(mutableList)
+            }
+        }
+        return userInfoList.get()
+    }
+
+    /**
+     * 詳細検索画面用　検索メソッド（自動更新用）
+     */
+    fun searchUserInfoAuto(categoryRoleIndex: Int?,
                        whichChargeIndex: Int?,
                        regionIndex: Int?,
                        sexIndex: Int?,
