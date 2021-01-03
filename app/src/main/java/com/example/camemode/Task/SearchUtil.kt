@@ -31,8 +31,15 @@ class SearchUtil {
         var date: String? = null
 
         fun get(): Date? {
+            val tz = TimeZone.getTimeZone("Asia/Tokyo")
             val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-            return format.parse(date)
+
+            val calendar = Calendar.getInstance()
+            calendar.time = format.parse(date)
+            calendar.add(Calendar.HOUR_OF_DAY, 9)
+            val time = calendar.time
+            format.timeZone = tz
+            return time
         }
         fun set(date: String) {
             this.date = date
