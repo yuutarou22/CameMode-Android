@@ -8,9 +8,15 @@ import com.example.camemode.Task.DisplayUtil
 import com.example.camemode.Task.SearchUtil
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class EndlessScrollSearchListener(context: Context): RecyclerView.OnScrollListener(), SearchUtil.SearchedListener{
+class EndlessScrollSearchListener(context: Context,
+                                  isSimpleSearch: Boolean,
+                                  searchConditions: Map<String, Int?>):
+    RecyclerView.OnScrollListener(),
+    SearchUtil.SearchedListener{
 
     val context = context
+    val isSimpleSearch = isSimpleSearch
+    val searchConditions = searchConditions
 
     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
         super.onScrolled(recyclerView, dx, dy)
@@ -27,7 +33,19 @@ class EndlessScrollSearchListener(context: Context): RecyclerView.OnScrollListen
             // 取得したユーザ情報の最古情報を取得する
             val searchUtil = SearchUtil()
             searchUtil.setSearchLitener(this)
-            searchUtil.searchUserInfoAuto()
+
+            if (isSimpleSearch) {
+                // かんたん検索
+                searchUtil.searchUserInfoAuto(searchConditions["categoryRole"], searchConditions["region"])
+            } else {
+                // 詳細検索
+                searchUtil.searchUserInfoAuto(
+                    searchConditions["categoryRole"],
+                    searchConditions["whichCharge"],
+                    searchConditions["region"],
+                    searchConditions["sex"],
+                    searchConditions["age"])
+            }
         }
     }
 

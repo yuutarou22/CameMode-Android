@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.camemode.Fragment.BaseFragment
+import com.example.camemode.Listener.EndlessScrollSearchListener
 import com.example.camemode.Model.UserInfo.Companion.FIELD_AGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CHARGE
@@ -25,6 +26,8 @@ class SearchResultFragment : BaseFragment(), SearchUtil.SearchedListener {
     val displayUtil = DisplayUtil()
 
     val NONE_VALUE = 5
+
+    var isSimpleSearch = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +64,14 @@ class SearchResultFragment : BaseFragment(), SearchUtil.SearchedListener {
         val sexIndex = arguments?.getInt(FIELD_SEX, NONE_VALUE)
         val ageIndex = arguments?.getInt(FIELD_AGE, NONE_VALUE)
 
+        val searchConditions = mapOf(
+                "categoryRole" to categoryRoleIndex,
+                "whichCharge" to whichChargeIndex,
+                "region" to regionIndex,
+                "sex" to sexIndex,
+                "age" to ageIndex
+        )
+
         if (isSimpleSearch(whichChargeIndex, sexIndex, ageIndex)) {
             // １つでもNONE_VALUE（5）だった場合、かんたん検索
             searchUtil.searchUserInfo(categoryRoleIndex, regionIndex)
@@ -72,14 +83,21 @@ class SearchResultFragment : BaseFragment(), SearchUtil.SearchedListener {
                 }
             }
         } else {
+            isSimpleSearch = false
             searchUtil.searchUserInfo(categoryRoleIndex, whichChargeIndex, regionIndex, sexIndex, ageIndex)
 
             swipe_refresh?.setOnRefreshListener {
-                searchUtil.searchUserInfo(categoryRoleIndex, regionIndex)
+                searchUtil.searchUserInfo(categoryRoleIndex, whichChargeIndex, regionIndex, sexIndex, ageIndex)
                 if (swipe_refresh.isRefreshing()) {
                     swipe_refresh.isRefreshing = false
                 }
             }
+        }
+
+        // 検索条件を引数として渡す
+        var endlessScrollSearchListener = EndlessScrollSearchListener(requireContext(), isSimpleSearch, searchConditions)
+        endlessScrollSearchListener?.let { endlessScrollSearchListener ->
+            user_info_list_search_result.addOnScrollListener(endlessScrollSearchListener)
         }
     }
 
