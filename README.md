@@ -116,6 +116,9 @@
 - 外部サービス（Instagram、Twitter）に委任してしまうと再訪問する理由がなくなってしまうので、リピーターが減る恐れがある。
   - 本当だったらこのサービスだけで完結するような仕組みにできたら良いんだけど。
 
+## テスト仕様書（スプレッドシート）
+https://docs.google.com/spreadsheets/d/1j55z3l-zVoCIOX_K9_krijEQLRca9qq0UoTxbp1Hnxw/edit?usp=sharing
+
 ## 参考文献
 - 初回起動時のみ実行する　https://qiita.com/inuko/items/399a4431941dd6b3160b
 http://programming-cafe.com/android/sharedpreferences/first-launch-the-application
