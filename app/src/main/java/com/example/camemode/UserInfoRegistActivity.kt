@@ -37,6 +37,7 @@ class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.Di
     var categoryRoleIndex: Int = 0
     var displayName: String = ""
     var twitterId: String = ""
+    var instagramId: String = ""
     var whichChargeIndex: Int = 0
     var region: Int = 0
     var sex: Int = 0
@@ -100,20 +101,27 @@ class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.Di
             when (user_info_regist_view_pager.currentItem) {
                 0 -> {
                     categoryRoleIndex = category_role.indexOfChild(category_role.findViewById<RadioButton>(category_role.checkedRadioButtonId))
-                }
-                1 -> {
-                    if (display_name_input.text.isEmpty()) {
-                        display_name_input.setError("表示名を入力してください！")
+
+                    // 0文字または空白のみの場合
+                    if (display_name_input.text.isNullOrBlank()) {
+                        display_name_input.setError(getString(R.string.regist_display_name_empty_error))
                         display_name_input.isFocusable = true
                         validation_result = false
                     }
-                    if (twitter_id_input.text.isEmpty()) {
-                        twitter_id_input.setError("TwitterIDを入力してください！")
+                    displayName = display_name_input.text.toString()
+                }
+                1 -> {
+                    if (twitter_id_input.text.isNullOrBlank() && instagram_id_input.text.isNullOrBlank()) {
+                        twitter_id_input.setError(getString(R.string.regist_sns_id_empty_error))
+                        instagram_id_input.setError(getString(R.string.regist_sns_id_empty_error))
                         twitter_id_input.isFocusable = true
                         validation_result = false
+                    } else {
+                        twitter_id_input.clearFocus()
+                        instagram_id_input.clearFocus()
                     }
-                    displayName = display_name_input.text.toString()
                     twitterId = twitter_id_input.text.toString()
+                    instagramId = instagram_id_input.text.toString()
                 }
                 2 -> {
                     whichChargeIndex = which_charge.indexOfChild(which_charge.findViewById<RadioButton>(which_charge.checkedRadioButtonId))
@@ -123,11 +131,11 @@ class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.Di
                 }
                 3 -> {
                     if (photo_image_input.text.isEmpty()) {
-                        photo_image_input.setError("撮影イメージを入力してください！")
+                        photo_image_input.setError(getString(R.string.regist_photo_image_empty_error))
                         photo_image_input.isFocusable = true
                         validation_result = false
                     } else if (photo_image_input.text.length > 200) {
-                        photo_image_input.setError("文字数制限を超えています！")
+                        photo_image_input.setError(getString(R.string.regist_photo_image_over_error))
                         photo_image_input.isFocusable = true
                         validation_result = false
                     }
@@ -153,6 +161,7 @@ class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.Di
             obj.put("categoryRole", categoryRoleIndex)
             obj.put("displayName", displayName)
             obj.put("twitterId", twitterId)
+            obj.put("instagramId", instagramId)
             obj.put("charge", whichChargeIndex)
             obj.put("region", region)
             obj.put("sex", sex)
@@ -162,6 +171,7 @@ class UserInfoRegistActivity : AppCompatActivity(), RegistAlertDialogFragment.Di
             editor.putInt("categoryRole", categoryRoleIndex)
             editor.putString("displayName", displayName)
             editor.putString("twitterId", twitterId)
+            editor.putString("instagramId", instagramId)
             editor.putInt("charge", whichChargeIndex)
             editor.putInt("region", region)
             editor.putInt("sex", sex)

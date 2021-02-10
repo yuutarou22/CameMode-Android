@@ -290,18 +290,22 @@
 	<string name="regist_01_category_role_exp">あなたの専門を選択ください。</string>
 	<string name="regist_02_display_name_exp">アプリ内での表示名を入力ください。</string>
 	<string name="regist_02_twitter_id_exp">連携するTwitterのIDを入力ください。</string>
+	<string name="regist_02_instagram_id_exp">連携するInstagramのIDを入力ください。</string>
 	<string name="regist_03_exp">下の各項目を入力ください。</string>
 	<string name="regist_04_photo_image">撮影時のイメージなど、ご自由に入力ください。</string>
 	<string name="regist_alert_dialog_confirm_title">登録確認</string>
 	<string name="regist_alert_dialog_confirm_message">この情報で登録してよろしいですか？</string>
-	
+	<string name="regist_sns_id_empty_error">どちらかのIDを入力してください！</string>
+	<string name="regist_display_name_empty_error">表示名を入力してください！</string>
+	<string name="regist_photo_image_empty_error">表示名を入力してください！</string>
+	<string name="regist_photo_image_over_error">文字数制限を超えています！</string>
+
 	<!-- Twitter IDバリデーション -->
 	<string name="twitter_id_rules">abcdefghijklmnopqrstuvwxyz1234567890_ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
 	
 	<!-- ユーザ情報更新画面 -->
 	<string name="update_button_text">更新する</string>
-	
-	<!-- TODO: Remove or change this placeholder text -->
+
 	<string name="hello_blank_fragment">Hello blank fragment</string>
 	<string name="title_activity_tutorial">TutorialActivity</string>
 	<string name="title_activity_app_term_check">AppTermCheckActivity</string>

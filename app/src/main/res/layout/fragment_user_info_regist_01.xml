@@ -60,6 +60,30 @@
                 android:text="@string/category_role_camera_model"
                 android:fontFamily="@font/smart_font"/>
         </RadioGroup>
+
+        <TextView
+                android:id="@+id/display_name_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="表示名"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/smart_font"
+                android:textColor="@color/colorContentTitleText"
+                android:textSize="@dimen/userinfo_regist_title_text_size" />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/regist_02_display_name_exp"/>
+
+        <EditText
+                android:id="@+id/display_name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/smart_font"
+                android:inputType="text"
+                android:maxLines="1"
+                android:maxLength="20"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

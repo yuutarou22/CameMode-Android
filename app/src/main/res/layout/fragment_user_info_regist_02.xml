@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.UserInfoRegist.UserInfoRegistFragment02">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,29 +15,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/display_name_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="表示名"
-            android:fontFamily="@font/smart_font"
-            android:textColor="@color/colorContentTitleText"
-            android:textSize="@dimen/userinfo_regist_title_text_size" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="@string/regist_02_display_name_exp"/>
-
-        <EditText
-            android:id="@+id/display_name_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/smart_font"
-            android:inputType="text"
-            android:maxLines="1"
-            android:maxLength="20"/>
 
         <TextView
             android:id="@+id/twitter_id_label"
@@ -65,6 +41,32 @@
             android:maxLength="15"
             android:lines="1"
             android:fontFamily="@font/imagine_yokohama"/>
+
+        <TextView
+                android:id="@+id/instagram_id_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/userinfo_regist_layout_margin_top_element"
+                android:text="InstagramアカウントID"
+                android:fontFamily="@font/smart_font"
+                android:textColor="@color/colorContentTitleText"
+                android:textSize="@dimen/userinfo_regist_title_text_size" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/regist_02_instagram_id_exp"/>
+
+        <EditText
+                android:id="@+id/instagram_id_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="@string/twitter_id_rules"
+                android:inputType="textEmailAddress|text"
+                android:maxLength="15"
+                android:lines="1"
+                android:fontFamily="@font/imagine_yokohama"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
