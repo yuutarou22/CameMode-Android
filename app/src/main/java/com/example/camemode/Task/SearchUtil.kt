@@ -155,7 +155,7 @@ class SearchUtil {
                 for (obj in mutableList) {
                     Log.d("TEST", obj.getString("displayName"))
                 }
-                saveUserInfo(mutableList, false)
+                saveUserInfo(mutableList, true)
             }
         }
         return userInfoList.get()
@@ -187,8 +187,7 @@ class SearchUtil {
                 for (obj in mutableList) {
                     Log.d("TEST", obj.getString("displayName"))
                 }
-                // ToDo:ここどうしてsaveUserInfoじゃないんだ？（過去の自分よ）
-                saveUserInfoAutoLoad(mutableList)
+                saveUserInfo(mutableList, false)
             }
         }
         return userInfoList.get()
@@ -220,8 +219,7 @@ class SearchUtil {
                 for (obj in mutableList) {
                     Log.d("TEST", obj.getString("displayName"))
                 }
-                // ToDo:ここどうしてsaveUserInfoじゃないんだ？（過去の自分よ）
-                saveUserInfoAutoLoad(mutableList)
+                saveUserInfo(mutableList, false)
             }
         }
         return userInfoList.get()
