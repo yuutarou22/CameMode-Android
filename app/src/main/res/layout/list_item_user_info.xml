@@ -62,13 +62,27 @@
             </LinearLayout>
 
             <ImageButton
-                    android:id="@+id/sns_transition"
+                    android:id="@+id/twitter_transition"
                     android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_height="25dp"
                     android:layout_marginHorizontal="3dp"
                     android:background="#afeeee"
+                    android:src="@drawable/ic_twitter_button"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="right|center_vertical"/>
+                    android:layout_gravity="right|center_vertical"
+                    android:visibility="gone"/>
+
+            <ImageButton
+                    android:id="@+id/instagram_transition"
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:background="@drawable/background_color_instagram_minimum"
+                    android:scaleType="centerCrop"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_instagram_logo_whiteonimage"
+                    android:layout_gravity="right|center_vertical"
+                    android:visibility="gone"/>
 
         </LinearLayout>
 

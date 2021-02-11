@@ -17,6 +17,7 @@ import com.example.camemode.Model.UserInfo.Companion.FIELD_AGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CHARGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_DISPLAY_NAME
+import com.example.camemode.Model.UserInfo.Companion.FIELD_INSTAGRAM_ID
 import com.example.camemode.Model.UserInfo.Companion.FIELD_PHOTO_IMAGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_REGION
 import com.example.camemode.Model.UserInfo.Companion.FIELD_SEX
@@ -69,8 +70,41 @@ class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager: Fragm
         viewHolder.mCategoryRole.text = getCategoryRole(userInfoItem.categoryRole)
         viewHolder.mUserIcon.setBackgroundColor(getUserIconBg(userInfoItem.categoryRole))
         viewHolder.mUserName.text = userInfoItem.displayName
-        viewHolder.mSnsTranslationButton.setImageResource(R.drawable.ic_twitter_button)
+
+        // TODO:非同期でユーザ情報を取得しているので、処理がマチマチになっている？
+//        if (userInfoItem.twitterId.isNotBlank()) {
+//            viewHolder.mTwitterTranslationButton.visibility = View.VISIBLE
+//        }
+//        if (userInfoItem.instagramId.isNotBlank()) {
+//            viewHolder.mInstagramTranslationButton.visibility = View.VISIBLE
+//        }
+
+        viewHolder.mTwitterTranslationButton.visibility = isBlankTwitterId(userInfoItem.twitterId)
+        viewHolder.mInstagramTranslationButton.visibility = isBlankInstagramId(userInfoItem.instagramId)
+
         viewHolder.mImaginationHope.text = userInfoItem.photoImage
+    }
+
+    /**
+     * Twitterの画像表示判定
+     */
+    private fun isBlankTwitterId(twitterId: String) : Int {
+        if (twitterId.isNotBlank()) {
+            return View.VISIBLE
+        } else {
+            return View.GONE
+        }
+    }
+
+    /**
+     * Instagramの画像表示判定
+     */
+    private fun isBlankInstagramId(instagramId: String) : Int  {
+        if (instagramId.isNotBlank()) {
+            return View.VISIBLE
+        } else {
+            return View.GONE
+        }
     }
 
     /**
@@ -143,6 +177,7 @@ class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager: Fragm
         bundle.putString(FIELD_DISPLAY_NAME, userInfoModel.displayName)
         bundle.putString(FIELD_PHOTO_IMAGE, userInfoModel.photoImage)
         bundle.putString(FIELD_TWITTER_ID, userInfoModel.twitterId)
+        bundle.putString(FIELD_INSTAGRAM_ID, userInfoModel.instagramId)
         bundle.putInt(FIELD_AGE, userInfoModel.age)
         bundle.putInt(FIELD_REGION, userInfoModel.region)
         bundle.putInt(FIELD_SEX, userInfoModel.sex)
