@@ -71,14 +71,6 @@ class UserInfoListAdapter(list: ArrayList<UserInfoModel>, fragmentManager: Fragm
         viewHolder.mUserIcon.setBackgroundColor(getUserIconBg(userInfoItem.categoryRole))
         viewHolder.mUserName.text = userInfoItem.displayName
 
-        // TODO:非同期でユーザ情報を取得しているので、処理がマチマチになっている？
-//        if (userInfoItem.twitterId.isNotBlank()) {
-//            viewHolder.mTwitterTranslationButton.visibility = View.VISIBLE
-//        }
-//        if (userInfoItem.instagramId.isNotBlank()) {
-//            viewHolder.mInstagramTranslationButton.visibility = View.VISIBLE
-//        }
-
         viewHolder.mTwitterTranslationButton.visibility = isBlankTwitterId(userInfoItem.twitterId)
         viewHolder.mInstagramTranslationButton.visibility = isBlankInstagramId(userInfoItem.instagramId)
 
