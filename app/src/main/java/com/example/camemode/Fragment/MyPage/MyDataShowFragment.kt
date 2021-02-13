@@ -1,10 +1,8 @@
 package com.example.camemode.Fragment.MyPage
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import com.example.camemode.Fragment.BaseFragment
@@ -66,11 +64,7 @@ class MyDataShowFragment : BaseFragment() {
             fragmentManager?.popBackStack()
         }
 
-        sns_transition_button.setOnClickListener {
-            val uri: Uri = Uri.parse(context?.resources?.getString(R.string.twitter_url) + data.getString(UserInfo.FIELD_TWITTER_ID, "") + "/")
-            val intent = Intent(Intent.ACTION_VIEW, uri)
-            startActivity(intent)
-        }
+        setupSnsButton(data.getString(UserInfo.FIELD_TWITTER_ID, ""), data.getString(UserInfo.FIELD_INSTAGRAM_ID, ""))
     }
 
     override fun onAttach(context: Context) {

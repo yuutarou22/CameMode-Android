@@ -1,15 +1,13 @@
 package com.example.camemode.Fragment
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import com.example.camemode.Model.UserInfo
 import com.example.camemode.Model.UserInfo.Companion.FIELD_AGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CHARGE
@@ -17,7 +15,6 @@ import com.example.camemode.Model.UserInfo.Companion.FIELD_DISPLAY_NAME
 import com.example.camemode.Model.UserInfo.Companion.FIELD_PHOTO_IMAGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_REGION
 import com.example.camemode.Model.UserInfo.Companion.FIELD_SEX
-import com.example.camemode.Model.UserInfo.Companion.FIELD_TWITTER_ID
 
 import com.example.camemode.R
 import kotlinx.android.synthetic.main.content_user_info_age.*
@@ -27,7 +24,7 @@ import kotlinx.android.synthetic.main.content_user_info_region.*
 import kotlinx.android.synthetic.main.content_user_info_sex.*
 import kotlinx.android.synthetic.main.fragment_user_info_detail.*
 
-class UserInfoDetailFragment : Fragment() {
+class UserInfoDetailFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -69,11 +66,9 @@ class UserInfoDetailFragment : Fragment() {
             (activity as AppCompatActivity).supportActionBar?.show()
         }
 
-        sns_transition_button.setOnClickListener {
-            val uri:Uri = Uri.parse(context?.resources?.getString(R.string.twitter_url) + arguments?.getString(FIELD_TWITTER_ID) + "/")
-            val intent = Intent(Intent.ACTION_VIEW, uri)
-            startActivity(intent)
-        }
+        setupSnsButton(
+            arguments?.getString(UserInfo.FIELD_TWITTER_ID).toString(),
+            arguments?.getString(UserInfo.FIELD_INSTAGRAM_ID).toString())
     }
 
     /**
