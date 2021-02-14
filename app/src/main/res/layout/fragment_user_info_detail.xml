@@ -50,17 +50,33 @@
                 android:fontFamily="@font/smart_font"
                 android:textStyle="bold" />
 
-            <ImageButton
-                android:id="@+id/sns_transition_button"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginBottom="30dp"
-                android:elevation="7dp"
-                
-                android:background="#1da1f2"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_twitter_logo_whiteonimage" />
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:orientation="horizontal">
+                <ImageButton
+                        android:id="@+id/twitter_transition_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="30dp"
+                        android:elevation="7dp"
+                        android:background="#1da1f2"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_twitter_logo_whiteonimage" />
+                <ImageButton
+                        android:id="@+id/instagram_transition_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="30dp"
+                        android:elevation="7dp"
+                        android:padding="5dp"
+                        android:background="@drawable/background_color_instagram"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_instagram_logo_whiteonimage" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

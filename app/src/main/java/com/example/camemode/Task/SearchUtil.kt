@@ -5,6 +5,7 @@ import com.example.camemode.Model.UserInfo.Companion.FIELD_AGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CHARGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_DISPLAY_NAME
+import com.example.camemode.Model.UserInfo.Companion.FIELD_INSTAGRAM_ID
 import com.example.camemode.Model.UserInfo.Companion.FIELD_OBJECT_ID
 import com.example.camemode.Model.UserInfo.Companion.FIELD_PHOTO_IMAGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_REGION
@@ -262,6 +263,7 @@ class SearchUtil {
             displayName = obj.getString(FIELD_DISPLAY_NAME),
             photoImage = obj.getString(FIELD_PHOTO_IMAGE),
             twitterId = obj.getString(FIELD_TWITTER_ID),
+            instagramId = obj.getString(FIELD_INSTAGRAM_ID),
             age = obj.getInt(FIELD_AGE),
             region = obj.getInt(FIELD_REGION),
             sex = obj.getInt(FIELD_SEX),

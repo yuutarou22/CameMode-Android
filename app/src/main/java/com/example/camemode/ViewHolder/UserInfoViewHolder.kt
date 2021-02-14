@@ -12,6 +12,7 @@ class UserInfoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val mUserIcon: ImageView = itemView.findViewById(R.id.user_icon)
     val mCategoryRole: TextView = itemView.findViewById(R.id.category_role_text)
     val mUserName: TextView = itemView.findViewById(R.id.user_name)
-    val mSnsTranslationButton: ImageButton = itemView.findViewById(R.id.sns_transition)
+    val mTwitterTranslationButton: ImageButton = itemView.findViewById(R.id.twitter_transition)
+    val mInstagramTranslationButton: ImageButton = itemView.findViewById(R.id.instagram_transition)
     val mImaginationHope: TextView = itemView.findViewById(R.id.imagination_hope)
 }

@@ -65,6 +65,7 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
         category_role.check(getCheckCategoryRoleRadioButtonId())
         editText.setText(data.getString(UserInfo.FIELD_DISPLAY_NAME, ""), TextView.BufferType.NORMAL)
         editText2.setText(data.getString(UserInfo.FIELD_TWITTER_ID, ""), TextView.BufferType.NORMAL)
+        editText3.setText(data.getString(UserInfo.FIELD_INSTAGRAM_ID, ""), TextView.BufferType.NORMAL)
         which_charge.check(getCheckChargeRadioButtonId())
         region_spinner.setSelection(data.getInt(UserInfo.FIELD_REGION, 1))
         sex_spinner.setSelection(data.getInt(UserInfo.FIELD_SEX, 1))
