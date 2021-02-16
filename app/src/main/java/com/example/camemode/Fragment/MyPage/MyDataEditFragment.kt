@@ -37,6 +37,7 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
     var categoryRoleIndex: Int = 0
     var displayName: String = ""
     var twitterId: String = ""
+    var instagramId: String = ""
     var whichChargeIndex: Int = 0
     var region: Int = 0
     var sex: Int = 0
@@ -64,8 +65,8 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
     private fun initView() {
         category_role.check(getCheckCategoryRoleRadioButtonId())
         editText.setText(data.getString(UserInfo.FIELD_DISPLAY_NAME, ""), TextView.BufferType.NORMAL)
-        editText2.setText(data.getString(UserInfo.FIELD_TWITTER_ID, ""), TextView.BufferType.NORMAL)
-        editText3.setText(data.getString(UserInfo.FIELD_INSTAGRAM_ID, ""), TextView.BufferType.NORMAL)
+        twitter_id_input.setText(data.getString(UserInfo.FIELD_TWITTER_ID, ""), TextView.BufferType.NORMAL)
+        instagram_id_input.setText(data.getString(UserInfo.FIELD_INSTAGRAM_ID, ""), TextView.BufferType.NORMAL)
         which_charge.check(getCheckChargeRadioButtonId())
         region_spinner.setSelection(data.getInt(UserInfo.FIELD_REGION, 1))
         sex_spinner.setSelection(data.getInt(UserInfo.FIELD_SEX, 1))
@@ -84,17 +85,25 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
         })
 
         update_button.setOnClickListener {
-            if (photo_image_input_edit.text.isEmpty()) {
-                photo_image_input_edit.setError("撮影イメージを入力してください！")
-                photo_image_input_edit.isFocusable = true
-            } else if (photo_image_input_edit.text.length > 200) {
-                photo_image_input_edit.setError("文字数制限を超えています！")
-                photo_image_input_edit.isFocusable = true
-            } else {
-                // Fragmentから単純にDialogFragmentを呼び出せないので一手間かけて呼び出す
-                val alertDialogFragment = RegistAlertDialogFragment().newInstance(this)
-                fragmentManager?.let { it1 -> alertDialogFragment.show(it1, "aleartDialog") }
-            }
+            isRequiredChecked()
+        }
+    }
+
+    fun isRequiredChecked() {
+        if (photo_image_input_edit.text.isEmpty()) {
+            photo_image_input_edit.setError("撮影イメージを入力してください！")
+            photo_image_input_edit.isFocusable = true
+        } else if (photo_image_input_edit.text.length > 200) {
+            photo_image_input_edit.setError("文字数制限を超えています！")
+            photo_image_input_edit.isFocusable = true
+        } else if (twitter_id_input.text.isNullOrBlank() && instagram_id_input.text.isNullOrBlank()) {
+            twitter_id_input.setError(getString(R.string.regist_sns_id_empty_error))
+            instagram_id_input.setError(getString(R.string.regist_sns_id_empty_error))
+            twitter_id_input.isFocusable = true
+        } else {
+            // Fragmentから単純にDialogFragmentを呼び出せないので一手間かけて呼び出す
+            val alertDialogFragment = RegistAlertDialogFragment().newInstance(this)
+            fragmentManager?.let { it1 -> alertDialogFragment.show(it1, "aleartDialog") }
         }
     }
 
@@ -103,7 +112,8 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
 
         categoryRoleIndex = category_role.indexOfChild(category_role.findViewById<RadioButton>(category_role.checkedRadioButtonId))
         displayName = editText.text.toString()
-        twitterId = editText2.text.toString()
+        twitterId = twitter_id_input.text.toString()
+        instagramId = instagram_id_input.text.toString()
         whichChargeIndex = which_charge.indexOfChild(which_charge.findViewById<RadioButton>(which_charge.checkedRadioButtonId))
         region = region_spinner.selectedItemId.toInt()
         sex = sex_spinner.selectedItemId.toInt()
@@ -114,6 +124,7 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
             obj.put("categoryRole", categoryRoleIndex)
             obj.put("displayName", displayName)
             obj.put("twitterId", twitterId)
+            obj.put("instagramId", instagramId)
             obj.put("charge", whichChargeIndex)
             obj.put("region", region)
             obj.put("sex", sex)
@@ -123,6 +134,7 @@ class MyDataEditFragment : BaseFragment(), RegistAlertDialogFragment.DialogOkCli
             editor.putInt("categoryRole", categoryRoleIndex)
             editor.putString("displayName", displayName)
             editor.putString("twitterId", twitterId)
+            editor.putString("instagramId", instagramId)
             editor.putInt("charge", whichChargeIndex)
             editor.putInt("region", region)
             editor.putInt("sex", sex)
