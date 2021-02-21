@@ -41,7 +41,6 @@ class FaqFragment : BaseFragment() {
         faqInfoList.add(FaqInfo(getString(R.string.faq_question_03), getString(R.string.faq_answer_03)))
         faqInfoList.add(FaqInfo(getString(R.string.faq_question_04), getString(R.string.faq_answer_04)))
         faqInfoList.add(FaqInfo(getString(R.string.faq_question_05), getString(R.string.faq_answer_05)))
-        faqInfoList.add(FaqInfo(getString(R.string.faq_question_06), getString(R.string.faq_answer_06)))
         faqInfoList.add(FaqInfo(getString(R.string.faq_question_last), getString(R.string.faq_answer_last)))
 
         val mAdapter = context?.let { FaqListViewAdapter(faqInfoList, parentFragmentManager, it) }
