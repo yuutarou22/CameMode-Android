@@ -1,6 +1,9 @@
 package com.example.camemode.Task
 
 import android.util.Log
+import com.example.camemode.Model.UserInfo.Companion.AGE_NOT_SELECT
+import com.example.camemode.Model.UserInfo.Companion.CATEGORY_ROLE_NONE
+import com.example.camemode.Model.UserInfo.Companion.CHARGE_EITHER
 import com.example.camemode.Model.UserInfo.Companion.FIELD_AGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CATEGORY_ROLE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_CHARGE
@@ -11,6 +14,7 @@ import com.example.camemode.Model.UserInfo.Companion.FIELD_PHOTO_IMAGE
 import com.example.camemode.Model.UserInfo.Companion.FIELD_REGION
 import com.example.camemode.Model.UserInfo.Companion.FIELD_SEX
 import com.example.camemode.Model.UserInfo.Companion.FIELD_TWITTER_ID
+import com.example.camemode.Model.UserInfo.Companion.SEX_NOT_SELECT
 import com.example.camemode.Model.UserInfoModel
 import com.nifcloud.mbaas.core.NCMBBase
 import com.nifcloud.mbaas.core.NCMBObject
@@ -173,14 +177,9 @@ class SearchUtil {
             :ArrayList<UserInfoModel>? {
         var query = NCMBQuery<NCMBObject>("UserInfo")
 
+        query = setParametersToQuery(query, categoryRoleIndex, whichChargeIndex, regionIndex, sexIndex, ageIndex)
         query.addOrderByDescending("updateDate")
-        query.whereEqualTo(FIELD_CATEGORY_ROLE, categoryRoleIndex)
-        query.whereEqualTo(FIELD_CHARGE, whichChargeIndex)
-        query.whereEqualTo(FIELD_REGION, regionIndex)
-        query.whereEqualTo(FIELD_SEX, sexIndex)
-        query.whereEqualTo(FIELD_AGE, ageIndex)
-
-        query.setLimit(15)
+        query.setLimit(30)
         query.findInBackground { mutableList, ncmbException ->
             if (ncmbException != null) {
                 Log.d("ERROR", "NCMB findInBackground error: " + ncmbException.message)
@@ -205,13 +204,7 @@ class SearchUtil {
             :ArrayList<UserInfoModel>? {
         var query = NCMBQuery<NCMBObject>("UserInfo")
 
-        query.addOrderByDescending("updateDate")
-        query.whereEqualTo(FIELD_CATEGORY_ROLE, categoryRoleIndex)
-        query.whereEqualTo(FIELD_CHARGE, whichChargeIndex)
-        query.whereEqualTo(FIELD_REGION, regionIndex)
-        query.whereEqualTo(FIELD_SEX, sexIndex)
-        query.whereEqualTo(FIELD_AGE, ageIndex)
-
+        query = setParametersToQuery(query, categoryRoleIndex, whichChargeIndex, regionIndex, sexIndex, ageIndex)
         query.setLimit(15)
         query.findInBackground { mutableList, ncmbException ->
             if (ncmbException != null) {
@@ -242,6 +235,55 @@ class SearchUtil {
         if (list.isNotEmpty()) {
             lastUpdateDate.set(list.get(list.size-1).getString("updateDate"))
         }
+    }
+
+    fun setParametersToQuery(
+        query: NCMBQuery<NCMBObject>,
+        categoryRoleIndex: Int?,
+        whichChargeIndex: Int?,
+        regionIndex: Int?,
+        sexIndex: Int?,
+        ageIndex: Int?
+    ): NCMBQuery<NCMBObject> {
+        /* カメラマン/モデルであれば条件なし */
+        if (categoryRoleIndex != CATEGORY_ROLE_NONE) {
+//            query.whereEqualTo(FIELD_CATEGORY_ROLE, categoryRoleIndex)
+        } else {
+            var queryA = NCMBQuery<NCMBObject>("UserInfo")
+            var queryB = NCMBQuery<NCMBObject>("UserInfo")
+            queryA.whereEqualTo(FIELD_CATEGORY_ROLE, categoryRoleIndex)
+            queryB.whereEqualTo(FIELD_CATEGORY_ROLE, 2)
+            query.or(Arrays.asList(queryA, queryB) as Collection<NCMBQuery<NCMBBase>>?)
+        }
+
+        /* 有償無償であれば条件なし */
+        if (whichChargeIndex == CHARGE_EITHER) {
+//            query.whereEqualTo(FIELD_CHARGE, whichChargeIndex)
+        } else {
+            var queryA = NCMBQuery<NCMBObject>("UserInfo")
+            var queryB = NCMBQuery<NCMBObject>("UserInfo")
+            queryA.whereEqualTo(FIELD_CHARGE, whichChargeIndex)
+            queryB.whereEqualTo(FIELD_CHARGE, 1)
+            query.or(Arrays.asList(queryA, queryB) as Collection<NCMBQuery<NCMBBase>>?)
+        }
+
+        query.whereEqualTo(FIELD_REGION, regionIndex)
+
+        /* 未選択であれば条件なし */
+        if (sexIndex == SEX_NOT_SELECT) {
+//            query.whereEqualTo(FIELD_SEX, sexIndex)
+        } else {
+            query.whereEqualTo(FIELD_SEX, sexIndex)
+        }
+
+        /* 未選択であれば条件なし */
+        if (ageIndex == AGE_NOT_SELECT) {
+//            query.whereEqualTo(FIELD_AGE, ageIndex)
+        } else {
+            query.whereEqualTo(FIELD_AGE, ageIndex)
+        }
+
+        return query
     }
 
     fun saveUserInfoAutoLoad(list: List<NCMBObject>) {

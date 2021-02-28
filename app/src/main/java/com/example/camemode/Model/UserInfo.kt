@@ -15,6 +15,14 @@ class UserInfo {
         const val FIELD_REGION = "region"
         const val FIELD_SEX = "sex"
         const val FIELD_CHARGE = "charge"
+
+        const val CATEGORY_ROLE_NONE = 2
+
+        const val CHARGE_EITHER = 1
+
+        const val SEX_NOT_SELECT = 0
+
+        const val AGE_NOT_SELECT = 0
     }
 }
 
