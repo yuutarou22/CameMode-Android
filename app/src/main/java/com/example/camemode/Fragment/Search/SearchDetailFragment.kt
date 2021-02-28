@@ -54,7 +54,7 @@ class SearchDetailFragment : BaseFragment() {
             val sexIndex = sex_spinner.selectedItemPosition
             val ageIndex = age_spinner.selectedItemPosition
 
-            android.util.Log.d("TEST","SearchDetailFragment initView categoryRoleIndex: " + categoryRoleIndex + ", whichChargeIndex: " + whichChargeIndex + ", regionIndex: " + regionIndex + ", sexIndex: " + sexIndex + ", ageIndex" + ageIndex)
+            android.util.Log.d("TEST","SearchDetailFragment initView categoryRoleIndex: " + categoryRoleIndex + ", whichChargeIndex: " + whichChargeIndex + ", regionIndex: " + regionIndex + ", sexIndex: " + sexIndex + ", ageIndex: " + ageIndex)
 
             val bundle = Bundle()
             val searchResultFragment = SearchResultFragment()

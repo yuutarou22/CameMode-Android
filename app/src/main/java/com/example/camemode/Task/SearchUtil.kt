@@ -247,8 +247,6 @@ class SearchUtil {
     ): NCMBQuery<NCMBObject> {
         /* カメラマン/モデルであれば条件なし */
         if (categoryRoleIndex != CATEGORY_ROLE_NONE) {
-//            query.whereEqualTo(FIELD_CATEGORY_ROLE, categoryRoleIndex)
-        } else {
             var queryA = NCMBQuery<NCMBObject>("UserInfo")
             var queryB = NCMBQuery<NCMBObject>("UserInfo")
             queryA.whereEqualTo(FIELD_CATEGORY_ROLE, categoryRoleIndex)
@@ -257,9 +255,7 @@ class SearchUtil {
         }
 
         /* 有償無償であれば条件なし */
-        if (whichChargeIndex == CHARGE_EITHER) {
-//            query.whereEqualTo(FIELD_CHARGE, whichChargeIndex)
-        } else {
+        if (whichChargeIndex != CHARGE_EITHER) {
             var queryA = NCMBQuery<NCMBObject>("UserInfo")
             var queryB = NCMBQuery<NCMBObject>("UserInfo")
             queryA.whereEqualTo(FIELD_CHARGE, whichChargeIndex)
@@ -270,16 +266,12 @@ class SearchUtil {
         query.whereEqualTo(FIELD_REGION, regionIndex)
 
         /* 未選択であれば条件なし */
-        if (sexIndex == SEX_NOT_SELECT) {
-//            query.whereEqualTo(FIELD_SEX, sexIndex)
-        } else {
+        if (sexIndex != SEX_NOT_SELECT) {
             query.whereEqualTo(FIELD_SEX, sexIndex)
         }
 
         /* 未選択であれば条件なし */
-        if (ageIndex == AGE_NOT_SELECT) {
-//            query.whereEqualTo(FIELD_AGE, ageIndex)
-        } else {
+        if (ageIndex != AGE_NOT_SELECT) {
             query.whereEqualTo(FIELD_AGE, ageIndex)
         }
 
